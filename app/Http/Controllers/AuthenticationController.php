@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
                  */
                 $user = Auth::user();
                 $token = $user->createToken($user->device_name)->accessToken;
-                return $this->sendSuccess(['token' => $token, 'user' => $user]);
+                return $this->sendSuccess(['token' => $token, 'user' => $user], "Logged in successfully!");
             }
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
@@ -63,7 +63,7 @@ class AuthenticationController extends Controller
             if (!$user->hasVerifiedEmail()) {
                 $user->markEmailAsVerified();
             }
-            return $this->sendSuccess(['user' => $user], 200);
+            return $this->sendSuccess(['user' => $user], 'Registration successful!');
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
