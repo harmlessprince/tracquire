@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class HttpResponseMessages
+class HttpResponseMessages extends Enum
 {
     const INVALID_REQUEST = 'Invalid Request.';
     const SESSION_ID_REQUIRED = 'Session Id is required.';
@@ -34,9 +34,8 @@ class HttpResponseMessages
     const OTP_TIME_OUT = "Otp verification window (10 minutes) time out";
     const OTP_NOT_FOUND = "OTP does not exists, Please generate new OTP";
 
-    public static function NotFound($resource)
+    public static function NotFound($resource): string
     {
         return "Sorry, the $resource cannot be found.";
-
     }
 }

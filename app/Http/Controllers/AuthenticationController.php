@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Enum;
 use App\Helper\HttpResponseCodes;
+use App\Helper\UserStatus;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
@@ -17,7 +19,6 @@ class AuthenticationController extends Controller
 {
     public function login(LoginRequest $request)
     {
-
         try {
             if (Auth::attempt($request->only('email', 'password'))) {
                 /**
@@ -36,14 +37,15 @@ class AuthenticationController extends Controller
 
     public function register(RegisterRequest $request)
     {
+
         try {
             $verify = Otp::validate($request->email, $request->token);
             if ($verify->status) {
                 \Seshac\Otp\Models\Otp::where(['identifier' => $request->email, 'token' => $request->token])->first()->delete();
                 $device = null;
-                if ($request->has('device_name')){
+                if ($request->has('device_name')) {
                     $device = $request->device_name;
-                }else {
+                } else {
                     $device = $request->header('User-Agent');
                 }
                 $user = User::create([
@@ -56,6 +58,7 @@ class AuthenticationController extends Controller
                     'lng' => $request->input('lng'),
                     'device_name' => $device,
                     'password' => Hash::make($request->input('password')),
+                    'status' => UserStatus::IN_REVIEW,
                 ]);
             } else {
                 return $this->sendError($verify->message, HttpResponseCodes::TOKEN_VERIFICATION_FAIL);
@@ -63,6 +66,7 @@ class AuthenticationController extends Controller
             if (!$user->hasVerifiedEmail()) {
                 $user->markEmailAsVerified();
             }
+            $user->sendWelcomeNotification();
             return $this->sendSuccess(['user' => $user], 'Registration successful!');
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);

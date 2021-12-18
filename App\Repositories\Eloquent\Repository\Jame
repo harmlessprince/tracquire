@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Repositories\Eloquent\Repository;
+use App\Models\Jame;
+class JameRepository extends BaseRepository
+{
+    public function __construct(Jame $model)
+    {
+        parent::__construct($model);
+    }
+}
+
