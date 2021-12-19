@@ -15,6 +15,11 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('creator_id')->constrained('users');
+            $table->foreignId('shooter_id')->constrained('users');
+            $table->foreignId('shot_id')->constrained();
+            $table->foreignId('post_id')->constrained('posts');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

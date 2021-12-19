@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Seshac\Otp\Otp;
+use Stevebauman\Location\Facades\Location;
 
 class AuthenticationController extends Controller
 {

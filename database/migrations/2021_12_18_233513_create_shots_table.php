@@ -15,6 +15,12 @@ class CreateShotsTable extends Migration
     {
         Schema::create('shots', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('title');
+            $table->string('slug');
+            $table->text('description');
+            $table->text('condition');
             $table->timestamps();
         });
     }
