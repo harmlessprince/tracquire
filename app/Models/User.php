@@ -6,6 +6,9 @@ use App\Notifications\ForgotPasswordNotification;
 use App\Notifications\WelcomeNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -20,18 +23,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'email',
-        'password',
-        'last_name',
-        'first_name',
-        'username',
-        'phone',
-        'device_name',
-        'lat',
-        'lng',
-        'status'
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -57,8 +49,35 @@ class User extends Authenticatable
     {
         $this->notify(new ForgotPasswordNotification($token));
     }
+
     public function sendWelcomeNotification()
     {
         $this->notify(new WelcomeNotification());
     }
+
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function shots(): HasMany
+    {
+        return $this->hasMany(Shot::class);
+    }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function wallet(): HasOne
+    {
+        return $this->hasOne(Wallet::class);
+    }
+
 }

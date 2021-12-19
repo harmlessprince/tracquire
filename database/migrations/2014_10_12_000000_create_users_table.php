@@ -27,11 +27,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('device_name')->nullable();
             $table->integer('status')->default(UserStatus::ACTIVE);
-            $table->string('image_id')->nullable();
+            $table->ipAddress('ip')->nullable();
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
-            $table->ipAddress('ip');
             $table->string('country')->nullable()->index();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

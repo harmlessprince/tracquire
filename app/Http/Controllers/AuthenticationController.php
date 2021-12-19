@@ -8,13 +8,10 @@ use App\Helper\UserStatus;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Seshac\Otp\Otp;
-use Stevebauman\Location\Facades\Location;
 
 class AuthenticationController extends Controller
 {
@@ -32,7 +29,7 @@ class AuthenticationController extends Controller
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
-        return $this->sendError('invalid username or password', 401);
+        return $this->sendError('invalid email or password', 401);
     }
 
 
