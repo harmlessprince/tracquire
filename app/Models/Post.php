@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Post extends CustomModel
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     public function creator(): BelongsTo
     {

@@ -18,7 +18,8 @@ class CreateCommentsTable extends Migration
             $table->integer('commentable_id');
             $table->string('commentable_type');
             $table->text('body');
-            $table->integer('status');
+            $table->foreignId('created_by')->constrained('users');
+            $table->integer('status')->default(true);
             $table->timestamps();
         });
     }
