@@ -47,6 +47,7 @@ Route::prefix('v1')->group(function (){
     Route::prefix('posts')->group(function () {
         //Posts
         Route::apiResource('/', PostController::class);
+        Route::get('/search', [PostController::class, 'search']);
         Route::get('/{post}/comments', [PostCommentRelatedController::class, 'index'])->name('posts.comments');
         Route::get('/{post}/relationships/comments', [PostsCommentsRelationshipsController::class, 'index'])->name('posts.relationships.comments');
     });

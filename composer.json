@@ -13,6 +13,8 @@
         "laravel/passport": "^10.2",
         "laravel/tinker": "^2.5",
         "seshac/otp-generator": "^0.0.7",
+        "spatie/laravel-json-api-paginate": "^1.11",
+        "spatie/laravel-query-builder": "^4.0",
         "stevebauman/location": "^6.2"
     },
     "require-dev": {

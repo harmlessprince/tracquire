@@ -4,6 +4,7 @@ namespace App\Http\Resources\Post;
 
 use App\Http\Resources\Comment\CommentsIdentifierResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostResource extends JsonResource
 {
@@ -42,4 +43,5 @@ class PostResource extends JsonResource
             ],
         ];
     }
+
 }

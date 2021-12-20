@@ -7,6 +7,8 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Post\PostCollection;
 use App\Models\Post;
 use App\Repositories\Eloquent\Repository\PostRepository;
+use http\Client\Request;
+
 
 class PostController extends Controller
 {
@@ -27,14 +29,11 @@ class PostController extends Controller
         return $this->sendSuccess([new PostCollection($this->postRepository->all())]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function search(){
+//        dd(request()->query());
+        $posts = $this->postRepository->search();
+//        return new PostCollection($posts);
+        return $this->sendSuccess([new PostCollection($posts)]);
     }
 
     /**
@@ -45,7 +44,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+
     }
 
     /**

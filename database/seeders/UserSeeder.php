@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
 //        UserFactory::
         User::factory(3)->create()->each(function ($user){
-            $user->posts()->save(Post::factory()->make());
+            $user->posts()->saveMany(Post::factory(5)->make());
         });
     }
 }
