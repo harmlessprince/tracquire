@@ -9,6 +9,7 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
@@ -81,7 +82,12 @@ class Handler extends ExceptionHandler
                     break;
             }
             return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
+        } elseif ($e instanceof PostTooLargeException) {
+            return HttpResponseHelper::createErrorResponse(
+                HttpResponseMessages::FILE_TOO_LARGE, HttpResponseCodes::UNABLE_TO_PROCESS, [], HttpResponseCodes::UNPROCESSABLE_ENTITY
+            );
         } else {
+
             return HttpResponseHelper::createErrorResponse(
                 HttpResponseMessages::EXCEPTION_THROWN, HttpResponseCodes::EXCEPTION_THROWN,
                 [

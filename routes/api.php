@@ -6,6 +6,7 @@ use App\Http\Controllers\OtpController;
 use App\Http\Controllers\Post\PostCommentRelatedController;
 use App\Http\Controllers\Post\PostsCommentsRelationshipsController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\User\UpdateProfileImageController;
 use App\Http\Controllers\User\UserCommentController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserPostController;
@@ -44,15 +45,17 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('v1')->group(function (){
+    //Posts
+    Route::apiResource('posts', PostController::class);
     Route::prefix('posts')->group(function () {
-        //Posts
-        Route::apiResource('/', PostController::class);
         Route::get('/search', [PostController::class, 'search']);
         Route::get('/{post}/comments', [PostCommentRelatedController::class, 'index'])->name('posts.comments');
         Route::get('/{post}/relationships/comments', [PostsCommentsRelationshipsController::class, 'index'])->name('posts.relationships.comments');
     });
+    //users
+    Route::apiResource('users', UserController::class);
     Route::prefix('users')->name('users.')->group(function (){
-        Route::apiResource('/', UserController::class);
+        Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');
         Route::get('/{user}/posts', [UserPostController::class, 'index'])->name('posts');
         Route::get('/{user}/comments', [UserCommentController::class, 'index'])->name('comments');
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');

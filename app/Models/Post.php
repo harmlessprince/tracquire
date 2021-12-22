@@ -28,6 +28,14 @@ class Post extends CustomModel
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    /**
+     * Get the post's image.
+     */
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
     public  function category (): BelongsTo{
         return $this->belongsTo(Category::class);
     }

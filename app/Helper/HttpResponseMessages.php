@@ -21,7 +21,7 @@ class HttpResponseMessages extends Enum
 
     const LOGIN_FAIL = 'Email and password does not match.';
     const USER_NOT_LOGGED_IN = 'You are not logged in. Please login or create an account to proceed.';
-
+    const FILE_TOO_LARGE = 'Sorry this file is too large';
     const USER_WITH_EMAIL_EXIST = 'This email already exists in the system.';
     const USER_NOT_EXIST = 'User with this email does not exist. Kindly register to proceed.';
     const PASSWORD_MISMATCH = 'The password you have entered does not match.';

@@ -32,6 +32,7 @@ class HttpResponseCodes extends  Enum
     const ACTION_SUCCESSFUL = 200;
     const CREATED = 201;
     const ACCEPTED = 202;
+    const NO_CONTENT = 204;
 
     const MOVED_PERMANENTLY = 301;
     const FOUND = 302;

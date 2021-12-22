@@ -48,13 +48,7 @@ class AuthenticationController extends Controller
                     $device = $request->header('User-Agent');
                 }
                 $user = User::create([
-                    'first_name' => $request->input('first_name'),
-                    'last_name' => $request->input('last_name'),
                     'email' => $request->input('email'),
-                    'username' => $request->input('username'),
-                    'phone' => $request->input('phone'),
-                    'lat' => $request->input('lat'),
-                    'lng' => $request->input('lng'),
                     'device_name' => $device,
                     'password' => Hash::make($request->input('password')),
                     'status' => UserStatus::IN_REVIEW,
@@ -66,7 +60,8 @@ class AuthenticationController extends Controller
                 $user->markEmailAsVerified();
             }
             $user->sendWelcomeNotification();
-            return $this->sendSuccess(['user' => $user], 'Registration successful!');
+            $token = $user->createToken($user->device_name)->accessToken;
+            return $this->sendSuccess(['user' => $user, 'token' => $token], 'Registration successful!');
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
