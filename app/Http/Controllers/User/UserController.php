@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Helper\HttpResponseCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use App\Repositories\Eloquent\Repository\UserRepository;
 use Illuminate\Http\Request;
@@ -27,5 +28,9 @@ class UserController extends Controller
             return $this->sendSuccess([], 'Profile successfully updated', HttpResponseCodes::NO_CONTENT);
         }
         return  $this->sendError('Something went wrong, please try again later', HttpResponseCodes::ACTION_FAILED);
+    }
+
+    public function show (User $user){
+        return $this->sendSuccess([new UserResource($user)], 'Profile successfully retrieved');
     }
 }

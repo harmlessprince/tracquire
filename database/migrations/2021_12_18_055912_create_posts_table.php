@@ -18,21 +18,22 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
-            $table->char('title');
+            $table->char('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->fulltext();
             $table->dateTime('published_at')->index()->nullable();
             $table->text('condition')->nullable();
             $table->boolean('shoot_able')->default(false)->index();
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            $table->string('portfolio_link')->nullable();
+            $table->decimal('latitude', 11,8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
-            $table->string('location')->index();
+            $table->string('location')->nullable()->index();
             $table->integer('status')->default(PostStatus::OPEN);
             $table->softDeletes();
-//            $table->index(['title', 'published_at', 'shoot_able', 'slug', 'country', 'state', 'city', 'location']);
+//            $table->index(['title', 'published_at ', 'shoot_able', 'slug', 'country', 'state', 'city', 'location']);
             $table->timestamps();
         });
     }

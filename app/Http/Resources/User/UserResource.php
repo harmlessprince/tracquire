@@ -27,6 +27,7 @@ class UserResource extends JsonResource
                 'country' => $this->country,
                 'state' => $this->state,
                 'city'  => $this->city,
+                'avatar' =>  $this->getFirstMediaUrl('avatar')
             ],
             'relationships' => [
                 'posts' => [

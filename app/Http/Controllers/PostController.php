@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Post\PostCollection;
+use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
 use App\Repositories\Eloquent\Repository\PostRepository;
 use http\Client\Request;
@@ -29,7 +30,8 @@ class PostController extends Controller
         return $this->sendSuccess([new PostCollection($this->postRepository->all())]);
     }
 
-    public function search(){
+    public function search()
+    {
 //        dd(request()->query());
         $posts = $this->postRepository->search();
 //        return new PostCollection($posts);
@@ -44,7 +46,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-
+       $data = $this->postRepository->create($request->all());
+        return $this->sendSuccess([new PostResource($data)], 'Post successfully created');
     }
 
     /**
@@ -55,7 +58,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return $this->sendSuccess([new PostResource($post)], 'Post successfully retrieved');
     }
 
     /**

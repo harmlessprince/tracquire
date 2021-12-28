@@ -27,9 +27,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('device_name')->nullable();
             $table->integer('status')->default(UserStatus::ACTIVE);
+            //spatial
             $table->ipAddress('ip')->nullable();
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            $table->decimal('latitude', 11,8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
             $table->string('country')->nullable()->index();
             $table->string('state')->nullable();
             $table->string('city')->nullable();

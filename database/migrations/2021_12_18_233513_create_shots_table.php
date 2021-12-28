@@ -17,10 +17,11 @@ class CreateShotsTable extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('title');
-            $table->string('slug');
-            $table->text('description');
-            $table->text('condition');
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable()->index();
+            $table->text('condition')->nullable();
+            $table->boolean('accepted')->default(false);
             $table->timestamps();
         });
     }

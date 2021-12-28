@@ -9,18 +9,25 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Post extends CustomModel
+class Post extends Model implements HasMedia
 {
-    use SoftDeletes;
+    use SoftDeletes, InteractsWithMedia, HasFactory;
 
-    public function creator(): BelongsTo
+    protected $guarded = [];
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function shots (): HasMany{
+
+    public function shots(): HasMany
+    {
         return $this->hasMany(Shot::class);
     }
+
     /**
      * Get all the post's comments.
      */
@@ -36,7 +43,9 @@ class Post extends CustomModel
     {
         return $this->morphMany(Image::class, 'imageable');
     }
-    public  function category (): BelongsTo{
+
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class);
     }
 }

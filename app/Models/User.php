@@ -85,9 +85,19 @@ class User extends Authenticatable implements HasMedia
     //Spatie media method
     public function registerMediaCollections(): void
     {
-        $this
-            ->addMediaCollection('avatar')
+        $this->addMediaCollection('avatar')
             ->singleFile();
+    }
+    //Attributes
+
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 
 }

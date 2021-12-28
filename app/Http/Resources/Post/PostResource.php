@@ -20,6 +20,7 @@ class PostResource extends JsonResource
             'id' => (string) $this->id,
             'type' => 'posts',
             'attributes' => [
+                'author' => $this->user->full_name,
                 'title' => $this->title,
                 'description' => $this->description,
                 'condition' => $this->condition,
@@ -33,6 +34,7 @@ class PostResource extends JsonResource
                 'published_at' => $this->published_at,
                 'created_at' => $this->created_at,
                 'updated_at' => $this->updated_at,
+                'images' => $this->getMedia('posts')->pluck('original_url')
             ],
             'relationships' => [
                 'comments' => [

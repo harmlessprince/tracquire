@@ -20,12 +20,12 @@ class UpdateProfileImageController extends Controller
         $request->setMethod('PATCH');
         try {
             if ( $request->file('avatar')->isValid()) {
-                $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
+                $user->addMediaFromRequest('avatar')->toMediaCollection('avatar', 'profile');
             }
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), $exception->getCode());
         }
-        return $this->sendSuccess(['avatar' => $user->getFirstMediaUrl('avatar')], 'Profile image uploaded successfully updated', 200);
+        return $this->sendSuccess(['avatar' => $user->getFirstMediaUrl('avatar')], 'Profile image uploaded successfully!', 200);
 
     }
 }

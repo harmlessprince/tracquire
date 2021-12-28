@@ -14,11 +14,21 @@ class CommentResource extends JsonResource
     public function toArray($request) : array
     {
         return [
-            'post_id' => $this->commentable_id,
-            'body'  => $this->body,
-            'created_by' => $this->created_by,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'id' => (string) $this->id,
+            'type' => 'comments',
+            'attributes' => [
+                'body' => $this->body,
+                'created_by' => $this->author->first_name ?? 'N/A',
+                'created_at' => $this->created_at,
+                'updated_at' => $this->updated_at,
+            ],
+            'relationships' => [
+                'post' => [
+                    'links' => [
+                        'related' => route('posts.show', ['post' => $this->commentable_id])
+                    ]
+                ],
+            ],
         ];
     }
 }
