@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostCreatedEvent;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Post\PostCollection;
@@ -46,7 +47,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-       $data = $this->postRepository->create($request->all());
+        $data = $this->postRepository->create($request->all());
+        broadcast(new PostCreatedEvent($data))->toOthers();
         return $this->sendSuccess([new PostResource($data)], 'Post successfully created');
     }
 

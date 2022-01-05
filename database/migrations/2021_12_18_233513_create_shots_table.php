@@ -19,7 +19,7 @@ class CreateShotsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-            $table->text('description')->nullable()->index();
+            $table->text('description')->nullable()->fulltext();
             $table->text('condition')->nullable();
             $table->boolean('accepted')->default(false);
             $table->timestamps();
