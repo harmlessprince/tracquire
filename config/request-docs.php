@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'document_name'  => 'LRD',
+    'document_name'  => 'Tracquire',
 
     /*
     * Route where request docs will be served from

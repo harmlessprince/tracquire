@@ -45,7 +45,7 @@ Route::prefix('auth')->group(function () {
     Route::middleware('auth:api')->group(function () {
         Route::get('/user', [AuthenticationController::class, 'user']);
         Route::get('/logout', [AuthenticationController::class, 'logout']);
-        Route::get('/email/resend', [OtpController::class, 'resend'])->name('verification.resend');
+        // Route::get('/email/resend', [OtpController::class, 'resend'])->name('verification.resend');
     });
 });
 
@@ -71,8 +71,9 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     //Comments
 //    Route::apiResource('comments', CommentController::class);
     //users
-    Route::apiResource('users', UserController::class);
+    // Route::apiResource('users', UserController::class);
     Route::prefix('users')->name('users.')->group(function () {
+        Route::patch('/', [UserController::class,'update'])->name('update');
         //upload profile pictures for a user
         Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');
         //Get all the posts of a user

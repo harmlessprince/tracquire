@@ -18,11 +18,11 @@
         "spatie/laravel-json-api-paginate": "^1.11",
         "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-query-builder": "^4.0",
-        "stevebauman/location": "^6.2"
+        "stevebauman/location": "^6.2",
+        "fakerphp/faker": "^1.9.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
