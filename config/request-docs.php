@@ -15,7 +15,7 @@ return [
     /**
      * Path to to static HTML if using command line.
      */
-    'docs_path' => base_path('docs/request-docs/'),
+    'docs_path' => base_path('docs/'),
 
     /**
      * Sorting route by and there is two types default(route methods), route_names.
