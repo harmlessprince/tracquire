@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\Post\PostCommentRelatedController;
 use App\Http\Controllers\Post\PostsCommentsRelationshipsController;
@@ -81,6 +83,12 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');
         //get all transactions that has been made by a user
         Route::get('/{user}/transactions', [UserTransactionsController::class, 'index'])->name('transactions');
+    });
+
+    //chat
+    Route::prefix('chats')->name('chats.')->group(function () {
+        Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
+        Route::get('/load/messages/{receiver}', [MessageController::class, 'show'])->name('load.messages');
     });
 
 });

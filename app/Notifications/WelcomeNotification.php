@@ -39,7 +39,7 @@ class WelcomeNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        dd($notifiable);
+       
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
