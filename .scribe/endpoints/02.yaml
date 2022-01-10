@@ -18,7 +18,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 2
+        example: 8
         type: integer
         custom: []
     queryParameters: []
@@ -26,7 +26,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"40","type":"comments","attributes":{"body":"Fugiat eum assumenda magni vel sed ducimus inventore odit.","created_by":"Kaya","created_at":"2022-01-10T01:02:28.000000Z","updated_at":"2022-01-10T01:02:28.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/7"}}}},{"id":"41","type":"comments","attributes":{"body":"Eligendi expedita et voluptate fugiat.","created_by":"Kaya","created_at":"2022-01-10T01:02:28.000000Z","updated_at":"2022-01-10T01:02:28.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/14"}}}}]}'
+        content: '{"data":[{"id":"45","type":"comments","attributes":{"body":"Error nobis inventore sit.","created_by":"N\/A","created_at":"2022-01-10T01:18:51.000000Z","updated_at":"2022-01-10T01:18:51.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/15"}}}},{"id":"46","type":"comments","attributes":{"body":"Aut velit dignissimos veritatis eligendi iusto.","created_by":"N\/A","created_at":"2022-01-10T01:18:51.000000Z","updated_at":"2022-01-10T01:18:51.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/9"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -55,7 +55,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"43","type":"comments","attributes":{"body":"Autem impedit ut inventore sit nemo velit nemo.","created_by":"John","created_at":"2022-01-10T01:02:29.000000Z","updated_at":"2022-01-10T01:02:29.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/4"}}}},{"id":"44","type":"comments","attributes":{"body":"Accusamus nulla aperiam voluptas temporibus sed voluptates eos.","created_by":"Kaya","created_at":"2022-01-10T01:02:29.000000Z","updated_at":"2022-01-10T01:02:29.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/1"}}}}]}'
+        content: '{"data":[{"id":"48","type":"comments","attributes":{"body":"Et repudiandae quam consequatur ut earum sed.","created_by":"N\/A","created_at":"2022-01-10T01:18:52.000000Z","updated_at":"2022-01-10T01:18:52.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/6"}}}},{"id":"49","type":"comments","attributes":{"body":"Qui iusto amet consectetur nemo quod error sunt.","created_by":"Bernard","created_at":"2022-01-10T01:18:52.000000Z","updated_at":"2022-01-10T01:18:52.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/8"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -76,7 +76,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 13
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -85,13 +85,13 @@ endpoints:
         name: body
         description: 'The body of the post and it is maximum of 255 character.'
         required: true
-        example: praesentium
+        example: est
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"42","type":"comments","attributes":{"body":"Aut excepturi vel dolore ad quis provident.","created_by":"Kaya","created_at":"2022-01-10T01:02:28.000000Z","updated_at":"2022-01-10T01:02:28.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/14"}}}}}'
+        content: '{"data":{"id":"47","type":"comments","attributes":{"body":"Distinctio nostrum deserunt natus voluptate quo facere ea.","created_by":"John","created_at":"2022-01-10T01:18:51.000000Z","updated_at":"2022-01-10T01:18:51.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/6"}}}}}'
         headers: []
         description: null
     responseFields: []
