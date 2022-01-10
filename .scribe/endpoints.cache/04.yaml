@@ -24,21 +24,21 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: omnis
+        example: natus
         type: string
         custom: []
       username:
         name: username
         description: 'The user username.'
         required: true
-        example: rerum
+        example: aspernatur
         type: string
         custom: []
       phone:
         name: phone
         description: 'The the user phone number.'
         required: true
-        example: ipsum
+        example: delectus
         type: string
         custom: []
     responses: []
@@ -62,14 +62,14 @@ endpoints:
         name: identifier
         description: 'The user email address.'
         required: true
-        example: est
+        example: nesciunt
         type: string
         custom: []
       token:
         name: token
         description: 'The otp sent to the user email address.'
         required: false
-        example: veniam
+        example: nesciunt
         type: string
         custom: []
     responses: []

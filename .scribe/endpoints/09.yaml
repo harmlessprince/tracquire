@@ -18,7 +18,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 2
+        example: 5
         type: integer
         custom: []
     queryParameters: []
@@ -27,28 +27,28 @@ endpoints:
         name: first_name
         description: 'The user last name.'
         required: true
-        example: perspiciatis
+        example: et
         type: string
         custom: []
       last_name:
         name: last_name
         description: 'The user first name.'
         required: true
-        example: odit
+        example: ut
         type: string
         custom: []
       phone:
         name: phone
         description: 'The the user phone number,this is a unique field.'
         required: true
-        example: error
+        example: iure
         type: string
         custom: []
       username:
         name: username
         description: 'The the user username and it must be unique.'
         required: true
-        example: facilis
+        example: aut
         type: string
         custom: []
     responses: []
@@ -70,7 +70,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 20
+        example: 13
         type: integer
         custom: []
     queryParameters: []
@@ -78,7 +78,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"17","type":"users","attributes":{"first_name":"Calista","last_name":"Boehm","username":"bella.ritchie","phone":"1-564-801-6820","email":"dayton62@example.net","user_type":null,"country":"United States","state":"Virginia","city":"Ashburn","avatar":""},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/17\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/17\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/17\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/17\/transactions"}}}}}'
+        content: '{"data":{"id":"18","type":"users","attributes":{"first_name":"Elinor","last_name":"Larkin","username":"zlubowitz","phone":"+1 (986) 846-7597","email":"lydia28@example.com","user_type":null,"country":"Belarus","state":"Grodnenskaya","city":"Hrodna","avatar":""},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/18\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/18\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/18\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/18\/transactions"}}}}}'
         headers: []
         description: null
     responseFields: []
@@ -99,7 +99,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 1
+        example: 12
         type: integer
         custom: []
     queryParameters: []
@@ -107,7 +107,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et nam placeat ut expedita aut.","description":"Non adipisci nisi dignissimos et quae illum adipisci.","condition":"Iure eveniet dignissimos dolores quaerat et dolor.","shoot_able":true,"status":null,"category":"GIVE","country":"Christmas Island","state":"East Maymieland","city":"South Gracie","location":"es_NI","published_at":"2022-01-10T01:40:38.286150Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et corrupti nihil non aut maiores sapiente non.","description":"Ea enim vel amet non.","condition":"Nulla dolore a qui.","shoot_able":true,"status":null,"category":"SWAP ITEM","country":"Bouvet Island (Bouvetoya)","state":"Sauerview","city":"Oberbrunnerhaven","location":"so_KE","published_at":"2022-01-10T01:40:38.288177Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Hic placeat natus cumque iste rem.","description":"Inventore velit commodi id consequatur consequatur autem aut et.","condition":"Odit illum debitis voluptatibus quis dicta aut sit.","shoot_able":true,"status":null,"category":"SWAP SERVICE","country":"Macedonia","state":"Fayehaven","city":"South Gerardo","location":"uz_UZ","published_at":"2022-01-10T01:42:53.712117Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Assumenda et ullam sunt quasi nihil.","description":"Cupiditate harum animi consequatur dolor impedit inventore.","condition":"Asperiores ut adipisci consectetur numquam cupiditate voluptate reiciendis.","shoot_able":false,"status":null,"category":"SWAP SERVICE","country":"Holy See (Vatican City State)","state":"South Mabel","city":"Davishaven","location":"ha_GH","published_at":"2022-01-10T01:42:53.714687Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
         headers: []
         description: null
     responseFields: []

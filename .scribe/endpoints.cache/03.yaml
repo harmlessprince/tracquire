@@ -8,7 +8,7 @@ endpoints:
       - POST
     uri: api/v1/chats/send/message
     metadata:
-      title: 'Store a newly created resource in storage.'
+      title: 'Create Message'
       description: ''
       authenticated: true
       custom: []
@@ -22,14 +22,14 @@ endpoints:
         name: receiver
         description: 'The user receiving the message ID.'
         required: true
-        example: 12
+        example: 17
         type: integer
         custom: []
       message:
         name: message
         description: 'The message been sent to the user.'
         required: true
-        example: enim
+        example: sunt
         type: string
         custom: []
       data:
@@ -37,7 +37,7 @@ endpoints:
         description: 'This will hold extra data later on(not needed for now).'
         required: false
         example:
-          - eum
+          - facere
         type: 'string[]'
         custom: []
     responses: []
@@ -47,7 +47,7 @@ endpoints:
       - GET
     uri: 'api/v1/chats/load/messages/{receiver}'
     metadata:
-      title: 'Display the specified resource.'
+      title: 'Show Latest Messages.'
       description: ''
       authenticated: true
       custom: []
@@ -59,7 +59,7 @@ endpoints:
         name: receiver
         description: ''
         required: true
-        example: 13
+        example: 17
         type: integer
         custom: []
     queryParameters: []
