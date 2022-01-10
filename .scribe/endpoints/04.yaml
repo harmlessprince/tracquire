@@ -29,14 +29,14 @@ endpoints:
         name: username
         description: 'The user username.'
         required: true
-        example: sed
+        example: rerum
         type: string
         custom: []
       phone:
         name: phone
         description: 'The the user phone number.'
         required: true
-        example: quo
+        example: ipsum
         type: string
         custom: []
     responses: []
@@ -60,14 +60,14 @@ endpoints:
         name: identifier
         description: 'The user email address.'
         required: true
-        example: voluptatem
+        example: est
         type: string
         custom: []
       token:
         name: token
         description: 'The otp sent to the user email address.'
         required: false
-        example: amet
+        example: veniam
         type: string
         custom: []
     responses: []

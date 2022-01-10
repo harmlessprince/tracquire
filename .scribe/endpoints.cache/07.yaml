@@ -20,7 +20,7 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 8
+        example: 1
         type: integer
         custom: []
     queryParameters: []
@@ -28,7 +28,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:18","updated_at":"2022-01-10 01:01:18","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:18","updated_at":"2022-01-10 01:01:18","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}]}}'
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:40","updated_at":"2022-01-10 01:01:40","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:40","updated_at":"2022-01-10 01:01:40","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}]}}'
         headers: []
         description: null
     responseFields: []
@@ -49,7 +49,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 18
+        example: 17
         type: integer
         custom: []
     queryParameters: []
@@ -57,7 +57,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:18","updated_at":"2022-01-10 01:01:18","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:18","updated_at":"2022-01-10 01:01:18","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}]}}'
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:40","updated_at":"2022-01-10 01:01:40","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:40","updated_at":"2022-01-10 01:01:40","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}]}}'
         headers: []
         description: null
     responseFields: []
@@ -78,14 +78,14 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 16
+        example: 5
         type: integer
         custom: []
       id:
         name: id
         description: 'The ID of the shot.'
         required: true
-        example: 3
+        example: 17
         type: integer
         custom: []
     queryParameters: []
@@ -93,7 +93,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:18","updated_at":"2022-01-10 01:01:18","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}}'
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:40","updated_at":"2022-01-10 01:01:40","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}}'
         headers: []
         description: null
     responseFields: []
@@ -114,7 +114,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 19
+        example: 6
         type: integer
         custom: []
     queryParameters: []
@@ -123,14 +123,14 @@ endpoints:
         name: description
         description: 'The shot description.'
         required: true
-        example: mollitia
+        example: quia
         type: string
         custom: []
       condition:
         name: condition
         description: 'The the shot or item condition.'
         required: false
-        example: illum
+        example: a
         type: string
         custom: []
       images:
@@ -138,13 +138,13 @@ endpoints:
         description: 'The shot images.'
         required: false
         example:
-          - soluta
+          - repellendus
         type: 'string[]'
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:18","updated_at":"2022-01-10 01:01:18","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}}'
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:40","updated_at":"2022-01-10 01:01:40","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}}'
         headers: []
         description: null
     responseFields: []

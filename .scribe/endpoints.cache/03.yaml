@@ -22,14 +22,14 @@ endpoints:
         name: receiver
         description: 'The user receiving the message ID.'
         required: true
-        example: 1
+        example: 12
         type: integer
         custom: []
       message:
         name: message
         description: 'The message been sent to the user.'
         required: true
-        example: nihil
+        example: enim
         type: string
         custom: []
       data:
@@ -37,7 +37,7 @@ endpoints:
         description: 'This will hold extra data later on(not needed for now).'
         required: false
         example:
-          - optio
+          - eum
         type: 'string[]'
         custom: []
     responses: []
@@ -59,7 +59,7 @@ endpoints:
         name: receiver
         description: ''
         required: true
-        example: 15
+        example: 13
         type: integer
         custom: []
     queryParameters: []

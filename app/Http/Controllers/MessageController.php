@@ -45,7 +45,7 @@ class MessageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create Message
      *
      * @param  \App\Http\Requests\StoreMessageRequest  $request
      * @return \Illuminate\Http\Response
@@ -57,7 +57,7 @@ class MessageController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show Latest Messages.
      *
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
