@@ -4,6 +4,16 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam category integer required The post category ID.
+ * @bodyParam description string required The post description.
+ * @bodyParam condition string The the post or item condition.
+ * @bodyParam images array The post images.
+ * @bodyParam wishlist string The post wishlist.
+ * @bodyParam portfolio url The user posting profile
+ * @bodyParam shoot_able boolean this is to indicate users can shoot the post
+ */
+
 class StorePostRequest extends FormRequest
 {
     /**

@@ -20,8 +20,8 @@ class PostResource extends JsonResource
             'id' => (string) $this->id,
             'type' => 'posts',
             'attributes' => [
-                'author' => $this->user->full_name,
-                'title' => $this->title,
+                'author' => $this->user->full_name ?? "James Bond",
+                'title' => $this->title ?? "Jane",
                 'description' => $this->description,
                 'condition' => $this->condition,
                 'shoot_able' => (bool)$this->shoot_able,
@@ -39,7 +39,7 @@ class PostResource extends JsonResource
             'relationships' => [
                 'comments' => [
                     'links' => [
-                        'related' => route('posts.comments', ['post' => $this->id])
+                        'related' => route('posts.comments', ['post' => $this->id ?? 0])
                     ]
                 ],
             ],

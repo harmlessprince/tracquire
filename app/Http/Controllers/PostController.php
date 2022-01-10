@@ -12,6 +12,11 @@ use App\Repositories\Eloquent\Repository\PostRepository;
 use http\Client\Request;
 
 
+/**
+ * @group Post
+ * @authenticated
+ * API endpoints for Post CRUD
+ */
 class PostController extends Controller
 {
     private $postRepository;
@@ -22,7 +27,9 @@ class PostController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * All Posts
+     * @apiResourceCollection App\Http\Resources\Post\PostCollection
+     * @apiResourceModel App\Models\Post
      *
      * @return \Illuminate\Http\Response
      */
@@ -31,16 +38,26 @@ class PostController extends Controller
         return $this->sendSuccess([new PostCollection($this->postRepository->all())]);
     }
 
+    /**
+     * Search Through All Posts
+     * @apiResourceCollection App\Http\Resources\Post\PostCollection
+     * @apiResourceModel App\Models\Post
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function search()
     {
-//        dd(request()->query());
         $posts = $this->postRepository->search();
-//        return new PostCollection($posts);
         return $this->sendSuccess([new PostCollection($posts)]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     *
+     * Create Post
+     * 
+     * @apiResource App\Http\Resources\Post\PostResource
+     * @apiResourceModel App\Models\Post
      *
      * @param \App\Http\Requests\StorePostRequest $request
      * @return \Illuminate\Http\Response
@@ -53,8 +70,11 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Show Post
+     * 
+     * @apiResource App\Http\Resources\Post\PostResource
+     * @apiResourceModel App\Models\Post
+     * 
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
@@ -64,8 +84,11 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
+     * 
+     * Edit Post
+     * 
+     * @apiResource App\Http\Resources\Post\PostResource
+     * @apiResourceModel App\Models\Post
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
@@ -75,7 +98,11 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 
+     * Update Post
+     * 
+     * @apiResource App\Http\Resources\Post\PostResource
+     * @apiResourceModel App\Models\Post
      *
      * @param \App\Http\Requests\UpdatePostRequest $request
      * @param \App\Models\Post $post
@@ -87,7 +114,8 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 
+     * Delete Post
      *
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response

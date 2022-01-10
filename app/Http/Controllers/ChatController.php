@@ -6,6 +6,8 @@ use App\Http\Requests\StoreChatMessageRequest;
 use App\Service\ChatService;
 use Illuminate\Http\Request;
 
+
+
 class ChatController extends Controller
 {
     private $chatService;

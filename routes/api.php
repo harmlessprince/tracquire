@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\ChatController;
-use App\Http\Controllers\CommentController;
+
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
@@ -10,14 +9,12 @@ use App\Http\Controllers\Post\PostCommentRelatedController;
 use App\Http\Controllers\Post\PostsCommentsRelationshipsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostShotRelatedController;
-use App\Http\Controllers\ShotController;
 use App\Http\Controllers\User\UpdateProfileImageController;
 use App\Http\Controllers\User\UserCommentController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserPostController;
 use App\Http\Controllers\User\UserShotController;
 use App\Http\Controllers\User\UserTransactionsController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,8 +34,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('auth')->group(function () {
     Route::post('/forgot-password', [ForgotPasswordController::class, 'forgot'])->name('password.request');
     Route::post('/reset-password', [ForgotPasswordController::class, 'reset'])->name('password.reset');
-    Route::post('/login', [AuthenticationController::class, 'login']);
-    Route::post('/register', [AuthenticationController::class, 'register']);
+    Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
+    Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
     Route::post('/generate/otp', [OtpController::class, 'generateOtp'])->name('verification.generate');
     Route::post('/email/verify/otp', [OtpController::class, 'verifyOtp'])->name('verification.verify'); // Make sure to keep this as your route name
 
@@ -54,26 +51,24 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     Route::apiResource('posts', PostController::class);
     Route::prefix('posts')->group(function () {
         //search through posts
-        Route::get('/search', [PostController::class, 'search']);
+        Route::get('/search', [PostController::class, 'search'])->name('posts.search');
         //get all comments under a post
         Route::get('/{post}/comments', [PostCommentRelatedController::class, 'index'])->name('posts.comments');
         //create a comment against a post
         Route::post('/{post}/comments', [PostCommentRelatedController::class, 'store'])->name('posts.comments.store');
         //get list of all comments related to a posts
-        Route::get('/{post}/relationships/comments', [PostsCommentsRelationshipsController::class, 'index'])->name('posts.relationships.comments');
+        // Route::get('/{post}/relationships/comments', [PostsCommentsRelationshipsController::class, 'index'])->name('posts.relationships.comments');
         //view all shot related to a particular post
-        Route::get('/{post}/shots', [PostShotRelatedController::class, 'index'])->name('posts.shots');
+        Route::get('/{post}/shots', [PostShotRelatedController::class, 'index'])->name('posts.shots.index');
         //view a particular shot related to a particular post
-        Route::get('/{post}/shots/{shot}', [PostShotRelatedController::class, 'show'])->name('posts.shots');
+        Route::get('/{post}/shots/{shot}', [PostShotRelatedController::class, 'show'])->name('posts.shots.show');
         //create a shot against the post passed
         Route::post('/{post}/shots', [PostShotRelatedController::class, 'store'])->name('posts.shots.store');
     });
-    //Comments
-//    Route::apiResource('comments', CommentController::class);
-    //users
-    // Route::apiResource('users', UserController::class);
     Route::prefix('users')->name('users.')->group(function () {
-        Route::patch('/', [UserController::class,'update'])->name('update');
+        Route::patch('/{user}', [UserController::class, 'update'])->name('update');
+        Route::get('/{user}', [UserController::class, 'show'])->name('show');
+    
         //upload profile pictures for a user
         Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');
         //Get all the posts of a user
@@ -92,5 +87,9 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/load/messages/{receiver}', [MessageController::class, 'show'])->name('load.messages');
     });
 
+    //Comments
+    //    Route::apiResource('comments', CommentController::class);
+    //users
+    // Route::apiResource('users', UserController::class);
+   
 });
-

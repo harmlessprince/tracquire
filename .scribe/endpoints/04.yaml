@@ -1,0 +1,74 @@
+name: 'OTP '
+description: |-
+
+  API endpoints for generating and verifying OTP
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/generate/otp
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The user email address.'
+        required: true
+        example: optio
+        type: string
+        custom: []
+      username:
+        name: username
+        description: 'The user username.'
+        required: true
+        example: perferendis
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'The the user phone number.'
+        required: true
+        example: magnam
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/email/verify/otp
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      identifier:
+        name: identifier
+        description: 'The user email address.'
+        required: true
+        example: explicabo
+        type: string
+        custom: []
+      token:
+        name: token
+        description: 'The otp sent to the user email address.'
+        required: false
+        example: et
+        type: string
+        custom: []
+    responses: []
+    responseFields: []

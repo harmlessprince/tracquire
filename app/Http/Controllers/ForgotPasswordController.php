@@ -10,15 +10,34 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+/**
+ * @group Password
+ *
+ * API endpoints for managing authentication
+ */
+
 class ForgotPasswordController extends Controller
 {
 
+    /**
+     *  Forgot Password
+     * 
+     *  A token will be sent to user email address
+     * 
+     * @response  401 scenario="Email Does Not Exist" {
+     * "status":"error",
+     * "data":[],
+     * "message":"The supplied email does not exist",
+     * "code":404
+     * }
+     * 
+     */
     public function forgot(ForgotPasswordRequest $request)
     {
         $token = Str::random(6);
         $email = $request->input('email');
         if (User::where('email', $email)->doesntExist()) {
-            return $this->sendError('The supplied email does not exist', 400);
+            return $this->sendError('The supplied email does not exist', 401);
         }
         try {
             DB::table('password_resets')->insert([
@@ -34,6 +53,19 @@ class ForgotPasswordController extends Controller
     }
 
 
+    /**
+     *  Reset Password
+     *
+     *  User is expected to supply the token sent to his email address and a new password
+     * 
+     * @response  401 scenario="Email Does Not Exist" {
+     * "status":"error",
+     * "data":[],
+     * "message":"Token supplied is invalid",
+     * "code":404
+     * }
+     * 
+     */
     public function reset(ResetPasswordRequest $request)
     {
         $token = $request->input('token');
@@ -43,7 +75,7 @@ class ForgotPasswordController extends Controller
          */
         $isTokenValid = DB::table('password_resets')->where('token', $token)->first();
         if (!$isTokenValid) {
-            return $this->sendError('Token supplied is invalid', 400);
+            return $this->sendError('Token supplied is invalid', 401);
         }
 
         /**

@@ -9,6 +9,13 @@ use App\Http\Resources\Message\MessageResource;
 use App\Models\Message;
 use App\Repositories\Eloquent\Repository\MessageRepository;
 
+
+/**
+ * @group Messaging 
+ * @authenticated
+ * API endpoints for chat integrate
+ */
+
 class MessageController extends Controller
 {
     private $messageRepository;

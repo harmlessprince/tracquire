@@ -1,0 +1,113 @@
+name: User
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/users/{id}'
+    metadata:
+      title: 'Update User Profile'
+      description: 'This endpoint updates user first name, last name, phone number and username'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 3
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The user last name.'
+        required: true
+        example: sed
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The user first name.'
+        required: true
+        example: et
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'The the user phone number,this is a unique field.'
+        required: true
+        example: et
+        type: string
+        custom: []
+      username:
+        name: username
+        description: 'The the user username and it must be unique.'
+        required: true
+        example: illum
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      title: 'User Profile'
+      description: 'This endpoint is used to view a particular user profile'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 5
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"15","type":"users","attributes":{"first_name":"Alberta","last_name":"Rogahn","username":"lebsack.katlyn","phone":"+1-838-826-6291","email":"brekke.grant@example.net","user_type":null,"country":"United States","state":"Washington","city":"Bellingham","avatar":""},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/15\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/15\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/15\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/15\/transactions"}}}}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user}/posts'
+    metadata:
+      title: 'All User Posts'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sint laboriosam quia repellat voluptas quo.","description":"Ea quisquam veritatis sunt recusandae.","condition":"Et nihil mollitia voluptatem et sit veniam.","shoot_able":true,"status":null,"category":"GIVE","country":"Korea","state":"Watsonberg","city":"Jacobiberg","location":"en_IN","published_at":"2022-01-10T01:02:29.293529Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et facere deleniti corporis dolore at est.","description":"Ipsam placeat iusto voluptatum qui odit quod eaque.","condition":"Delectus voluptatem ea impedit commodi numquam.","shoot_able":true,"status":null,"category":"SWAP ITEM","country":"Cook Islands","state":"Pollichport","city":"West Lueton","location":"sid_ET","published_at":"2022-01-10T01:02:29.296090Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        headers: []
+        description: null
+    responseFields: []

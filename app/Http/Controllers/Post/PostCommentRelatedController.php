@@ -12,8 +12,26 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 
+
+/**
+ * @group Comment
+ * @authenticated
+ * API endpoints for Post CRUD
+ */
 class PostCommentRelatedController extends Controller
 {
+
+    /**
+     * All Comments
+     * 
+     * This endpoint can be used to fetch all comments under a post
+     * 
+     * @apiResourceCollection App\Http\Resources\Comment\CommentCollection
+     * @apiResourceModel App\Models\Comment
+     *
+     * @return \Illuminate\Http\Response
+     */ 
+
     public function index(Post $post)
     {
         return $this->sendSuccess(
@@ -21,8 +39,13 @@ class PostCommentRelatedController extends Controller
         );
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     *
+     * Create Post
+     * 
+     * @apiResource App\Http\Resources\Comment\CommentResource
+     * @apiResourceModel App\Models\Comment
      *
      * @param \App\Http\Requests\StoreCommentRequest $request
      * @return \Illuminate\Http\Response

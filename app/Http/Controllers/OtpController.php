@@ -12,6 +12,12 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Notification;
 use Seshac\Otp\Otp;
 
+/**
+ * @group OTP 
+ * 
+ * API endpoints for generating and verifying OTP
+ */
+
 class OtpController extends Controller
 {
     public function generateOtp(GenerateOtpRequest $request): Response

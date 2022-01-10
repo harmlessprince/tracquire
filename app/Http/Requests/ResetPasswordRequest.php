@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam token string required The token sent to the user.
+ * @bodyParam email string required The user email address.
+ * @bodyParam password string required The the user new password.
+ */
 class ResetPasswordRequest extends FormRequest
 {
     /**

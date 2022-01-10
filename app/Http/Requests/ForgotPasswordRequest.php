@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam email string required The email of the  user. Example: johndoes@example.com
+ *
+ */
+
 class ForgotPasswordRequest extends FormRequest
 {
     /**

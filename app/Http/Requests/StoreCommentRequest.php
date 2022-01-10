@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam body string required The body of the post and it is maximum of 255 character.
+ */
+
 class StoreCommentRequest extends FormRequest
 {
     /**

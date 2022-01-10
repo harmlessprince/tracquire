@@ -4,6 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam description string required The shot description.
+ * @bodyParam condition string The the shot or item condition.
+ * @bodyParam images array The shot images.
+ */
+
 class StoreShotRequest extends FormRequest
 {
     /**

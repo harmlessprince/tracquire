@@ -1,0 +1,34 @@
+name: Avatar
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/users/{user}/profile/image'
+    metadata:
+      title: 'Update Avatar'
+      description: 'This endpoint is  for updates users'' Avatar'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      avatar:
+        name: avatar
+        description: 'The user profile picture and accepted types are jpeg and jpg and max size of 2M.'
+        required: false
+        example: dignissimos
+        type: required
+        custom: []
+    responses: []
+    responseFields: []

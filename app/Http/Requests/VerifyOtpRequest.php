@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam identifier string required The user email address.
+ * @bodyParam token string The otp sent to the user email address.
+ */
+
 class VerifyOtpRequest extends FormRequest
 {
     /**

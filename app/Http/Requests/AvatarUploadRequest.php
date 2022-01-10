@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam avatar required The user profile picture and accepted types are jpeg and jpg and max size of 2M.
+ */
+
 class AvatarUploadRequest extends FormRequest
 {
     /**

@@ -6,6 +6,12 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 
+/**
+ * @group Post Categories
+ *
+ * API endpoints for Post Categories
+ */
+
 class CategoryController extends Controller
 {
     /**

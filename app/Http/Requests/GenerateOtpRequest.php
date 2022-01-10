@@ -4,6 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+/**
+ * @bodyParam username string required The user username.
+ * @bodyParam email string required The user email address.
+ * @bodyParam phone string required The the user phone number.
+ */
 class GenerateOtpRequest extends FormRequest
 {
     /**

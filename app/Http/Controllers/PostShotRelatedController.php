@@ -10,34 +10,38 @@ use App\Models\Shot;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+
+
+/**
+ * @group Shot
+ * @authenticated
+ * API endpoints for managing posts shots
+ */
 class PostShotRelatedController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * All Shots
+     * @apiResourceCollection App\Http\Resources\Shot\ShotCollection
+     * @apiResourceModel App\Models\Shot
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Post $post)
     {
         return $this->sendSuccess(
-            ['shots' => new ShotCollection($post->shots)], 'Post shots retrieved successfully'
+            ['shots' => new ShotCollection($post->shots)],
+            'Post shots retrieved successfully'
         );
     }
 
     /**
-     * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Create Shot
+     * 
+     * @apiResource App\Http\Resources\Shot\ShotResource
+     * @apiResourceModel App\Models\Shot
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\StoreShotRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreShotRequest $request, Post $post): Response
@@ -60,9 +64,13 @@ class PostShotRelatedController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param int $id
+     * Show Shot
+     * 
+     * @apiResource App\Http\Resources\Shot\ShotResource
+     * @apiResourceModel App\Models\Shot
+     * 
+     * @param \App\Models\Post $post
+     * @param \App\Models\Shot $shot
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post, Shot $shot)
@@ -71,35 +79,41 @@ class PostShotRelatedController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
+     * 
+     * Edit Shot
+     * 
+     * @apiResource App\Http\Resources\Shot\ShotResource
+     * @apiResourceModel App\Models\Shot
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Shot $shot)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update Shot
+     * 
+     * @apiResource App\Http\Resources\Shot\ShotResource
+     * @apiResourceModel App\Models\Shot
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param \App\Models\Shot $shot
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Shot $shot)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete Shot
      *
-     * @param int $id
+     * @param \App\Models\Shot $shot
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Shot $shot)
     {
         //
     }

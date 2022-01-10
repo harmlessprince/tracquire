@@ -14,8 +14,52 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Seshac\Otp\Otp;
 
+/**
+ * @group Authentication
+ *
+ * API endpoints for managing authentication
+ */
+
 class AuthenticationController extends Controller
 {
+
+    /**
+     * Log in the user.
+     *
+     * @bodyParam   email    string  required    The email of the  user.      Example: john@example.com
+     * @bodyParam   password    string  required    The password of the  user.   Example: password
+     *
+     * @response {
+     *  "status": "success",
+     *  "data": {
+     *  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiO............."
+     *  "user": {
+     *  "id": 4,
+     * "first_name": "John",
+     * "last_name": "Doe",
+     * "username": "amara.kutch",
+     * "phone": "09012341234",
+     * "email": "john@example.com",
+     * "user_type": 1,
+     * "email_verified_at": "2022-01-09T08:51:19.000000Z",
+     * "device_name": "postman",
+     * "status": 0,
+     * "ip": "172.02.190",
+     * "latitude": "12.10000000",
+     * "longitude": "23.33000000",
+     * "country": "Nigeria",
+     * "state": "Lagos",
+     * "city": "ikeja",
+     * "deleted_at": null,
+     * "created_at": "2022-01-09T08:51:20.000000Z",
+     * "updated_at": "2022-01-09T08:51:20.000000Z"
+     *   }
+     * },
+     * "message": "Logged in successfully!"
+     * }
+     * @response 401 scenario="Invalid Credential" { "status": "error",  "data": [],  "message": "invalid email or password",  "code": 401}
+     * 
+     */
     public function login(LoginRequest $request)
     {
         try {
@@ -34,6 +78,42 @@ class AuthenticationController extends Controller
     }
 
 
+    /**
+     * 
+     * Register user.
+     *
+     * @bodyParam   first_name    string  required    The first name of the  user.      Example: John
+     * @bodyParam   last_name    string  required    The password of the  user.   Example: Doe
+     * @bodyParam   email    string  required    The email of the  user.   Example: secret
+     * @bodyParam   password    string  required    The password of the  user.   Example: secret
+     * @bodyParam   username    string  required    The username of the  user.   Example: johndoe
+     * @bodyParam   token    string  required    The generated otp for the user.   Example: 339XXX
+     *
+     * @response {"status":"success",
+     * "data":{
+     *  "user":{
+     *      "email":"admuin1@dev.com",
+     *      "device_name":"PostmanRuntime/7.26.8",
+     *      "status":2,
+     *      "updated_at":"2022-01-09T21:18:14.000000Z",
+     *      "created_at":"2022-01-09T21:18:14.000000Z",
+     *      "id":5,
+     *      "email_verified_at":"2022-01-09T21:18:14.000000Z"
+     * },
+     *  "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ...."},
+     *  "message":"Registration successful!"
+     * },
+     * @response 422 scenario="Email Exist" 
+     * {"status":"error",
+     * "data":{
+     * "errors":{
+     *  "email":["The email has already been taken."]
+     * }
+     * },
+     *  "message":"The given data failed to pass validation.",
+     *  "code":9
+     * }
+     */
     public function register(RegisterRequest $request)
     {
 
@@ -65,12 +145,11 @@ class AuthenticationController extends Controller
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
-
     }
 
 
     /**
-     * THis logs the user out of the application
+     * Log user out of the app
      */
 
     public function logout(Request $request)
@@ -80,7 +159,7 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * return authenticated user
+     * Get authenticated user profile
      */
     public function user()
     {

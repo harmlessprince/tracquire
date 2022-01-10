@@ -32,22 +32,22 @@ class UserResource extends JsonResource
             'relationships' => [
                 'posts' => [
                     'links' => [
-                        'related' => route('users.posts', ['user' => $this->id])
+                        'related' => route('users.posts', ['user' => $this->id ?? 0])
                     ]
                 ],
                 'comments' => [
                     'links' => [
-                        'related' => route('users.comments', ['user' => $this->id])
+                        'related' => route('users.comments', ['user' => $this->id ?? 0])
                     ]
                 ],
                 'shots' => [
                     'links' => [
-                        'related' => route('users.shots', ['user' => $this->id])
+                        'related' => route('users.shots', ['user' => $this->id ?? 0])
                     ]
                 ],
                 'transactions' => [
                     'links' => [
-                        'related' => route('users.transactions', ['user' => $this->id])
+                        'related' => route('users.transactions', ['user' => $this->id ?? 0])
                     ]
                 ],
             ],

@@ -4,6 +4,10 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam email string required The user email address.
+ * @bodyParam password string required The the user new password.
+ */
 class LoginRequest extends FormRequest
 {
     /**
