@@ -67,10 +67,6 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::post('/{post}/shots', [PostShotRelatedController::class, 'store'])->name('shots.store');
         //create a bookmark against authenticated  user
         Route::post('/{post}/bookmarks', [BookmarkController::class, 'store'])->name('.bookmarks.store');
-        //remove a bookmark against authenticated  user
-        Route::delete('/{bookmark}/bookmarks', [BookmarkController::class, 'destroy'])->name('.bookmarks.delete');
-        //get all bookmark against authenticated  user
-        Route::get('/{post}/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
     });
     Route::prefix('users')->name('users.')->group(function () {
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
@@ -86,6 +82,8 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');
         //get all transactions that has been made by a user
         Route::get('/{user}/transactions', [UserTransactionsController::class, 'index'])->name('transactions');
+        //get all bookmark against authenticated  user
+        Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
     });
 
     //chat
@@ -95,8 +93,8 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     });
 
     Route::prefix('bookmarks')->name('bookmarks')->group(function (){
-
-
+        //remove a bookmark against authenticated  user
+        Route::delete('/{bookmark}', [BookmarkController::class, 'destroy'])->name('.delete');
     });
 
     //Comments
