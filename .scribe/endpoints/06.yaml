@@ -57,21 +57,21 @@ endpoints:
         name: token
         description: 'The token sent to the user.'
         required: true
-        example: quia
+        example: ipsum
         type: string
         custom: []
       email:
         name: email
         description: 'The user email address.'
         required: true
-        example: ex
+        example: ea
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: sed
+        example: sit
         type: string
         custom: []
     responses:

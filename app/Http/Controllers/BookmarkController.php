@@ -10,6 +10,11 @@ use App\Models\Bookmark;
 use App\Models\Post;
 use App\Repositories\Eloquent\Repository\BookmarkRepository;
 
+/**
+ * @group Bookmark
+ * @authenticated
+ * API endpoints for adding post to bookmark for authenticated users
+ */
 class BookmarkController extends Controller
 {
     private $bookmarkRepository;
@@ -20,7 +25,7 @@ class BookmarkController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * All Bookmarks For User
      *
      * @return \Illuminate\Http\Response
      */

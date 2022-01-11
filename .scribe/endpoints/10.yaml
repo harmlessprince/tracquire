@@ -18,7 +18,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 13
+        example: 14
         type: integer
         custom: []
     queryParameters: []
@@ -27,28 +27,28 @@ endpoints:
         name: first_name
         description: 'The user last name.'
         required: true
-        example: nulla
+        example: est
         type: string
         custom: []
       last_name:
         name: last_name
         description: 'The user first name.'
         required: true
-        example: modi
+        example: molestiae
         type: string
         custom: []
       phone:
         name: phone
         description: 'The the user phone number,this is a unique field.'
         required: true
-        example: eum
+        example: saepe
         type: string
         custom: []
       username:
         name: username
         description: 'The the user username and it must be unique.'
         required: true
-        example: in
+        example: vel
         type: string
         custom: []
     responses: []
@@ -70,7 +70,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 12
+        example: 2
         type: integer
         custom: []
     queryParameters: []
@@ -78,7 +78,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"6","type":"users","attributes":{"first_name":"Guy","last_name":"Hauck","username":"ukessler","phone":"(430) 961-9593","email":"kendra52@example.com","user_type":null,"country":"Australia","state":"Victoria","city":"Blackburn","avatar":""},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/transactions"}}}}}'
+        content: '{"data":{"id":"7","type":"users","attributes":{"first_name":"June","last_name":"Sporer","username":"mollie79","phone":"+1-551-234-1143","email":"koss.hattie@example.net","user_type":null,"country":"United States","state":"Illinois","city":"Chicago","avatar":""},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/transactions"}}}}}'
         headers: []
         description: null
     responseFields: []
@@ -99,7 +99,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 3
+        example: 10
         type: integer
         custom: []
     queryParameters: []
@@ -107,7 +107,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Rem suscipit saepe quia.","description":"Explicabo ut in totam cupiditate.","condition":"Voluptas est non ut ut.","shoot_able":false,"status":null,"category":"SWAP ITEM","country":"United States of America","state":"Lake Cecilia","city":"New Rethamouth","location":"de_AT","published_at":"2022-01-11T15:09:12.427358Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Maxime veniam temporibus numquam officiis vero.","description":"Ex numquam reprehenderit velit odio.","condition":"Voluptas cum ut explicabo aut.","shoot_able":true,"status":null,"category":"GIVE","country":"Sudan","state":"Solonshire","city":"North Katarinastad","location":"en_BW","published_at":"2022-01-11T15:09:12.430835Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Facere qui incidunt rerum unde.","description":"Rem debitis aut atque ea quis sed.","condition":"Animi error enim iste reprehenderit.","shoot_able":false,"status":null,"category":"SWAP SERVICE","country":"Mayotte","state":"East Abbigailville","city":"New Larry","location":"nso_ZA","published_at":"2022-01-11T15:12:06.627415Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Reiciendis dicta facere temporibus nobis.","description":"At ut repudiandae nihil.","condition":"Deserunt optio in et alias odio in dignissimos natus.","shoot_able":false,"status":null,"category":"GIVE","country":"Guinea","state":"South Berta","city":"New Aviston","location":"ku_IR","published_at":"2022-01-11T15:12:06.630646Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
         headers: []
         description: null
     responseFields: []

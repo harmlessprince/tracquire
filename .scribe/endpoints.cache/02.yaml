@@ -20,7 +20,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 13
+        example: 7
         type: integer
         custom: []
     queryParameters: []
@@ -28,7 +28,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"11","type":"comments","attributes":{"body":"Suscipit et porro consequatur corrupti nobis voluptatibus.","created_by":"Luz","created_at":"2022-01-11T15:09:11.000000Z","updated_at":"2022-01-11T15:09:11.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/11"}}}},{"id":"12","type":"comments","attributes":{"body":"Temporibus consequuntur accusantium corporis quia tenetur doloremque ut.","created_by":"John","created_at":"2022-01-11T15:09:11.000000Z","updated_at":"2022-01-11T15:09:11.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/7"}}}}]}'
+        content: '{"data":[{"id":"16","type":"comments","attributes":{"body":"Voluptates alias modi dolores velit voluptate et commodi nostrum.","created_by":"N\/A","created_at":"2022-01-11T15:12:06.000000Z","updated_at":"2022-01-11T15:12:06.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/14"}}}},{"id":"17","type":"comments","attributes":{"body":"Ipsa voluptatem consequatur eius impedit.","created_by":"Luz","created_at":"2022-01-11T15:12:06.000000Z","updated_at":"2022-01-11T15:12:06.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -49,7 +49,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 12
+        example: 17
         type: integer
         custom: []
     queryParameters: []
@@ -57,7 +57,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"14","type":"comments","attributes":{"body":"Aut earum optio distinctio aut.","created_by":"Luz","created_at":"2022-01-11T15:09:12.000000Z","updated_at":"2022-01-11T15:09:12.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/8"}}}},{"id":"15","type":"comments","attributes":{"body":"Ipsam quia nulla hic esse sint.","created_by":"Aiyana","created_at":"2022-01-11T15:09:12.000000Z","updated_at":"2022-01-11T15:09:12.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/6"}}}}]}'
+        content: '{"data":[{"id":"19","type":"comments","attributes":{"body":"Consequatur earum incidunt blanditiis illo.","created_by":"John","created_at":"2022-01-11T15:12:06.000000Z","updated_at":"2022-01-11T15:12:06.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/1"}}}},{"id":"20","type":"comments","attributes":{"body":"Amet sint voluptatem corrupti autem architecto nesciunt quia.","created_by":"Aiyana","created_at":"2022-01-11T15:12:06.000000Z","updated_at":"2022-01-11T15:12:06.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -78,7 +78,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 4
+        example: 8
         type: integer
         custom: []
     queryParameters: []
@@ -87,13 +87,13 @@ endpoints:
         name: body
         description: 'The body of the post and it is maximum of 255 character.'
         required: true
-        example: quae
+        example: excepturi
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"13","type":"comments","attributes":{"body":"Nam corrupti odio est.","created_by":"N\/A","created_at":"2022-01-11T15:09:11.000000Z","updated_at":"2022-01-11T15:09:11.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/5"}}}}}'
+        content: '{"data":{"id":"18","type":"comments","attributes":{"body":"Quia modi corrupti sint incidunt quasi.","created_by":"John","created_at":"2022-01-11T15:12:06.000000Z","updated_at":"2022-01-11T15:12:06.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/11"}}}}}'
         headers: []
         description: null
     responseFields: []
