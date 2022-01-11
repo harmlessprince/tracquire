@@ -28,6 +28,6 @@ class CreditUserWalletListener
      */
     public function handle(CreditUserWalletEvent $creditUserWalletEvent)
     {
-     $creditUserWalletEvent->user->deposit($creditUserWalletEvent->userAction['reward'], ['action' => $creditUserWalletEvent->userAction['name']]);
+        $creditUserWalletEvent->user->deposit($creditUserWalletEvent->userAction['reward'], ['action' => $creditUserWalletEvent->userAction['name']]);
     }
 }

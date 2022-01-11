@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Bavix\Wallet\Traits\HasWallet;
 use Bavix\Wallet\Interfaces\Wallet;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Passport\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
@@ -64,6 +65,12 @@ class User extends Authenticatable implements HasMedia, Wallet
     {
         return $this->hasMany(Post::class);
     }
+
+    public function bookmarks(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'bookmarks')->withTimestamps();
+    }
+
 
     public function comments(): MorphMany
     {

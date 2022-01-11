@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
@@ -49,26 +50,32 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:api')->prefix('v1')->group(function () {
     //Posts
     Route::apiResource('posts', PostController::class);
-    Route::prefix('posts')->group(function () {
+    Route::prefix('posts')->name('posts.')->group(function () {
         //search through posts
-        Route::get('/search', [PostController::class, 'search'])->name('posts.search');
+        Route::get('/search', [PostController::class, 'search'])->name('search');
         //get all comments under a post
-        Route::get('/{post}/comments', [PostCommentRelatedController::class, 'index'])->name('posts.comments');
+        Route::get('/{post}/comments', [PostCommentRelatedController::class, 'index'])->name('comments');
         //create a comment against a post
-        Route::post('/{post}/comments', [PostCommentRelatedController::class, 'store'])->name('posts.comments.store');
+        Route::post('/{post}/comments', [PostCommentRelatedController::class, 'store'])->name('comments.store');
         //get list of all comments related to a posts
         // Route::get('/{post}/relationships/comments', [PostsCommentsRelationshipsController::class, 'index'])->name('posts.relationships.comments');
         //view all shot related to a particular post
-        Route::get('/{post}/shots', [PostShotRelatedController::class, 'index'])->name('posts.shots.index');
+        Route::get('/{post}/shots', [PostShotRelatedController::class, 'index'])->name('shots.index');
         //view a particular shot related to a particular post
-        Route::get('/{post}/shots/{shot}', [PostShotRelatedController::class, 'show'])->name('posts.shots.show');
+        Route::get('/{post}/shots/{shot}', [PostShotRelatedController::class, 'show'])->name('shots.show');
         //create a shot against the post passed
-        Route::post('/{post}/shots', [PostShotRelatedController::class, 'store'])->name('posts.shots.store');
+        Route::post('/{post}/shots', [PostShotRelatedController::class, 'store'])->name('shots.store');
+        //create a bookmark against authenticated  user
+        Route::post('/{post}/bookmarks', [BookmarkController::class, 'store'])->name('.bookmarks.store');
+        //remove a bookmark against authenticated  user
+        Route::delete('/{bookmark}/bookmarks', [BookmarkController::class, 'destroy'])->name('.bookmarks.delete');
+        //get all bookmark against authenticated  user
+        Route::get('/{post}/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
     });
     Route::prefix('users')->name('users.')->group(function () {
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
-    
+
         //upload profile pictures for a user
         Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');
         //Get all the posts of a user
@@ -87,9 +94,14 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/load/messages/{receiver}', [MessageController::class, 'show'])->name('load.messages');
     });
 
+    Route::prefix('bookmarks')->name('bookmarks')->group(function (){
+
+
+    });
+
     //Comments
     //    Route::apiResource('comments', CommentController::class);
     //users
     // Route::apiResource('users', UserController::class);
-   
+
 });
