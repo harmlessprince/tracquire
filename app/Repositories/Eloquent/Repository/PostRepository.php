@@ -18,7 +18,7 @@ class PostRepository extends BaseRepository
     public function search()
     {
         return QueryBuilder::for($this->model)
-            ->allowedFilters(['description', 'condition', 'title'])->jsonPaginate();
+            ->allowedFilters(['description', 'condition', 'title']);
     }
 
     /**

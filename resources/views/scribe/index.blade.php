@@ -70,22 +70,6 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="bookmark">
-                    <a href="#bookmark">Bookmark</a>
-                </li>
-                                    <ul id="tocify-subheader-bookmark" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="bookmark-POSTapi-v1-posts--post--bookmarks">
-                        <a href="#bookmark-POSTapi-v1-posts--post--bookmarks">Bookmark Post</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="bookmark-DELETEapi-v1-posts--bookmark--bookmarks">
-                        <a href="#bookmark-DELETEapi-v1-posts--bookmark--bookmarks">Remove Post From Bookmark</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="bookmark-GETapi-v1-posts--post_id--bookmarks">
-                        <a href="#bookmark-GETapi-v1-posts--post_id--bookmarks">All Bookmarks For User</a>
-                    </li>
-                                                    </ul>
-                            </ul>
-                    <ul id="tocify-header-3" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="authentication">
                     <a href="#authentication">Authentication</a>
                 </li>
@@ -104,13 +88,29 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-4" class="tocify-header">
+                    <ul id="tocify-header-3" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="avatar">
                     <a href="#avatar">Avatar</a>
                 </li>
                                     <ul id="tocify-subheader-avatar" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="avatar-POSTapi-v1-users--user--profile-image">
                         <a href="#avatar-POSTapi-v1-users--user--profile-image">Update Avatar</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="bookmark">
+                    <a href="#bookmark">Bookmark</a>
+                </li>
+                                    <ul id="tocify-subheader-bookmark" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="bookmark-POSTapi-v1-posts--post--bookmarks">
+                        <a href="#bookmark-POSTapi-v1-posts--post--bookmarks">Bookmark Post</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="bookmark-GETapi-v1-users-bookmarks">
+                        <a href="#bookmark-GETapi-v1-users-bookmarks">All Bookmarks For User</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="bookmark-DELETEapi-v1-bookmarks--bookmark-">
+                        <a href="#bookmark-DELETEapi-v1-bookmarks--bookmark-">Remove Post From Bookmark</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -183,18 +183,25 @@
                                     <li class="tocify-item level-2" data-unique="post-GETapi-v1-posts--id-">
                         <a href="#post-GETapi-v1-posts--id-">Show Post</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="post-PUTapi-v1-posts--id-">
-                        <a href="#post-PUTapi-v1-posts--id-">Update Post</a>
-                    </li>
                                     <li class="tocify-item level-2" data-unique="post-DELETEapi-v1-posts--id-">
                         <a href="#post-DELETEapi-v1-posts--id-">Delete Post</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="post-GETapi-v1-posts-search">
-                        <a href="#post-GETapi-v1-posts-search">Search Through All Posts</a>
+                                    <li class="tocify-item level-2" data-unique="post-PATCHapi-v1-posts--id-">
+                        <a href="#post-PATCHapi-v1-posts--id-">Update Post</a>
                     </li>
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-10" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="search-post">
+                    <a href="#search-post">Search Post</a>
+                </li>
+                                    <ul id="tocify-subheader-search-post" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="search-post-GETapi-v1-search">
+                        <a href="#search-post-GETapi-v1-search">Search Through All Posts</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-11" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="shot">
                     <a href="#shot">Shot</a>
                 </li>
@@ -213,7 +220,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-11" class="tocify-header">
+                    <ul id="tocify-header-12" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="transaction">
                     <a href="#transaction">Transaction</a>
                 </li>
@@ -223,7 +230,7 @@
                     </li>
                                                     </ul>
                             </ul>
-                    <ul id="tocify-header-12" class="tocify-header">
+                    <ul id="tocify-header-13" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="user">
                     <a href="#user">User</a>
                 </li>
@@ -269,324 +276,6 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="bookmark">Bookmark</h1>
-
-    
-
-            <h2 id="bookmark-POSTapi-v1-posts--post--bookmarks">Bookmark Post</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-posts--post--bookmarks">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://barter.test/api/v1/posts/15/bookmarks" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/15/bookmarks"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-posts--post--bookmarks">
-</span>
-<span id="execution-results-POSTapi-v1-posts--post--bookmarks" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-posts--post--bookmarks"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-posts--post--bookmarks"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-posts--post--bookmarks" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-posts--post--bookmarks"></code></pre>
-</span>
-<form id="form-POSTapi-v1-posts--post--bookmarks" data-method="POST"
-      data-path="api/v1/posts/{post}/bookmarks"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-posts--post--bookmarks', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-posts--post--bookmarks"
-                    onclick="tryItOut('POSTapi-v1-posts--post--bookmarks');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-posts--post--bookmarks"
-                    onclick="cancelTryOut('POSTapi-v1-posts--post--bookmarks');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-posts--post--bookmarks" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/posts/{post}/bookmarks</code></b>
-        </p>
-                <p>
-            <label id="auth-POSTapi-v1-posts--post--bookmarks" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="POSTapi-v1-posts--post--bookmarks"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>post</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="post"
-               data-endpoint="POSTapi-v1-posts--post--bookmarks"
-               value="15"
-               data-component="url" hidden>
-    <br>
-
-            </p>
-                    </form>
-
-            <h2 id="bookmark-DELETEapi-v1-posts--bookmark--bookmarks">Remove Post From Bookmark</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-v1-posts--bookmark--bookmarks">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://barter.test/api/v1/posts/12/bookmarks" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/12/bookmarks"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-posts--bookmark--bookmarks">
-</span>
-<span id="execution-results-DELETEapi-v1-posts--bookmark--bookmarks" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-posts--bookmark--bookmarks"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-posts--bookmark--bookmarks"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-posts--bookmark--bookmarks" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-posts--bookmark--bookmarks"></code></pre>
-</span>
-<form id="form-DELETEapi-v1-posts--bookmark--bookmarks" data-method="DELETE"
-      data-path="api/v1/posts/{bookmark}/bookmarks"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-posts--bookmark--bookmarks', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-posts--bookmark--bookmarks"
-                    onclick="tryItOut('DELETEapi-v1-posts--bookmark--bookmarks');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-posts--bookmark--bookmarks"
-                    onclick="cancelTryOut('DELETEapi-v1-posts--bookmark--bookmarks');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-posts--bookmark--bookmarks" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/posts/{bookmark}/bookmarks</code></b>
-        </p>
-                <p>
-            <label id="auth-DELETEapi-v1-posts--bookmark--bookmarks" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="DELETEapi-v1-posts--bookmark--bookmarks"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>bookmark</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="bookmark"
-               data-endpoint="DELETEapi-v1-posts--bookmark--bookmarks"
-               value="12"
-               data-component="url" hidden>
-    <br>
-
-            </p>
-                    </form>
-
-            <h2 id="bookmark-GETapi-v1-posts--post_id--bookmarks">All Bookmarks For User</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-posts--post_id--bookmarks">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/posts/15/bookmarks" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/15/bookmarks"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-posts--post_id--bookmarks">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">{
-    &quot;status&quot;: &quot;error&quot;,
-    &quot;data&quot;: [],
-    &quot;message&quot;: &quot;Unauthenticated.&quot;,
-    &quot;code&quot;: 10
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-posts--post_id--bookmarks" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-posts--post_id--bookmarks"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-posts--post_id--bookmarks"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-posts--post_id--bookmarks" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-posts--post_id--bookmarks"></code></pre>
-</span>
-<form id="form-GETapi-v1-posts--post_id--bookmarks" data-method="GET"
-      data-path="api/v1/posts/{post_id}/bookmarks"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-posts--post_id--bookmarks', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-posts--post_id--bookmarks"
-                    onclick="tryItOut('GETapi-v1-posts--post_id--bookmarks');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-posts--post_id--bookmarks"
-                    onclick="cancelTryOut('GETapi-v1-posts--post_id--bookmarks');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-posts--post_id--bookmarks" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/posts/{post_id}/bookmarks</code></b>
-        </p>
-                <p>
-            <label id="auth-GETapi-v1-posts--post_id--bookmarks" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="GETapi-v1-posts--post_id--bookmarks"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>post_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="post_id"
-               data-endpoint="GETapi-v1-posts--post_id--bookmarks"
-               value="15"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the post.</p>
-            </p>
-                    </form>
-
         <h1 id="authentication">Authentication</h1>
 
     <p>API endpoints for managing authentication</p>
@@ -608,8 +297,8 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"commodi\",
-    \"password\": \"sit\"
+    \"email\": \"natus\",
+    \"password\": \"aut\"
 }"
 </code></pre></div>
 
@@ -625,8 +314,8 @@ const headers = {
 };
 
 let body = {
-    "email": "commodi",
-    "password": "sit"
+    "email": "natus",
+    "password": "aut"
 };
 
 fetch(url, {
@@ -730,7 +419,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-login"
-               value="commodi"
+               value="natus"
                data-component="body" hidden>
     <br>
 <p>The user email address.</p>
@@ -740,7 +429,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-login"
-               value="sit"
+               value="aut"
                data-component="body" hidden>
     <br>
 <p>The the user new password.</p>
@@ -764,9 +453,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"token\": \"unde\",
-    \"email\": \"omnis\",
-    \"password\": \"placeat\"
+    \"token\": \"et\",
+    \"email\": \"odit\",
+    \"password\": \"est\"
 }"
 </code></pre></div>
 
@@ -782,9 +471,9 @@ const headers = {
 };
 
 let body = {
-    "token": "unde",
-    "email": "omnis",
-    "password": "placeat"
+    "token": "et",
+    "email": "odit",
+    "password": "est"
 };
 
 fetch(url, {
@@ -880,7 +569,7 @@ fetch(url, {
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-auth-register"
-               value="unde"
+               value="et"
                data-component="body" hidden>
     <br>
 <p>The token sent to the user.</p>
@@ -890,7 +579,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-register"
-               value="omnis"
+               value="odit"
                data-component="body" hidden>
     <br>
 <p>The the user email,this is a unique field.</p>
@@ -900,7 +589,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-register"
-               value="placeat"
+               value="est"
                data-component="body" hidden>
     <br>
 <p>The user password.</p>
@@ -1121,18 +810,18 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://barter.test/api/v1/users/9/profile/image" \
+    "http://barter.test/api/v1/users/1/profile/image" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"avatar\": \"tempore\"
+    \"avatar\": \"dolor\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/9/profile/image"
+    "http://barter.test/api/v1/users/1/profile/image"
 );
 
 const headers = {
@@ -1141,7 +830,7 @@ const headers = {
 };
 
 let body = {
-    "avatar": "tempore"
+    "avatar": "dolor"
 };
 
 fetch(url, {
@@ -1207,7 +896,7 @@ fetch(url, {
                 <input type="number"
                name="user"
                data-endpoint="POSTapi-v1-users--user--profile-image"
-               value="9"
+               value="1"
                data-component="url" hidden>
     <br>
 
@@ -1218,12 +907,319 @@ fetch(url, {
                 <input type="text"
                name="avatar"
                data-endpoint="POSTapi-v1-users--user--profile-image"
-               value="tempore"
+               value="dolor"
                data-component="body" hidden>
     <br>
 <p>The user profile picture and accepted types are jpeg and jpg and max size of 2M.</p>
         </p>
         </form>
+
+        <h1 id="bookmark">Bookmark</h1>
+
+    
+
+            <h2 id="bookmark-POSTapi-v1-posts--post--bookmarks">Bookmark Post</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This endpoint is used to add the supplied post to authenticated user bookmark</p>
+
+<span id="example-requests-POSTapi-v1-posts--post--bookmarks">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://barter.test/api/v1/posts/5/bookmarks" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://barter.test/api/v1/posts/5/bookmarks"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-posts--post--bookmarks">
+</span>
+<span id="execution-results-POSTapi-v1-posts--post--bookmarks" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-posts--post--bookmarks"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-posts--post--bookmarks"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-posts--post--bookmarks" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-posts--post--bookmarks"></code></pre>
+</span>
+<form id="form-POSTapi-v1-posts--post--bookmarks" data-method="POST"
+      data-path="api/v1/posts/{post}/bookmarks"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-posts--post--bookmarks', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-posts--post--bookmarks"
+                    onclick="tryItOut('POSTapi-v1-posts--post--bookmarks');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-posts--post--bookmarks"
+                    onclick="cancelTryOut('POSTapi-v1-posts--post--bookmarks');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-posts--post--bookmarks" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/posts/{post}/bookmarks</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-v1-posts--post--bookmarks" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-v1-posts--post--bookmarks"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>post</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="post"
+               data-endpoint="POSTapi-v1-posts--post--bookmarks"
+               value="5"
+               data-component="url" hidden>
+    <br>
+<p>The post's ID.</p>
+            </p>
+                    </form>
+
+            <h2 id="bookmark-GETapi-v1-users-bookmarks">All Bookmarks For User</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This endpoint is used to fetch all the post the authenticated user has bookmarked</p>
+
+<span id="example-requests-GETapi-v1-users-bookmarks">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://barter.test/api/v1/users/bookmarks" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://barter.test/api/v1/users/bookmarks"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users-bookmarks">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;data&quot;: [],
+    &quot;message&quot;: &quot;Unauthenticated.&quot;,
+    &quot;code&quot;: 10
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users-bookmarks" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users-bookmarks"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users-bookmarks"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users-bookmarks" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users-bookmarks"></code></pre>
+</span>
+<form id="form-GETapi-v1-users-bookmarks" data-method="GET"
+      data-path="api/v1/users/bookmarks"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users-bookmarks', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users-bookmarks"
+                    onclick="tryItOut('GETapi-v1-users-bookmarks');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users-bookmarks"
+                    onclick="cancelTryOut('GETapi-v1-users-bookmarks');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users-bookmarks" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users/bookmarks</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-v1-users-bookmarks" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-v1-users-bookmarks"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="bookmark-DELETEapi-v1-bookmarks--bookmark-">Remove Post From Bookmark</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This supplied ID will be used detach the post from user bookmarks</p>
+
+<span id="example-requests-DELETEapi-v1-bookmarks--bookmark-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://barter.test/api/v1/bookmarks/10" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://barter.test/api/v1/bookmarks/10"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-bookmarks--bookmark-">
+</span>
+<span id="execution-results-DELETEapi-v1-bookmarks--bookmark-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-bookmarks--bookmark-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-bookmarks--bookmark-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-bookmarks--bookmark-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-bookmarks--bookmark-"></code></pre>
+</span>
+<form id="form-DELETEapi-v1-bookmarks--bookmark-" data-method="DELETE"
+      data-path="api/v1/bookmarks/{bookmark}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-bookmarks--bookmark-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-bookmarks--bookmark-"
+                    onclick="tryItOut('DELETEapi-v1-bookmarks--bookmark-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-bookmarks--bookmark-"
+                    onclick="cancelTryOut('DELETEapi-v1-bookmarks--bookmark-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-bookmarks--bookmark-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/bookmarks/{bookmark}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-v1-bookmarks--bookmark-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-v1-bookmarks--bookmark-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>bookmark</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="bookmark"
+               data-endpoint="DELETEapi-v1-bookmarks--bookmark-"
+               value="10"
+               data-component="url" hidden>
+    <br>
+<p>The bookmark's ID.</p>
+            </p>
+                    </form>
 
         <h1 id="comment">Comment</h1>
 
@@ -1243,14 +1239,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/posts/7/comments" \
+    --get "http://barter.test/api/v1/posts/14/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/7/comments"
+    "http://barter.test/api/v1/posts/14/comments"
 );
 
 const headers = {
@@ -1274,35 +1270,35 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;16&quot;,
+            &quot;id&quot;: &quot;76&quot;,
             &quot;type&quot;: &quot;comments&quot;,
             &quot;attributes&quot;: {
-                &quot;body&quot;: &quot;Voluptates alias modi dolores velit voluptate et commodi nostrum.&quot;,
-                &quot;created_by&quot;: &quot;N/A&quot;,
-                &quot;created_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;
+                &quot;body&quot;: &quot;Omnis voluptas accusamus pariatur adipisci.&quot;,
+                &quot;created_by&quot;: &quot;Luz&quot;,
+                &quot;created_at&quot;: &quot;2022-01-11T19:04:34.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-01-11T19:04:34.000000Z&quot;
             },
             &quot;relationships&quot;: {
                 &quot;post&quot;: {
                     &quot;links&quot;: {
-                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/14&quot;
+                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/4&quot;
                     }
                 }
             }
         },
         {
-            &quot;id&quot;: &quot;17&quot;,
+            &quot;id&quot;: &quot;77&quot;,
             &quot;type&quot;: &quot;comments&quot;,
             &quot;attributes&quot;: {
-                &quot;body&quot;: &quot;Ipsa voluptatem consequatur eius impedit.&quot;,
-                &quot;created_by&quot;: &quot;Luz&quot;,
-                &quot;created_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;
+                &quot;body&quot;: &quot;Illo aliquid cupiditate deleniti aut et rerum vero facilis.&quot;,
+                &quot;created_by&quot;: &quot;John&quot;,
+                &quot;created_at&quot;: &quot;2022-01-11T19:04:34.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-01-11T19:04:34.000000Z&quot;
             },
             &quot;relationships&quot;: {
                 &quot;post&quot;: {
                     &quot;links&quot;: {
-                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/10&quot;
+                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/15&quot;
                     }
                 }
             }
@@ -1364,7 +1360,7 @@ fetch(url, {
                 <input type="number"
                name="post"
                data-endpoint="GETapi-v1-posts--post--comments"
-               value="7"
+               value="14"
                data-component="url" hidden>
     <br>
 
@@ -1385,14 +1381,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/users/17/comments" \
+    --get "http://barter.test/api/v1/users/9/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/17/comments"
+    "http://barter.test/api/v1/users/9/comments"
 );
 
 const headers = {
@@ -1416,35 +1412,35 @@ fetch(url, {
 <code class="language-json">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;19&quot;,
+            &quot;id&quot;: &quot;79&quot;,
             &quot;type&quot;: &quot;comments&quot;,
             &quot;attributes&quot;: {
-                &quot;body&quot;: &quot;Consequatur earum incidunt blanditiis illo.&quot;,
-                &quot;created_by&quot;: &quot;John&quot;,
-                &quot;created_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;
+                &quot;body&quot;: &quot;Officiis laboriosam et facere modi eos amet inventore.&quot;,
+                &quot;created_by&quot;: &quot;Rachael&quot;,
+                &quot;created_at&quot;: &quot;2022-01-11T19:04:35.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-01-11T19:04:35.000000Z&quot;
             },
             &quot;relationships&quot;: {
                 &quot;post&quot;: {
                     &quot;links&quot;: {
-                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/1&quot;
+                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/16&quot;
                     }
                 }
             }
         },
         {
-            &quot;id&quot;: &quot;20&quot;,
+            &quot;id&quot;: &quot;80&quot;,
             &quot;type&quot;: &quot;comments&quot;,
             &quot;attributes&quot;: {
-                &quot;body&quot;: &quot;Amet sint voluptatem corrupti autem architecto nesciunt quia.&quot;,
-                &quot;created_by&quot;: &quot;Aiyana&quot;,
-                &quot;created_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;
+                &quot;body&quot;: &quot;Repudiandae veniam voluptate illo adipisci totam.&quot;,
+                &quot;created_by&quot;: &quot;N/A&quot;,
+                &quot;created_at&quot;: &quot;2022-01-11T19:04:35.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2022-01-11T19:04:35.000000Z&quot;
             },
             &quot;relationships&quot;: {
                 &quot;post&quot;: {
                     &quot;links&quot;: {
-                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/10&quot;
+                        &quot;related&quot;: &quot;http://barter.test/api/v1/posts/3&quot;
                     }
                 }
             }
@@ -1506,7 +1502,7 @@ fetch(url, {
                 <input type="number"
                name="user"
                data-endpoint="GETapi-v1-users--user--comments"
-               value="17"
+               value="9"
                data-component="url" hidden>
     <br>
 
@@ -1527,18 +1523,18 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://barter.test/api/v1/posts/8/comments" \
+    "http://barter.test/api/v1/posts/10/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"body\": \"excepturi\"
+    \"body\": \"temporibus\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/8/comments"
+    "http://barter.test/api/v1/posts/10/comments"
 );
 
 const headers = {
@@ -1547,7 +1543,7 @@ const headers = {
 };
 
 let body = {
-    "body": "excepturi"
+    "body": "temporibus"
 };
 
 fetch(url, {
@@ -1566,18 +1562,18 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;18&quot;,
+        &quot;id&quot;: &quot;78&quot;,
         &quot;type&quot;: &quot;comments&quot;,
         &quot;attributes&quot;: {
-            &quot;body&quot;: &quot;Quia modi corrupti sint incidunt quasi.&quot;,
-            &quot;created_by&quot;: &quot;John&quot;,
-            &quot;created_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2022-01-11T15:12:06.000000Z&quot;
+            &quot;body&quot;: &quot;In autem velit adipisci at est laboriosam sapiente.&quot;,
+            &quot;created_by&quot;: &quot;Aiyana&quot;,
+            &quot;created_at&quot;: &quot;2022-01-11T19:04:34.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-11T19:04:34.000000Z&quot;
         },
         &quot;relationships&quot;: {
             &quot;post&quot;: {
                 &quot;links&quot;: {
-                    &quot;related&quot;: &quot;http://barter.test/api/v1/posts/11&quot;
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/posts/2&quot;
                 }
             }
         }
@@ -1638,7 +1634,7 @@ fetch(url, {
                 <input type="number"
                name="post"
                data-endpoint="POSTapi-v1-posts--post--comments"
-               value="8"
+               value="10"
                data-component="url" hidden>
     <br>
 
@@ -1649,7 +1645,7 @@ fetch(url, {
                 <input type="text"
                name="body"
                data-endpoint="POSTapi-v1-posts--post--comments"
-               value="excepturi"
+               value="temporibus"
                data-component="body" hidden>
     <br>
 <p>The body of the post and it is maximum of 255 character.</p>
@@ -1678,10 +1674,10 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"receiver\": 17,
-    \"message\": \"minus\",
+    \"receiver\": 13,
+    \"message\": \"corrupti\",
     \"data\": [
-        \"aperiam\"
+        \"saepe\"
     ]
 }"
 </code></pre></div>
@@ -1698,10 +1694,10 @@ const headers = {
 };
 
 let body = {
-    "receiver": 17,
-    "message": "minus",
+    "receiver": 13,
+    "message": "corrupti",
     "data": [
-        "aperiam"
+        "saepe"
     ]
 };
 
@@ -1768,7 +1764,7 @@ fetch(url, {
                 <input type="number"
                name="receiver"
                data-endpoint="POSTapi-v1-chats-send-message"
-               value="17"
+               value="13"
                data-component="body" hidden>
     <br>
 <p>The user receiving the message ID.</p>
@@ -1778,7 +1774,7 @@ fetch(url, {
                 <input type="text"
                name="message"
                data-endpoint="POSTapi-v1-chats-send-message"
-               value="minus"
+               value="corrupti"
                data-component="body" hidden>
     <br>
 <p>The message been sent to the user.</p>
@@ -1812,14 +1808,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/chats/load/messages/13" \
+    --get "http://barter.test/api/v1/chats/load/messages/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/chats/load/messages/13"
+    "http://barter.test/api/v1/chats/load/messages/7"
 );
 
 const headers = {
@@ -1909,7 +1905,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="receiver"
                data-endpoint="GETapi-v1-chats-load-messages--receiver-"
-               value="13"
+               value="7"
                data-component="url" hidden>
     <br>
 
@@ -1937,9 +1933,9 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"libero\",
-    \"username\": \"laboriosam\",
-    \"phone\": \"molestiae\"
+    \"email\": \"illo\",
+    \"username\": \"molestias\",
+    \"phone\": \"voluptatibus\"
 }"
 </code></pre></div>
 
@@ -1955,9 +1951,9 @@ const headers = {
 };
 
 let body = {
-    "email": "libero",
-    "username": "laboriosam",
-    "phone": "molestiae"
+    "email": "illo",
+    "username": "molestias",
+    "phone": "voluptatibus"
 };
 
 fetch(url, {
@@ -2015,7 +2011,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-generate-otp"
-               value="libero"
+               value="illo"
                data-component="body" hidden>
     <br>
 <p>The user email address.</p>
@@ -2025,7 +2021,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-auth-generate-otp"
-               value="laboriosam"
+               value="molestias"
                data-component="body" hidden>
     <br>
 <p>The user username.</p>
@@ -2035,7 +2031,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-auth-generate-otp"
-               value="molestiae"
+               value="voluptatibus"
                data-component="body" hidden>
     <br>
 <p>The the user phone number.</p>
@@ -2059,8 +2055,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"identifier\": \"reprehenderit\",
-    \"token\": \"mollitia\"
+    \"identifier\": \"eos\",
+    \"token\": \"molestias\"
 }"
 </code></pre></div>
 
@@ -2076,8 +2072,8 @@ const headers = {
 };
 
 let body = {
-    "identifier": "reprehenderit",
-    "token": "mollitia"
+    "identifier": "eos",
+    "token": "molestias"
 };
 
 fetch(url, {
@@ -2135,7 +2131,7 @@ fetch(url, {
                 <input type="text"
                name="identifier"
                data-endpoint="POSTapi-auth-email-verify-otp"
-               value="reprehenderit"
+               value="eos"
                data-component="body" hidden>
     <br>
 <p>The user email address.</p>
@@ -2145,7 +2141,7 @@ fetch(url, {
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-auth-email-verify-otp"
-               value="mollitia"
+               value="molestias"
                data-component="body" hidden>
     <br>
 <p>The otp sent to the user email address.</p>
@@ -2283,9 +2279,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"token\": \"ipsum\",
-    \"email\": \"ea\",
-    \"password\": \"sit\"
+    \"token\": \"voluptas\",
+    \"email\": \"quos\",
+    \"password\": \"alias\"
 }"
 </code></pre></div>
 
@@ -2301,9 +2297,9 @@ const headers = {
 };
 
 let body = {
-    "token": "ipsum",
-    "email": "ea",
-    "password": "sit"
+    "token": "voluptas",
+    "email": "quos",
+    "password": "alias"
 };
 
 fetch(url, {
@@ -2373,7 +2369,7 @@ fetch(url, {
                 <input type="text"
                name="token"
                data-endpoint="POSTapi-auth-reset-password"
-               value="ipsum"
+               value="voluptas"
                data-component="body" hidden>
     <br>
 <p>The token sent to the user.</p>
@@ -2383,7 +2379,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-reset-password"
-               value="ea"
+               value="quos"
                data-component="body" hidden>
     <br>
 <p>The user email address.</p>
@@ -2393,7 +2389,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-reset-password"
-               value="sit"
+               value="alias"
                data-component="body" hidden>
     <br>
 <p>The the user new password.</p>
@@ -2454,17 +2450,17 @@ fetch(url, {
                 &quot;type&quot;: &quot;posts&quot;,
                 &quot;attributes&quot;: {
                     &quot;author&quot;: &quot;James Bond&quot;,
-                    &quot;title&quot;: &quot;Excepturi neque voluptatem minus.&quot;,
-                    &quot;description&quot;: &quot;Et laudantium velit culpa aut veritatis.&quot;,
-                    &quot;condition&quot;: &quot;Ad aut necessitatibus consectetur minus odio iure.&quot;,
-                    &quot;shoot_able&quot;: false,
+                    &quot;title&quot;: &quot;Suscipit iste vitae nesciunt animi ipsam.&quot;,
+                    &quot;description&quot;: &quot;Dolores sit sunt sit.&quot;,
+                    &quot;condition&quot;: &quot;Eum corrupti et repellendus.&quot;,
+                    &quot;shoot_able&quot;: true,
                     &quot;status&quot;: null,
-                    &quot;category&quot;: &quot;SWAP SERVICE&quot;,
-                    &quot;country&quot;: &quot;Iraq&quot;,
-                    &quot;state&quot;: &quot;Herzoghaven&quot;,
-                    &quot;city&quot;: &quot;South Lee&quot;,
-                    &quot;location&quot;: &quot;pl_PL&quot;,
-                    &quot;published_at&quot;: &quot;2022-01-11T15:12:06.179500Z&quot;,
+                    &quot;category&quot;: &quot;GIVE&quot;,
+                    &quot;country&quot;: &quot;United Kingdom&quot;,
+                    &quot;state&quot;: &quot;Port Roel&quot;,
+                    &quot;city&quot;: &quot;West Sincereside&quot;,
+                    &quot;location&quot;: &quot;zh_SG&quot;,
+                    &quot;published_at&quot;: &quot;2022-01-11T19:04:34.727999Z&quot;,
                     &quot;created_at&quot;: null,
                     &quot;updated_at&quot;: null,
                     &quot;images&quot;: []
@@ -2482,17 +2478,17 @@ fetch(url, {
                 &quot;type&quot;: &quot;posts&quot;,
                 &quot;attributes&quot;: {
                     &quot;author&quot;: &quot;James Bond&quot;,
-                    &quot;title&quot;: &quot;Occaecati aut sit quis quis sequi.&quot;,
-                    &quot;description&quot;: &quot;Et velit non qui deserunt.&quot;,
-                    &quot;condition&quot;: &quot;Sit ad sequi quibusdam incidunt fugit voluptatem ipsa.&quot;,
+                    &quot;title&quot;: &quot;In itaque blanditiis voluptas.&quot;,
+                    &quot;description&quot;: &quot;Itaque est dolorem beatae neque amet doloremque.&quot;,
+                    &quot;condition&quot;: &quot;Quaerat fugiat ut et.&quot;,
                     &quot;shoot_able&quot;: false,
                     &quot;status&quot;: null,
-                    &quot;category&quot;: &quot;SWAP ITEM&quot;,
-                    &quot;country&quot;: &quot;Saint Martin&quot;,
-                    &quot;state&quot;: &quot;Barrowsmouth&quot;,
-                    &quot;city&quot;: &quot;Lake Harvey&quot;,
-                    &quot;location&quot;: &quot;ar_EG&quot;,
-                    &quot;published_at&quot;: &quot;2022-01-11T15:12:06.184075Z&quot;,
+                    &quot;category&quot;: &quot;GIVE&quot;,
+                    &quot;country&quot;: &quot;Albania&quot;,
+                    &quot;state&quot;: &quot;Hoseaville&quot;,
+                    &quot;city&quot;: &quot;Ebbamouth&quot;,
+                    &quot;location&quot;: &quot;nr_ZA&quot;,
+                    &quot;published_at&quot;: &quot;2022-01-11T19:04:34.731522Z&quot;,
                     &quot;created_at&quot;: null,
                     &quot;updated_at&quot;: null,
                     &quot;images&quot;: []
@@ -2577,15 +2573,15 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"category\": 15,
-    \"description\": \"commodi\",
-    \"condition\": \"ea\",
+    \"category\": 9,
+    \"description\": \"praesentium\",
+    \"condition\": \"voluptatum\",
     \"images\": [
-        \"aliquid\"
+        \"nisi\"
     ],
-    \"wishlist\": \"ea\",
-    \"portfolio\": \"inventore\",
-    \"shoot_able\": true
+    \"wishlist\": \"culpa\",
+    \"portfolio\": \"enim\",
+    \"shoot_able\": false
 }"
 </code></pre></div>
 
@@ -2601,15 +2597,15 @@ const headers = {
 };
 
 let body = {
-    "category": 15,
-    "description": "commodi",
-    "condition": "ea",
+    "category": 9,
+    "description": "praesentium",
+    "condition": "voluptatum",
     "images": [
-        "aliquid"
+        "nisi"
     ],
-    "wishlist": "ea",
-    "portfolio": "inventore",
-    "shoot_able": true
+    "wishlist": "culpa",
+    "portfolio": "enim",
+    "shoot_able": false
 };
 
 fetch(url, {
@@ -2632,17 +2628,17 @@ fetch(url, {
         &quot;type&quot;: &quot;posts&quot;,
         &quot;attributes&quot;: {
             &quot;author&quot;: &quot;James Bond&quot;,
-            &quot;title&quot;: &quot;Deserunt est quia error modi.&quot;,
-            &quot;description&quot;: &quot;Totam earum molestias exercitationem beatae laudantium numquam sed a.&quot;,
-            &quot;condition&quot;: &quot;Pariatur asperiores sit cum earum harum.&quot;,
+            &quot;title&quot;: &quot;Rerum et quibusdam autem neque.&quot;,
+            &quot;description&quot;: &quot;Vel eum voluptates saepe fugiat ea.&quot;,
+            &quot;condition&quot;: &quot;Omnis fuga occaecati sit assumenda nihil sed.&quot;,
             &quot;shoot_able&quot;: true,
             &quot;status&quot;: null,
             &quot;category&quot;: &quot;GIVE&quot;,
-            &quot;country&quot;: &quot;United States Virgin Islands&quot;,
-            &quot;state&quot;: &quot;Port Frederick&quot;,
-            &quot;city&quot;: &quot;South Berryview&quot;,
-            &quot;location&quot;: &quot;ms_MY&quot;,
-            &quot;published_at&quot;: &quot;2022-01-11T15:12:06.202907Z&quot;,
+            &quot;country&quot;: &quot;Bangladesh&quot;,
+            &quot;state&quot;: &quot;Mayerthaven&quot;,
+            &quot;city&quot;: &quot;Brucefort&quot;,
+            &quot;location&quot;: &quot;es_CR&quot;,
+            &quot;published_at&quot;: &quot;2022-01-11T19:04:34.749804Z&quot;,
             &quot;created_at&quot;: null,
             &quot;updated_at&quot;: null,
             &quot;images&quot;: []
@@ -2711,7 +2707,7 @@ fetch(url, {
                 <input type="number"
                name="category"
                data-endpoint="POSTapi-v1-posts"
-               value="15"
+               value="9"
                data-component="body" hidden>
     <br>
 <p>The post category ID.</p>
@@ -2721,7 +2717,7 @@ fetch(url, {
                 <input type="text"
                name="description"
                data-endpoint="POSTapi-v1-posts"
-               value="commodi"
+               value="praesentium"
                data-component="body" hidden>
     <br>
 <p>The post description.</p>
@@ -2731,7 +2727,7 @@ fetch(url, {
                 <input type="text"
                name="condition"
                data-endpoint="POSTapi-v1-posts"
-               value="ea"
+               value="voluptatum"
                data-component="body" hidden>
     <br>
 <p>The the post or item condition.</p>
@@ -2754,7 +2750,7 @@ fetch(url, {
                 <input type="text"
                name="wishlist"
                data-endpoint="POSTapi-v1-posts"
-               value="ea"
+               value="culpa"
                data-component="body" hidden>
     <br>
 <p>The post wishlist.</p>
@@ -2764,7 +2760,7 @@ fetch(url, {
                 <input type="text"
                name="portfolio"
                data-endpoint="POSTapi-v1-posts"
-               value="inventore"
+               value="enim"
                data-component="body" hidden>
     <br>
 <p>The user posting profile</p>
@@ -2806,14 +2802,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/posts/4" \
+    --get "http://barter.test/api/v1/posts/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/4"
+    "http://barter.test/api/v1/posts/20"
 );
 
 const headers = {
@@ -2840,17 +2836,17 @@ fetch(url, {
         &quot;type&quot;: &quot;posts&quot;,
         &quot;attributes&quot;: {
             &quot;author&quot;: &quot;James Bond&quot;,
-            &quot;title&quot;: &quot;Mollitia sunt vel ut ipsam aut et.&quot;,
-            &quot;description&quot;: &quot;Iusto excepturi esse est repellendus amet minus enim.&quot;,
-            &quot;condition&quot;: &quot;Deleniti accusantium ad et repudiandae.&quot;,
-            &quot;shoot_able&quot;: true,
+            &quot;title&quot;: &quot;Voluptatem facere nesciunt porro.&quot;,
+            &quot;description&quot;: &quot;Dolorem porro tempore in facere et provident.&quot;,
+            &quot;condition&quot;: &quot;Ipsam animi non qui perferendis veniam repellendus optio.&quot;,
+            &quot;shoot_able&quot;: false,
             &quot;status&quot;: null,
-            &quot;category&quot;: &quot;SWAP ITEM&quot;,
-            &quot;country&quot;: &quot;Liechtenstein&quot;,
-            &quot;state&quot;: &quot;South Silas&quot;,
-            &quot;city&quot;: &quot;North Chase&quot;,
-            &quot;location&quot;: &quot;fr_BE&quot;,
-            &quot;published_at&quot;: &quot;2022-01-11T15:12:06.207323Z&quot;,
+            &quot;category&quot;: &quot;SWAP SERVICE&quot;,
+            &quot;country&quot;: &quot;Gabon&quot;,
+            &quot;state&quot;: &quot;Mayershire&quot;,
+            &quot;city&quot;: &quot;Pollichville&quot;,
+            &quot;location&quot;: &quot;en_GB&quot;,
+            &quot;published_at&quot;: &quot;2022-01-11T19:04:34.754310Z&quot;,
             &quot;created_at&quot;: null,
             &quot;updated_at&quot;: null,
             &quot;images&quot;: []
@@ -2919,145 +2915,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETapi-v1-posts--id-"
-               value="4"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the post.</p>
-            </p>
-                    </form>
-
-            <h2 id="post-PUTapi-v1-posts--id-">Update Post</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-PUTapi-v1-posts--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://barter.test/api/v1/posts/17" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/17"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-v1-posts--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json">{
-    &quot;data&quot;: {
-        &quot;id&quot;: &quot;&quot;,
-        &quot;type&quot;: &quot;posts&quot;,
-        &quot;attributes&quot;: {
-            &quot;author&quot;: &quot;James Bond&quot;,
-            &quot;title&quot;: &quot;Repellat sit vel et atque modi quas repellat.&quot;,
-            &quot;description&quot;: &quot;Eius iusto ipsa voluptatum delectus dolorem rerum.&quot;,
-            &quot;condition&quot;: &quot;Voluptate saepe sapiente ducimus itaque ipsa eaque molestiae similique.&quot;,
-            &quot;shoot_able&quot;: false,
-            &quot;status&quot;: null,
-            &quot;category&quot;: &quot;SWAP ITEM&quot;,
-            &quot;country&quot;: &quot;Bangladesh&quot;,
-            &quot;state&quot;: &quot;Franeckiburgh&quot;,
-            &quot;city&quot;: &quot;South Adelbert&quot;,
-            &quot;location&quot;: &quot;en_SG&quot;,
-            &quot;published_at&quot;: &quot;2022-01-11T15:12:06.211832Z&quot;,
-            &quot;created_at&quot;: null,
-            &quot;updated_at&quot;: null,
-            &quot;images&quot;: []
-        },
-        &quot;relationships&quot;: {
-            &quot;comments&quot;: {
-                &quot;links&quot;: {
-                    &quot;related&quot;: &quot;http://barter.test/api/v1/posts/0/comments&quot;
-                }
-            }
-        }
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-PUTapi-v1-posts--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-posts--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-posts--id-"></code></pre>
-</span>
-<span id="execution-error-PUTapi-v1-posts--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-posts--id-"></code></pre>
-</span>
-<form id="form-PUTapi-v1-posts--id-" data-method="PUT"
-      data-path="api/v1/posts/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-posts--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-posts--id-"
-                    onclick="tryItOut('PUTapi-v1-posts--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-posts--id-"
-                    onclick="cancelTryOut('PUTapi-v1-posts--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-posts--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/posts/{id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/posts/{id}</code></b>
-        </p>
-                <p>
-            <label id="auth-PUTapi-v1-posts--id-" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="PUTapi-v1-posts--id-"
-                                                                data-component="header"></label>
-        </p>
-                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="PUTapi-v1-posts--id-"
-               value="17"
+               value="20"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
@@ -3078,14 +2936,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://barter.test/api/v1/posts/11" \
+    "http://barter.test/api/v1/posts/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/11"
+    "http://barter.test/api/v1/posts/2"
 );
 
 const headers = {
@@ -3155,14 +3013,14 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-v1-posts--id-"
-               value="11"
+               value="2"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
             </p>
                     </form>
 
-            <h2 id="post-GETapi-v1-posts-search">Search Through All Posts</h2>
+            <h2 id="post-PATCHapi-v1-posts--id-">Update Post</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3170,21 +3028,166 @@ fetch(url, {
 
 
 
-<span id="example-requests-GETapi-v1-posts-search">
+<span id="example-requests-PATCHapi-v1-posts--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/posts/search" \
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://barter.test/api/v1/posts/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/search"
+    "http://barter.test/api/v1/posts/15"
 );
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-v1-posts--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;&quot;,
+        &quot;type&quot;: &quot;posts&quot;,
+        &quot;attributes&quot;: {
+            &quot;author&quot;: &quot;James Bond&quot;,
+            &quot;title&quot;: &quot;Occaecati veritatis dolores est est.&quot;,
+            &quot;description&quot;: &quot;Distinctio molestias ut et dolores et delectus.&quot;,
+            &quot;condition&quot;: &quot;Architecto consectetur voluptatem optio enim.&quot;,
+            &quot;shoot_able&quot;: false,
+            &quot;status&quot;: null,
+            &quot;category&quot;: &quot;GIVE&quot;,
+            &quot;country&quot;: &quot;Barbados&quot;,
+            &quot;state&quot;: &quot;Port Aliceside&quot;,
+            &quot;city&quot;: &quot;West Carterstad&quot;,
+            &quot;location&quot;: &quot;se_NO&quot;,
+            &quot;published_at&quot;: &quot;2022-01-11T19:04:34.758293Z&quot;,
+            &quot;created_at&quot;: null,
+            &quot;updated_at&quot;: null,
+            &quot;images&quot;: []
+        },
+        &quot;relationships&quot;: {
+            &quot;comments&quot;: {
+                &quot;links&quot;: {
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/posts/0/comments&quot;
+                }
+            }
+        }
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PATCHapi-v1-posts--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-v1-posts--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-v1-posts--id-"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-v1-posts--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-v1-posts--id-"></code></pre>
+</span>
+<form id="form-PATCHapi-v1-posts--id-" data-method="PATCH"
+      data-path="api/v1/posts/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-v1-posts--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-v1-posts--id-"
+                    onclick="tryItOut('PATCHapi-v1-posts--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-v1-posts--id-"
+                    onclick="cancelTryOut('PATCHapi-v1-posts--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-v1-posts--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/posts/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PATCHapi-v1-posts--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PATCHapi-v1-posts--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PATCHapi-v1-posts--id-"
+               value="15"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the post.</p>
+            </p>
+                    </form>
+
+        <h1 id="search-post">Search Post</h1>
+
+    
+
+            <h2 id="search-post-GETapi-v1-search">Search Through All Posts</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://barter.test/api/v1/search?page[number]=8&amp;page[size]=4" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://barter.test/api/v1/search"
+);
+
+const params = {
+    "page[number]": "8",
+    "page[size]": "4",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -3198,7 +3201,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-posts-search">
+<span id="example-responses-GETapi-v1-search">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -3212,17 +3215,17 @@ fetch(url, {
                 &quot;type&quot;: &quot;posts&quot;,
                 &quot;attributes&quot;: {
                     &quot;author&quot;: &quot;James Bond&quot;,
-                    &quot;title&quot;: &quot;Odio sint quia fugiat optio similique.&quot;,
-                    &quot;description&quot;: &quot;Delectus sunt eos aliquam molestias hic quia pariatur.&quot;,
-                    &quot;condition&quot;: &quot;Dolores non explicabo illum praesentium.&quot;,
-                    &quot;shoot_able&quot;: true,
+                    &quot;title&quot;: &quot;Sapiente odio est omnis similique.&quot;,
+                    &quot;description&quot;: &quot;Ea qui fugit ipsum unde ducimus voluptatem.&quot;,
+                    &quot;condition&quot;: &quot;Dolores non pariatur saepe velit in.&quot;,
+                    &quot;shoot_able&quot;: false,
                     &quot;status&quot;: null,
-                    &quot;category&quot;: &quot;GIVE&quot;,
-                    &quot;country&quot;: &quot;Georgia&quot;,
-                    &quot;state&quot;: &quot;Lilyanstad&quot;,
-                    &quot;city&quot;: &quot;Ankundingland&quot;,
-                    &quot;location&quot;: &quot;pt_BR&quot;,
-                    &quot;published_at&quot;: &quot;2022-01-11T15:12:06.217659Z&quot;,
+                    &quot;category&quot;: &quot;SWAP SERVICE&quot;,
+                    &quot;country&quot;: &quot;Ethiopia&quot;,
+                    &quot;state&quot;: &quot;Skylachester&quot;,
+                    &quot;city&quot;: &quot;East Guadalupe&quot;,
+                    &quot;location&quot;: &quot;fur_IT&quot;,
+                    &quot;published_at&quot;: &quot;2022-01-11T19:04:35.243885Z&quot;,
                     &quot;created_at&quot;: null,
                     &quot;updated_at&quot;: null,
                     &quot;images&quot;: []
@@ -3240,17 +3243,17 @@ fetch(url, {
                 &quot;type&quot;: &quot;posts&quot;,
                 &quot;attributes&quot;: {
                     &quot;author&quot;: &quot;James Bond&quot;,
-                    &quot;title&quot;: &quot;Soluta quis omnis neque doloribus quo.&quot;,
-                    &quot;description&quot;: &quot;Doloremque quisquam qui a.&quot;,
-                    &quot;condition&quot;: &quot;Nemo vero provident sit natus aliquam sequi omnis.&quot;,
-                    &quot;shoot_able&quot;: true,
+                    &quot;title&quot;: &quot;Est molestiae impedit et nemo omnis animi.&quot;,
+                    &quot;description&quot;: &quot;Corrupti et sed qui porro qui tempora est.&quot;,
+                    &quot;condition&quot;: &quot;Minus qui ratione non officiis.&quot;,
+                    &quot;shoot_able&quot;: false,
                     &quot;status&quot;: null,
                     &quot;category&quot;: &quot;SWAP ITEM&quot;,
-                    &quot;country&quot;: &quot;Bulgaria&quot;,
-                    &quot;state&quot;: &quot;East Damarisbury&quot;,
-                    &quot;city&quot;: &quot;Isabellaview&quot;,
-                    &quot;location&quot;: &quot;aa_ET&quot;,
-                    &quot;published_at&quot;: &quot;2022-01-11T15:12:06.219366Z&quot;,
+                    &quot;country&quot;: &quot;French Southern Territories&quot;,
+                    &quot;state&quot;: &quot;Port Ernestina&quot;,
+                    &quot;city&quot;: &quot;Grahambury&quot;,
+                    &quot;location&quot;: &quot;lv_LV&quot;,
+                    &quot;published_at&quot;: &quot;2022-01-11T19:04:35.245590Z&quot;,
                     &quot;created_at&quot;: null,
                     &quot;updated_at&quot;: null,
                     &quot;images&quot;: []
@@ -3268,53 +3271,74 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-posts-search" hidden>
+<span id="execution-results-GETapi-v1-search" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-posts-search"></span>:
+                id="execution-response-status-GETapi-v1-search"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-posts-search"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-search"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-posts-search" hidden>
+<span id="execution-error-GETapi-v1-search" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-posts-search"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-search"></code></pre>
 </span>
-<form id="form-GETapi-v1-posts-search" data-method="GET"
-      data-path="api/v1/posts/search"
+<form id="form-GETapi-v1-search" data-method="GET"
+      data-path="api/v1/search"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-posts-search', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-search', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-posts-search"
-                    onclick="tryItOut('GETapi-v1-posts-search');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-search"
+                    onclick="tryItOut('GETapi-v1-search');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-posts-search"
-                    onclick="cancelTryOut('GETapi-v1-posts-search');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-search"
+                    onclick="cancelTryOut('GETapi-v1-search');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-posts-search" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-v1-search" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/posts/search</code></b>
+            <b><code>api/v1/search</code></b>
         </p>
                 <p>
-            <label id="auth-GETapi-v1-posts-search" hidden>Authorization header:
+            <label id="auth-GETapi-v1-search" hidden>Authorization header:
                 <b><code>Bearer </code></b><input type="text"
                                                                 name="Authorization"
                                                                 data-prefix="Bearer "
-                                                                data-endpoint="GETapi-v1-posts-search"
+                                                                data-endpoint="GETapi-v1-search"
                                                                 data-component="header"></label>
         </p>
+                    <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                    <p>
+                <b><code>page[number]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="page[number]"
+               data-endpoint="GETapi-v1-search"
+               value="8"
+               data-component="query" hidden>
+    <br>
+<p>The page number.</p>
+            </p>
+                    <p>
+                <b><code>page[size]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="page[size]"
+               data-endpoint="GETapi-v1-search"
+               value="4"
+               data-component="query" hidden>
+    <br>
+<p>The page number.</p>
+            </p>
                 </form>
 
         <h1 id="shot">Shot</h1>
@@ -3335,14 +3359,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/posts/8/shots" \
+    --get "http://barter.test/api/v1/posts/5/shots" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/8/shots"
+    "http://barter.test/api/v1/posts/5/shots"
 );
 
 const headers = {
@@ -3372,8 +3396,8 @@ fetch(url, {
                 &quot;attributes&quot;: {
                     &quot;description&quot;: null,
                     &quot;condition&quot;: null,
-                    &quot;created_at&quot;: &quot;2022-01-11 15:01:12&quot;,
-                    &quot;updated_at&quot;: &quot;2022-01-11 15:01:12&quot;,
+                    &quot;created_at&quot;: &quot;2022-01-11 19:01:04&quot;,
+                    &quot;updated_at&quot;: &quot;2022-01-11 19:01:04&quot;,
                     &quot;images&quot;: []
                 },
                 &quot;relationships&quot;: {
@@ -3383,7 +3407,9 @@ fetch(url, {
                         }
                     },
                     &quot;shooter&quot;: {
-                        &quot;links&quot;: []
+                        &quot;links&quot;: {
+                            &quot;related&quot;: &quot;http://barter.test/api/v1/users/0&quot;
+                        }
                     }
                 }
             },
@@ -3393,8 +3419,8 @@ fetch(url, {
                 &quot;attributes&quot;: {
                     &quot;description&quot;: null,
                     &quot;condition&quot;: null,
-                    &quot;created_at&quot;: &quot;2022-01-11 15:01:12&quot;,
-                    &quot;updated_at&quot;: &quot;2022-01-11 15:01:12&quot;,
+                    &quot;created_at&quot;: &quot;2022-01-11 19:01:04&quot;,
+                    &quot;updated_at&quot;: &quot;2022-01-11 19:01:04&quot;,
                     &quot;images&quot;: []
                 },
                 &quot;relationships&quot;: {
@@ -3404,7 +3430,9 @@ fetch(url, {
                         }
                     },
                     &quot;shooter&quot;: {
-                        &quot;links&quot;: []
+                        &quot;links&quot;: {
+                            &quot;related&quot;: &quot;http://barter.test/api/v1/users/0&quot;
+                        }
                     }
                 }
             }
@@ -3466,7 +3494,7 @@ fetch(url, {
                 <input type="number"
                name="post_id"
                data-endpoint="GETapi-v1-posts--post_id--shots"
-               value="8"
+               value="5"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
@@ -3487,14 +3515,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/users/11/shots" \
+    --get "http://barter.test/api/v1/users/2/shots" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/11/shots"
+    "http://barter.test/api/v1/users/2/shots"
 );
 
 const headers = {
@@ -3524,8 +3552,8 @@ fetch(url, {
                 &quot;attributes&quot;: {
                     &quot;description&quot;: null,
                     &quot;condition&quot;: null,
-                    &quot;created_at&quot;: &quot;2022-01-11 15:01:12&quot;,
-                    &quot;updated_at&quot;: &quot;2022-01-11 15:01:12&quot;,
+                    &quot;created_at&quot;: &quot;2022-01-11 19:01:04&quot;,
+                    &quot;updated_at&quot;: &quot;2022-01-11 19:01:04&quot;,
                     &quot;images&quot;: []
                 },
                 &quot;relationships&quot;: {
@@ -3535,7 +3563,9 @@ fetch(url, {
                         }
                     },
                     &quot;shooter&quot;: {
-                        &quot;links&quot;: []
+                        &quot;links&quot;: {
+                            &quot;related&quot;: &quot;http://barter.test/api/v1/users/0&quot;
+                        }
                     }
                 }
             },
@@ -3545,8 +3575,8 @@ fetch(url, {
                 &quot;attributes&quot;: {
                     &quot;description&quot;: null,
                     &quot;condition&quot;: null,
-                    &quot;created_at&quot;: &quot;2022-01-11 15:01:12&quot;,
-                    &quot;updated_at&quot;: &quot;2022-01-11 15:01:12&quot;,
+                    &quot;created_at&quot;: &quot;2022-01-11 19:01:04&quot;,
+                    &quot;updated_at&quot;: &quot;2022-01-11 19:01:04&quot;,
                     &quot;images&quot;: []
                 },
                 &quot;relationships&quot;: {
@@ -3556,7 +3586,9 @@ fetch(url, {
                         }
                     },
                     &quot;shooter&quot;: {
-                        &quot;links&quot;: []
+                        &quot;links&quot;: {
+                            &quot;related&quot;: &quot;http://barter.test/api/v1/users/0&quot;
+                        }
                     }
                 }
             }
@@ -3618,7 +3650,7 @@ fetch(url, {
                 <input type="number"
                name="user"
                data-endpoint="GETapi-v1-users--user--shots"
-               value="11"
+               value="2"
                data-component="url" hidden>
     <br>
 
@@ -3639,14 +3671,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/posts/5/shots/6" \
+    --get "http://barter.test/api/v1/posts/4/shots/3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/5/shots/6"
+    "http://barter.test/api/v1/posts/4/shots/3"
 );
 
 const headers = {
@@ -3674,8 +3706,8 @@ fetch(url, {
         &quot;attributes&quot;: {
             &quot;description&quot;: null,
             &quot;condition&quot;: null,
-            &quot;created_at&quot;: &quot;2022-01-11 15:01:12&quot;,
-            &quot;updated_at&quot;: &quot;2022-01-11 15:01:12&quot;,
+            &quot;created_at&quot;: &quot;2022-01-11 19:01:04&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-11 19:01:04&quot;,
             &quot;images&quot;: []
         },
         &quot;relationships&quot;: {
@@ -3685,7 +3717,9 @@ fetch(url, {
                 }
             },
             &quot;shooter&quot;: {
-                &quot;links&quot;: []
+                &quot;links&quot;: {
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/0&quot;
+                }
             }
         }
     }
@@ -3745,7 +3779,7 @@ fetch(url, {
                 <input type="number"
                name="post_id"
                data-endpoint="GETapi-v1-posts--post_id--shots--id-"
-               value="5"
+               value="4"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
@@ -3755,7 +3789,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETapi-v1-posts--post_id--shots--id-"
-               value="6"
+               value="3"
                data-component="url" hidden>
     <br>
 <p>The ID of the shot.</p>
@@ -3776,14 +3810,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://barter.test/api/v1/posts/5/shots" \
+    "http://barter.test/api/v1/posts/6/shots" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"description\": \"voluptas\",
-    \"condition\": \"culpa\",
+    \"description\": \"sit\",
+    \"condition\": \"consequatur\",
     \"images\": [
-        \"et\"
+        \"itaque\"
     ]
 }"
 </code></pre></div>
@@ -3791,7 +3825,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/posts/5/shots"
+    "http://barter.test/api/v1/posts/6/shots"
 );
 
 const headers = {
@@ -3800,10 +3834,10 @@ const headers = {
 };
 
 let body = {
-    "description": "voluptas",
-    "condition": "culpa",
+    "description": "sit",
+    "condition": "consequatur",
     "images": [
-        "et"
+        "itaque"
     ]
 };
 
@@ -3828,8 +3862,8 @@ fetch(url, {
         &quot;attributes&quot;: {
             &quot;description&quot;: null,
             &quot;condition&quot;: null,
-            &quot;created_at&quot;: &quot;2022-01-11 15:01:12&quot;,
-            &quot;updated_at&quot;: &quot;2022-01-11 15:01:12&quot;,
+            &quot;created_at&quot;: &quot;2022-01-11 19:01:04&quot;,
+            &quot;updated_at&quot;: &quot;2022-01-11 19:01:04&quot;,
             &quot;images&quot;: []
         },
         &quot;relationships&quot;: {
@@ -3839,7 +3873,9 @@ fetch(url, {
                 }
             },
             &quot;shooter&quot;: {
-                &quot;links&quot;: []
+                &quot;links&quot;: {
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/0&quot;
+                }
             }
         }
     }
@@ -3899,7 +3935,7 @@ fetch(url, {
                 <input type="number"
                name="post"
                data-endpoint="POSTapi-v1-posts--post--shots"
-               value="5"
+               value="6"
                data-component="url" hidden>
     <br>
 
@@ -3910,7 +3946,7 @@ fetch(url, {
                 <input type="text"
                name="description"
                data-endpoint="POSTapi-v1-posts--post--shots"
-               value="voluptas"
+               value="sit"
                data-component="body" hidden>
     <br>
 <p>The shot description.</p>
@@ -3920,7 +3956,7 @@ fetch(url, {
                 <input type="text"
                name="condition"
                data-endpoint="POSTapi-v1-posts--post--shots"
-               value="culpa"
+               value="consequatur"
                data-component="body" hidden>
     <br>
 <p>The the shot or item condition.</p>
@@ -3958,14 +3994,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/users/13/transactions" \
+    --get "http://barter.test/api/v1/users/7/transactions" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/13/transactions"
+    "http://barter.test/api/v1/users/7/transactions"
 );
 
 const headers = {
@@ -4047,7 +4083,7 @@ fetch(url, {
                 <input type="number"
                name="user"
                data-endpoint="GETapi-v1-users--user--transactions"
-               value="13"
+               value="7"
                data-component="url" hidden>
     <br>
 
@@ -4072,21 +4108,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://barter.test/api/v1/users/14" \
+    "http://barter.test/api/v1/users/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"est\",
-    \"last_name\": \"molestiae\",
-    \"phone\": \"saepe\",
-    \"username\": \"vel\"
+    \"first_name\": \"aut\",
+    \"last_name\": \"nihil\",
+    \"phone\": \"animi\",
+    \"username\": \"rem\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/14"
+    "http://barter.test/api/v1/users/6"
 );
 
 const headers = {
@@ -4095,10 +4131,10 @@ const headers = {
 };
 
 let body = {
-    "first_name": "est",
-    "last_name": "molestiae",
-    "phone": "saepe",
-    "username": "vel"
+    "first_name": "aut",
+    "last_name": "nihil",
+    "phone": "animi",
+    "username": "rem"
 };
 
 fetch(url, {
@@ -4164,7 +4200,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PATCHapi-v1-users--id-"
-               value="14"
+               value="6"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -4175,7 +4211,7 @@ fetch(url, {
                 <input type="text"
                name="first_name"
                data-endpoint="PATCHapi-v1-users--id-"
-               value="est"
+               value="aut"
                data-component="body" hidden>
     <br>
 <p>The user last name.</p>
@@ -4185,7 +4221,7 @@ fetch(url, {
                 <input type="text"
                name="last_name"
                data-endpoint="PATCHapi-v1-users--id-"
-               value="molestiae"
+               value="nihil"
                data-component="body" hidden>
     <br>
 <p>The user first name.</p>
@@ -4195,7 +4231,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="PATCHapi-v1-users--id-"
-               value="saepe"
+               value="animi"
                data-component="body" hidden>
     <br>
 <p>The the user phone number,this is a unique field.</p>
@@ -4205,7 +4241,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="PATCHapi-v1-users--id-"
-               value="vel"
+               value="rem"
                data-component="body" hidden>
     <br>
 <p>The the user username and it must be unique.</p>
@@ -4226,14 +4262,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/users/2" \
+    --get "http://barter.test/api/v1/users/14" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/2"
+    "http://barter.test/api/v1/users/14"
 );
 
 const headers = {
@@ -4256,39 +4292,39 @@ fetch(url, {
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;7&quot;,
+        &quot;id&quot;: &quot;19&quot;,
         &quot;type&quot;: &quot;users&quot;,
         &quot;attributes&quot;: {
-            &quot;first_name&quot;: &quot;June&quot;,
-            &quot;last_name&quot;: &quot;Sporer&quot;,
-            &quot;username&quot;: &quot;mollie79&quot;,
-            &quot;phone&quot;: &quot;+1-551-234-1143&quot;,
-            &quot;email&quot;: &quot;koss.hattie@example.net&quot;,
+            &quot;first_name&quot;: &quot;Gunner&quot;,
+            &quot;last_name&quot;: &quot;Okuneva&quot;,
+            &quot;username&quot;: &quot;wisoky.vicenta&quot;,
+            &quot;phone&quot;: &quot;458-690-8904&quot;,
+            &quot;email&quot;: &quot;gerry93@example.net&quot;,
             &quot;user_type&quot;: null,
-            &quot;country&quot;: &quot;United States&quot;,
-            &quot;state&quot;: &quot;Illinois&quot;,
-            &quot;city&quot;: &quot;Chicago&quot;,
+            &quot;country&quot;: &quot;China&quot;,
+            &quot;state&quot;: &quot;Beijing&quot;,
+            &quot;city&quot;: &quot;Beijing&quot;,
             &quot;avatar&quot;: &quot;&quot;
         },
         &quot;relationships&quot;: {
             &quot;posts&quot;: {
                 &quot;links&quot;: {
-                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/7/posts&quot;
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/19/posts&quot;
                 }
             },
             &quot;comments&quot;: {
                 &quot;links&quot;: {
-                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/7/comments&quot;
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/19/comments&quot;
                 }
             },
             &quot;shots&quot;: {
                 &quot;links&quot;: {
-                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/7/shots&quot;
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/19/shots&quot;
                 }
             },
             &quot;transactions&quot;: {
                 &quot;links&quot;: {
-                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/7/transactions&quot;
+                    &quot;related&quot;: &quot;http://barter.test/api/v1/users/19/transactions&quot;
                 }
             }
         }
@@ -4349,7 +4385,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="GETapi-v1-users--id-"
-               value="2"
+               value="14"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -4370,14 +4406,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://barter.test/api/v1/users/10/posts" \
+    --get "http://barter.test/api/v1/users/14/posts" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://barter.test/api/v1/users/10/posts"
+    "http://barter.test/api/v1/users/14/posts"
 );
 
 const headers = {
@@ -4406,17 +4442,17 @@ fetch(url, {
                 &quot;type&quot;: &quot;posts&quot;,
                 &quot;attributes&quot;: {
                     &quot;author&quot;: &quot;James Bond&quot;,
-                    &quot;title&quot;: &quot;Facere qui incidunt rerum unde.&quot;,
-                    &quot;description&quot;: &quot;Rem debitis aut atque ea quis sed.&quot;,
-                    &quot;condition&quot;: &quot;Animi error enim iste reprehenderit.&quot;,
+                    &quot;title&quot;: &quot;Aut eum ut nobis dolor voluptatem excepturi vel.&quot;,
+                    &quot;description&quot;: &quot;Officia nesciunt aut at reprehenderit eos placeat distinctio.&quot;,
+                    &quot;condition&quot;: &quot;Necessitatibus reiciendis deserunt id debitis voluptate.&quot;,
                     &quot;shoot_able&quot;: false,
                     &quot;status&quot;: null,
-                    &quot;category&quot;: &quot;SWAP SERVICE&quot;,
-                    &quot;country&quot;: &quot;Mayotte&quot;,
-                    &quot;state&quot;: &quot;East Abbigailville&quot;,
-                    &quot;city&quot;: &quot;New Larry&quot;,
-                    &quot;location&quot;: &quot;nso_ZA&quot;,
-                    &quot;published_at&quot;: &quot;2022-01-11T15:12:06.627415Z&quot;,
+                    &quot;category&quot;: &quot;GIVE&quot;,
+                    &quot;country&quot;: &quot;Grenada&quot;,
+                    &quot;state&quot;: &quot;Carlottabury&quot;,
+                    &quot;city&quot;: &quot;Sallyhaven&quot;,
+                    &quot;location&quot;: &quot;en_BE&quot;,
+                    &quot;published_at&quot;: &quot;2022-01-11T19:04:35.196835Z&quot;,
                     &quot;created_at&quot;: null,
                     &quot;updated_at&quot;: null,
                     &quot;images&quot;: []
@@ -4434,17 +4470,17 @@ fetch(url, {
                 &quot;type&quot;: &quot;posts&quot;,
                 &quot;attributes&quot;: {
                     &quot;author&quot;: &quot;James Bond&quot;,
-                    &quot;title&quot;: &quot;Reiciendis dicta facere temporibus nobis.&quot;,
-                    &quot;description&quot;: &quot;At ut repudiandae nihil.&quot;,
-                    &quot;condition&quot;: &quot;Deserunt optio in et alias odio in dignissimos natus.&quot;,
+                    &quot;title&quot;: &quot;Laboriosam alias sunt quae voluptatem doloremque.&quot;,
+                    &quot;description&quot;: &quot;Autem nesciunt odit reprehenderit iusto.&quot;,
+                    &quot;condition&quot;: &quot;Cum quos maiores voluptatum iusto.&quot;,
                     &quot;shoot_able&quot;: false,
                     &quot;status&quot;: null,
-                    &quot;category&quot;: &quot;GIVE&quot;,
-                    &quot;country&quot;: &quot;Guinea&quot;,
-                    &quot;state&quot;: &quot;South Berta&quot;,
-                    &quot;city&quot;: &quot;New Aviston&quot;,
-                    &quot;location&quot;: &quot;ku_IR&quot;,
-                    &quot;published_at&quot;: &quot;2022-01-11T15:12:06.630646Z&quot;,
+                    &quot;category&quot;: &quot;SWAP ITEM&quot;,
+                    &quot;country&quot;: &quot;Lao People's Democratic Republic&quot;,
+                    &quot;state&quot;: &quot;West Deontae&quot;,
+                    &quot;city&quot;: &quot;Lake Celinemouth&quot;,
+                    &quot;location&quot;: &quot;ar_JO&quot;,
+                    &quot;published_at&quot;: &quot;2022-01-11T19:04:35.199557Z&quot;,
                     &quot;created_at&quot;: null,
                     &quot;updated_at&quot;: null,
                     &quot;images&quot;: []
@@ -4515,7 +4551,7 @@ fetch(url, {
                 <input type="number"
                name="user"
                data-endpoint="GETapi-v1-users--user--posts"
-               value="10"
+               value="14"
                data-component="url" hidden>
     <br>
 

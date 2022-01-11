@@ -17,7 +17,7 @@ class BookmarkRepository extends BaseRepository
     }
 
     /**
-     * @throws PostAlreadyBookmarkedException
+     *
      */
     public function bookmarkPost(array $payload): ?bool
     {

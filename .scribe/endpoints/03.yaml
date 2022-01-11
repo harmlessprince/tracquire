@@ -1,0 +1,97 @@
+name: Comment
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{post}/comments'
+    metadata:
+      title: 'All Comments'
+      description: 'This endpoint can be used to fetch all comments under a post'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post:
+        name: post
+        description: ''
+        required: true
+        example: 14
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":"76","type":"comments","attributes":{"body":"Omnis voluptas accusamus pariatur adipisci.","created_by":"Luz","created_at":"2022-01-11T19:04:34.000000Z","updated_at":"2022-01-11T19:04:34.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/4"}}}},{"id":"77","type":"comments","attributes":{"body":"Illo aliquid cupiditate deleniti aut et rerum vero facilis.","created_by":"John","created_at":"2022-01-11T19:04:34.000000Z","updated_at":"2022-01-11T19:04:34.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/15"}}}}]}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user}/comments'
+    metadata:
+      title: 'All User Comments'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 9
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":"79","type":"comments","attributes":{"body":"Officiis laboriosam et facere modi eos amet inventore.","created_by":"Rachael","created_at":"2022-01-11T19:04:35.000000Z","updated_at":"2022-01-11T19:04:35.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/16"}}}},{"id":"80","type":"comments","attributes":{"body":"Repudiandae veniam voluptate illo adipisci totam.","created_by":"N\/A","created_at":"2022-01-11T19:04:35.000000Z","updated_at":"2022-01-11T19:04:35.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/3"}}}}]}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/posts/{post}/comments'
+    metadata:
+      title: 'Create Post'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post:
+        name: post
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      body:
+        name: body
+        description: 'The body of the post and it is maximum of 255 character.'
+        required: true
+        example: temporibus
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"78","type":"comments","attributes":{"body":"In autem velit adipisci at est laboriosam sapiente.","created_by":"Aiyana","created_at":"2022-01-11T19:04:34.000000Z","updated_at":"2022-01-11T19:04:34.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/2"}}}}}'
+        headers: []
+        description: null
+    responseFields: []

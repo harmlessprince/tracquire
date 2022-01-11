@@ -39,23 +39,9 @@ class PostController extends Controller
     }
 
     /**
-     * Search Through All Posts
-     * @apiResourceCollection App\Http\Resources\Post\PostCollection
-     * @apiResourceModel App\Models\Post
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function search()
-    {
-        $posts = $this->postRepository->search();
-        return $this->sendSuccess([new PostCollection($posts)]);
-    }
-
-    /**
      *
      * Create Post
-     * 
+     *
      * @apiResource App\Http\Resources\Post\PostResource
      * @apiResourceModel App\Models\Post
      *
@@ -71,10 +57,10 @@ class PostController extends Controller
 
     /**
      * Show Post
-     * 
+     *
      * @apiResource App\Http\Resources\Post\PostResource
      * @apiResourceModel App\Models\Post
-     * 
+     *
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
@@ -84,23 +70,9 @@ class PostController extends Controller
     }
 
     /**
-     * 
-     * Edit Post
-     * 
-     * @apiResource App\Http\Resources\Post\PostResource
-     * @apiResourceModel App\Models\Post
-     * @param \App\Models\Post $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * 
+     *
      * Update Post
-     * 
+     *
      * @apiResource App\Http\Resources\Post\PostResource
      * @apiResourceModel App\Models\Post
      *
@@ -114,7 +86,7 @@ class PostController extends Controller
     }
 
     /**
-     * 
+     *
      * Delete Post
      *
      * @param \App\Models\Post $post

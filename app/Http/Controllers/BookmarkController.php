@@ -27,6 +27,8 @@ class BookmarkController extends Controller
     /**
      * All Bookmarks For User
      *
+     * This endpoint is used to fetch all the post the authenticated user has bookmarked
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -39,8 +41,13 @@ class BookmarkController extends Controller
     /**
      * Bookmark Post
      *
+     * This endpoint is used to add the supplied post to authenticated user bookmark
+     *
+     * @urlParam post int required The post's ID.
+     *
      * @param \App\Http\Requests\StoreBookmarkRequest $request
      * @return \Illuminate\Http\Response
+     *
      */
     public function store(Post $post)
     {
@@ -54,6 +61,10 @@ class BookmarkController extends Controller
 
     /**
      * Remove Post From Bookmark
+     *
+     * This supplied ID will be used detach the post from user bookmarks
+     *
+     * @urlParam bookmark int required The bookmark's ID. Example: 10
      *
      * @param \App\Models\Bookmark $bookmark
      * @return \Illuminate\Http\Response

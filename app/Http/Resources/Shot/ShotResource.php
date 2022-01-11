@@ -36,7 +36,7 @@ class ShotResource extends JsonResource
                 ],
                 'shooter' => [
                     'links' => [
-                        // 'related' => route('users.show', ['user' => $this->user_id ?? 0])
+                         'related' => route('users.show', ['user' => $this->user_id ?? 0])
                     ]
                 ],
             ],

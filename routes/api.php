@@ -10,6 +10,7 @@ use App\Http\Controllers\Post\PostCommentRelatedController;
 use App\Http\Controllers\Post\PostsCommentsRelationshipsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostShotRelatedController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\User\UpdateProfileImageController;
 use App\Http\Controllers\User\UserCommentController;
 use App\Http\Controllers\User\UserController;
@@ -49,10 +50,14 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:api')->prefix('v1')->group(function () {
     //Posts
-    Route::apiResource('posts', PostController::class);
+
     Route::prefix('posts')->name('posts.')->group(function () {
-        //search through posts
-        Route::get('/search', [PostController::class, 'search'])->name('search');
+
+        Route::get('/', [PostController::class, 'index'])->name('index');
+        Route::post('/', [PostController::class, 'store'])->name('store');
+        Route::get('/{post}', [PostController::class, 'show'])->name('show');
+        Route::patch('/{post}', [PostController::class, 'update'])->name('update');
+        Route::delete('/{post}', [PostController::class, 'destroy'])->name('destroy');
         //get all comments under a post
         Route::get('/{post}/comments', [PostCommentRelatedController::class, 'index'])->name('comments');
         //create a comment against a post
@@ -96,6 +101,9 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         //remove a bookmark against authenticated  user
         Route::delete('/{bookmark}', [BookmarkController::class, 'destroy'])->name('.delete');
     });
+
+    //search through posts
+    Route::get('/search', [SearchController::class, 'index'])->name('search');
 
     //Comments
     //    Route::apiResource('comments', CommentController::class);
