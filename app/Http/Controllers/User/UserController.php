@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Events\CreditUserWalletEvent;
 use App\Helper\HttpResponseCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
@@ -29,7 +30,7 @@ class UserController extends Controller
 
     /**
      *  Update User Profile
-     * 
+     *
      *  This endpoint updates user first name, last name, phone number and username
      */
     public function update(ProfileUpdateRequest $request, User $user)
@@ -44,12 +45,12 @@ class UserController extends Controller
 
     /**
      *  User Profile
-     * 
+     *
      * This endpoint is used to view a particular user profile
-     * 
+     *
      * @apiResource App\Http\Resources\User\UserResource
      * @apiResourceModel App\Models\User
-     * 
+     *
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */

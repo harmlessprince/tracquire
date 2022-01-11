@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Interfaces\Wallet;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Passport\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements HasMedia, \Bavix\Wallet\Interfaces\Wallet
+class User extends Authenticatable implements HasMedia, Wallet
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia, HasWallet;
 
@@ -74,15 +75,15 @@ class User extends Authenticatable implements HasMedia, \Bavix\Wallet\Interfaces
         return $this->hasMany(Shot::class);
     }
 
-    public function transactions(): HasMany
-    {
-        return $this->hasMany(Transaction::class);
-    }
+//    public function transactions(): HasMany
+//    {
+//        return $this->hasMany(Transaction::class);
+//    }
 
-    public function wallet(): HasOne
-    {
-        return $this->hasOne(Wallet::class);
-    }
+//    public function wallet(): HasOne
+//    {
+//        return $this->hasOne(Wallet::class);
+//    }
 
     //Spatie media method
     public function registerMediaCollections(): void

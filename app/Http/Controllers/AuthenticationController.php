@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserActionEnum;
 use App\Enums\UserStatus;
+use App\Events\CreditUserWalletEvent;
 use App\Helper\HttpResponseCodes;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
@@ -138,6 +140,7 @@ class AuthenticationController extends Controller
             if (!$user->hasVerifiedEmail()) {
                 $user->markEmailAsVerified();
             }
+            event(new CreditUserWalletEvent($user, UserActionEnum::SIGNUP));
             $user->sendWelcomeNotification();
             $token = $user->createToken($user->device_name)->accessToken;
             return $this->sendSuccess(['user' => $user, 'token' => $token], 'Registration successful!');
