@@ -18,7 +18,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 18
+        example: 15
         type: integer
         custom: []
     queryParameters: []
@@ -27,7 +27,7 @@ endpoints:
         name: avatar
         description: 'The user profile picture and accepted types are jpeg and jpg and max size of 2M.'
         required: false
-        example: dolor
+        example: itaque
         type: required
         custom: []
     responses: []

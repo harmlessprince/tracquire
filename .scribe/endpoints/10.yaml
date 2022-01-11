@@ -1,0 +1,113 @@
+name: User
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/users/{id}'
+    metadata:
+      title: 'Update User Profile'
+      description: 'This endpoint updates user first name, last name, phone number and username'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 13
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The user last name.'
+        required: true
+        example: nulla
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The user first name.'
+        required: true
+        example: modi
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'The the user phone number,this is a unique field.'
+        required: true
+        example: eum
+        type: string
+        custom: []
+      username:
+        name: username
+        description: 'The the user username and it must be unique.'
+        required: true
+        example: in
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      title: 'User Profile'
+      description: 'This endpoint is used to view a particular user profile'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 12
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"6","type":"users","attributes":{"first_name":"Guy","last_name":"Hauck","username":"ukessler","phone":"(430) 961-9593","email":"kendra52@example.com","user_type":null,"country":"Australia","state":"Victoria","city":"Blackburn","avatar":""},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/transactions"}}}}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user}/posts'
+    metadata:
+      title: 'All User Posts'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 3
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Rem suscipit saepe quia.","description":"Explicabo ut in totam cupiditate.","condition":"Voluptas est non ut ut.","shoot_able":false,"status":null,"category":"SWAP ITEM","country":"United States of America","state":"Lake Cecilia","city":"New Rethamouth","location":"de_AT","published_at":"2022-01-11T15:09:12.427358Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Maxime veniam temporibus numquam officiis vero.","description":"Ex numquam reprehenderit velit odio.","condition":"Voluptas cum ut explicabo aut.","shoot_able":true,"status":null,"category":"GIVE","country":"Sudan","state":"Solonshire","city":"North Katarinastad","location":"en_BW","published_at":"2022-01-11T15:09:12.430835Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        headers: []
+        description: null
+    responseFields: []

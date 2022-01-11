@@ -1,63 +1,72 @@
-name: Messaging
+name: Endpoints
 description: ''
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/chats/send/message
+    uri: 'api/v1/posts/{post}/bookmarks'
     metadata:
-      title: 'Create Message'
+      title: 'Bookmark Post'
       description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      receiver:
-        name: receiver
-        description: 'The user receiving the message ID.'
-        required: true
-        example: 17
-        type: integer
-        custom: []
-      message:
-        name: message
-        description: 'The message been sent to the user.'
-        required: true
-        example: sunt
-        type: string
-        custom: []
-      data:
-        name: data
-        description: 'This will hold extra data later on(not needed for now).'
-        required: false
-        example:
-          - facere
-        type: 'string[]'
-        custom: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/chats/load/messages/{receiver}'
-    metadata:
-      title: 'Show Latest Messages.'
-      description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      receiver:
-        name: receiver
+      post:
+        name: post
         description: ''
         required: true
-        example: 17
+        example: 9
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/posts/{bookmark}/bookmarks'
+    metadata:
+      title: 'Remove Post From Bookmark'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      bookmark:
+        name: bookmark
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{post_id}/bookmarks'
+    metadata:
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 5
         type: integer
         custom: []
     queryParameters: []

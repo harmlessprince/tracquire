@@ -1,15 +1,15 @@
-name: Password
+name: 'OTP '
 description: |-
 
-  API endpoints for managing authentication
+  API endpoints for generating and verifying OTP
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/auth/forgot-password
+    uri: api/auth/generate/otp
     metadata:
-      title: 'Forgot Password'
-      description: 'A token will be sent to user email address'
+      title: ''
+      description: ''
       authenticated: false
       custom: []
     headers:
@@ -18,72 +18,57 @@ endpoints:
     urlParameters: []
     queryParameters: []
     bodyParameters:
-      email:
-        name: email
-        description: 'The email of the  user.'
-        required: true
-        example: johndoes@example.com
-        type: string
-        custom: []
-    responses:
-      -
-        status: 401
-        content: |-
-          {
-          "status":"error",
-          "data":[],
-          "message":"The supplied email does not exist",
-          "code":404
-          }
-        headers: []
-        description: '401, Email Does Not Exist'
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: api/auth/reset-password
-    metadata:
-      title: 'Reset Password'
-      description: 'User is expected to supply the token sent to his email address and a new password'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      token:
-        name: token
-        description: 'The token sent to the user.'
-        required: true
-        example: facere
-        type: string
-        custom: []
       email:
         name: email
         description: 'The user email address.'
         required: true
-        example: optio
+        example: explicabo
         type: string
         custom: []
-      password:
-        name: password
-        description: 'The the user new password.'
+      username:
+        name: username
+        description: 'The user username.'
         required: true
-        example: dolorem
+        example: iste
         type: string
         custom: []
-    responses:
-      -
-        status: 401
-        content: |-
-          {
-          "status":"error",
-          "data":[],
-          "message":"Token supplied is invalid",
-          "code":404
-          }
-        headers: []
-        description: '401, Email Does Not Exist'
+      phone:
+        name: phone
+        description: 'The the user phone number.'
+        required: true
+        example: eius
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/email/verify/otp
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      identifier:
+        name: identifier
+        description: 'The user email address.'
+        required: true
+        example: aut
+        type: string
+        custom: []
+      token:
+        name: token
+        description: 'The otp sent to the user email address.'
+        required: false
+        example: officia
+        type: string
+        custom: []
+    responses: []
     responseFields: []

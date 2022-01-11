@@ -22,14 +22,14 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: quod
+        example: quam
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: numquam
+        example: et
         type: string
         custom: []
     responses:
@@ -98,14 +98,14 @@ endpoints:
         name: email
         description: 'The the user email,this is a unique field.'
         required: true
-        example: illum
+        example: ratione
         type: string
         custom: []
       password:
         name: password
         description: 'The user password.'
         required: true
-        example: qui
+        example: corrupti
         type: string
         custom: []
     responses:
