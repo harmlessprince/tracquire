@@ -16,16 +16,16 @@ class CreditUserWalletEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $user;
-    public $actionType;
+    public $userAction;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(User  $user, string $actionType)
+    public function __construct(User  $user, array $userAction)
     {
         $this->user = $user;
-        $this->actionType = $actionType;
+        $this->userAction = $userAction;
     }
 
     /**

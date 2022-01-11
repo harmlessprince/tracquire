@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Traits\HasWallet;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Passport\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
@@ -17,9 +18,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia, \Bavix\Wallet\Interfaces\Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia, HasWallet;
 
     /**
      * The attributes that are mass assignable.
