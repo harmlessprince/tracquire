@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\CreditUserWalletEvent;
+use App\Listeners\CreditUserWalletListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -16,8 +18,11 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Registered::class => [
-            SendEmailVerificationNotification::class,
+//            SendEmailVerificationNotification::class,
         ],
+        CreditUserWalletEvent::class => [
+            CreditUserWalletListener::class
+        ]
     ];
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App\Helper;
 
+use App\Enums\Enum;
+
 class HttpResponseCodes extends  Enum
 {
 

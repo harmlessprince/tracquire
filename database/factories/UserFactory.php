@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Helper\UserStatus;
+use App\Enums\UserStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;

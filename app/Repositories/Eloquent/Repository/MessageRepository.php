@@ -3,7 +3,6 @@
 namespace App\Repositories\Eloquent\Repository;
 
 use App\Models\Message;
-use phpDocumentor\Reflection\Types\This;
 
 class MessageRepository extends BaseRepository
 {
@@ -24,7 +23,7 @@ class MessageRepository extends BaseRepository
     public function latestMessages($id)
     {
         // mark all messages with the selected contact as read
-//        $this->model::where('from', auth('api')->id())->where('to', $id)->update(['read' => true, 'read_at' => now()]);
+        $this->model::where('from', auth('api')->id())->where('to', $id)->update(['read' => true, 'read_at' => now()]);
         // get all messages between the authenticated user and the selected user
         return $this->model::where(function ($q) use ($id) {
             $q->where('from', auth('api')->id());

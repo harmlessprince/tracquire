@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\Enum;
+use App\Enums\UserStatus;
 use App\Helper\HttpResponseCodes;
-use App\Helper\UserStatus;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\User\UserResource;
@@ -58,7 +57,7 @@ class AuthenticationController extends Controller
      * "message": "Logged in successfully!"
      * }
      * @response 401 scenario="Invalid Credential" { "status": "error",  "data": [],  "message": "invalid email or password",  "code": 401}
-     * 
+     *
      */
     public function login(LoginRequest $request)
     {
@@ -79,7 +78,7 @@ class AuthenticationController extends Controller
 
 
     /**
-     * 
+     *
      * Register user.
      *
      * @bodyParam   first_name    string  required    The first name of the  user.      Example: John
@@ -103,7 +102,7 @@ class AuthenticationController extends Controller
      *  "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ...."},
      *  "message":"Registration successful!"
      * },
-     * @response 422 scenario="Email Exist" 
+     * @response 422 scenario="Email Exist"
      * {"status":"error",
      * "data":{
      * "errors":{
