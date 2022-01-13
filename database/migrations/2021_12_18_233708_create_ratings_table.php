@@ -17,6 +17,7 @@ class CreateRatingsTable extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->string('body')->default(0);
             $table->integer('rate_count')->default(0);
             $table->timestamps();
         });

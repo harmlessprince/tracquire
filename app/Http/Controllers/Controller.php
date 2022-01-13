@@ -18,9 +18,9 @@ class Controller extends BaseController
      * @param string $message
      * @return Response
      */
-    public function sendSuccess(array $data, string $message = ''): Response
+    public function sendSuccess(array $data, string $message = '', int $http_response_code = 200): Response
     {
-        return HttpResponseHelper::createSuccessResponse($data, $message);
+        return HttpResponseHelper::createSuccessResponse($data, $message, $http_response_code);
     }
 
     /**

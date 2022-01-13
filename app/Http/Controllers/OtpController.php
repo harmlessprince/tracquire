@@ -13,13 +13,20 @@ use Illuminate\Support\Facades\Notification;
 use Seshac\Otp\Otp;
 
 /**
- * @group OTP 
- * 
+ * @group OTP
+ *
  * API endpoints for generating and verifying OTP
  */
 
 class OtpController extends Controller
 {
+
+    /**
+     * Generate OTP
+     *
+     * This endpoint sends otp token the provided email address
+     *
+    */
     public function generateOtp(GenerateOtpRequest $request): Response
     {
         $email = $request->email;
@@ -31,6 +38,12 @@ class OtpController extends Controller
         return $this->sendSuccess(['status' => true, 'message' => 'OTP generated'], "Otp sent to registered email: ${email}");
     }
 
+    /**
+     * Verify OTP
+     *
+     * This endpoint can be used to verify OTP sent to a user
+     *
+     */
     public function verifyOtp(VerifyOtpRequest $request)
     {
         $verify = Otp::validate($request->identifier, $request->token);

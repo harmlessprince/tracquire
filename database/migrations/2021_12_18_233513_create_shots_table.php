@@ -22,6 +22,7 @@ class CreateShotsTable extends Migration
             $table->text('description')->nullable()->fulltext();
             $table->text('condition')->nullable();
             $table->boolean('accepted')->default(false);
+            $table->dateTime('accepted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Seshac\Otp\Otp;
+use Spatie\QueryBuilder\QueryBuilder;
 
 /**
  * @group Authentication
@@ -165,6 +166,10 @@ class AuthenticationController extends Controller
      */
     public function user()
     {
-        return $this->sendSuccess([new UserResource(Auth::user())]);
+        $user = QueryBuilder::for(User::class)
+            ->allowedIncludes(['postsCount','bookmarksCount', 'posts', 'bookmarks'])
+            ->where('users.id', auth()->id())
+            ->first();
+        return $this->sendSuccess([new UserResource($user)]);
     }
 }

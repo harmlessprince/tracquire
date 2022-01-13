@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcceptShotController;
 use App\Http\Controllers\AuthenticationController;
 
 use App\Http\Controllers\BookmarkController;
@@ -104,6 +105,9 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
 
     //search through posts
     Route::get('/search', [SearchController::class, 'index'])->name('search');
+    //Accept and Declining of Shots
+    Route::patch('/shots/{shot}/posts/{post}/accept', [AcceptShotController::class, 'acceptShot'])->name('shots.accept');
+    Route::patch('/shots/{shot}/posts/{post}/decline', [AcceptShotController::class, 'declineShot'])->name('shots.decline');
 
     //Comments
     //    Route::apiResource('comments', CommentController::class);

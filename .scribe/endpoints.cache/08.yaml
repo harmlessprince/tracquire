@@ -21,21 +21,21 @@ endpoints:
         name: 'page[number]'
         description: 'The page number.'
         required: false
-        example: 8
+        example: 11
         type: integer
         custom: []
       'page[size]':
         name: 'page[size]'
         description: 'The page number.'
         required: false
-        example: 4
+        example: 16
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sapiente odio est omnis similique.","description":"Ea qui fugit ipsum unde ducimus voluptatem.","condition":"Dolores non pariatur saepe velit in.","shoot_able":false,"status":null,"category":"SWAP SERVICE","country":"Ethiopia","state":"Skylachester","city":"East Guadalupe","location":"fur_IT","published_at":"2022-01-11T19:04:35.243885Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Est molestiae impedit et nemo omnis animi.","description":"Corrupti et sed qui porro qui tempora est.","condition":"Minus qui ratione non officiis.","shoot_able":false,"status":null,"category":"SWAP ITEM","country":"French Southern Territories","state":"Port Ernestina","city":"Grahambury","location":"lv_LV","published_at":"2022-01-11T19:04:35.245590Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Blanditiis adipisci quod consequuntur qui.","description":"Quaerat quaerat odio porro a pariatur dolores est.","condition":"Sit qui qui eos libero.","shoot_able":false,"status":null,"category":"GIVE","country":"Christmas Island","state":"Joannefort","city":"Natalieland","location":"sv_SE","published_at":"2022-01-12T07:08:03.119065Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Aliquam vitae et in dolorum.","description":"Quasi ut autem inventore magnam facere iusto voluptas.","condition":"Expedita eveniet aut esse velit neque sint unde voluptas.","shoot_able":false,"status":null,"category":"SWAP ITEM","country":"United Arab Emirates","state":"East Evalyn","city":"Port Lisandroburgh","location":"it_IT","published_at":"2022-01-12T07:08:03.121121Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
         headers: []
         description: null
     responseFields: []

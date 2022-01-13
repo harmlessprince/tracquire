@@ -45,4 +45,5 @@ class HttpResponseCodes extends  Enum
     const NOT_FOUND = 404;
     const METHOD_NOT_ALLOWED = 405;
     const UNPROCESSABLE_ENTITY = 422;
+    const CONFLICT = 409;
 }
