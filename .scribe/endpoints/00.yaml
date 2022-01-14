@@ -22,14 +22,14 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: alias
+        example: sit
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: deserunt
+        example: quia
         type: string
         custom: []
     responses:
@@ -89,30 +89,23 @@ endpoints:
     bodyParameters:
       referrer:
         name: referrer
-        description: ''
-        required: false
-        example: null
+        description: 'The token sent to the user.'
+        required: true
+        example: quas
         type: string
         custom: []
       email:
         name: email
         description: 'The the user email,this is a unique field.'
         required: true
-        example: modi
+        example: aut
         type: string
         custom: []
       password:
         name: password
         description: 'The user password.'
         required: true
-        example: omnis
-        type: string
-        custom: []
-      token:
-        name: token
-        description: 'The token sent to the user.'
-        required: true
-        example: enim
+        example: repellendus
         type: string
         custom: []
     responses:

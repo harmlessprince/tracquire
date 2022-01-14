@@ -19,21 +19,21 @@ endpoints:
         name: 'page[number]'
         description: 'The page number.'
         required: false
-        example: 12
+        example: 8
         type: integer
         custom: []
       'page[size]':
         name: 'page[size]'
         description: 'The page number.'
         required: false
-        example: 14
+        example: 19
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sed omnis hic ad recusandae eaque occaecati.","description":"Eius voluptate voluptatibus ut.","condition":"Distinctio ipsa culpa earum dignissimos veniam aliquid aperiam.","shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Taiwan","state":"New Fernando","city":"South Mekhifurt","location":"ar_MA","published_at":"2022-01-14T07:24:28.188992Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et totam nesciunt recusandae molestias.","description":"Dolores ex voluptate sunt non numquam voluptatibus tempore.","condition":"Esse ducimus repellat distinctio itaque ullam.","shoot_able":false,"status":"","category":"GIVE","country":"Somalia","state":"Wolffshire","city":"Carrollchester","location":"ms_MY","published_at":"2022-01-14T07:24:28.191007Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Velit maiores eaque aut voluptatem omnis harum.","description":"Similique voluptas perspiciatis est accusamus.","condition":"Ex unde perspiciatis exercitationem iste et sint.","shoot_able":true,"status":"","category":"SWAP ITEM","country":"Ethiopia","state":"East Filomenatown","city":"West Damarischester","location":"en_JM","published_at":"2022-01-14T19:36:56.998843Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Dolorem assumenda sint exercitationem voluptate.","description":"Enim rerum et et quo aliquid.","condition":"Numquam optio molestias et.","shoot_able":true,"status":"","category":"GIVE","country":"Cuba","state":"Blandaside","city":"Port Annamarieville","location":"fr_LU","published_at":"2022-01-14T19:36:57.001279Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
         headers: []
         description: null
     responseFields: []
