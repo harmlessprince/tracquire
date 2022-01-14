@@ -1,34 +1,79 @@
-name: Avatar
+name: Bookmark
 description: ''
 endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/users/{user}/profile/image'
+    uri: 'api/v1/posts/{post}/bookmarks'
     metadata:
-      title: 'Update Avatar'
-      description: 'This endpoint is  for updates users'' Avatar'
+      title: 'Bookmark Post'
+      description: 'This endpoint is used to add the supplied post to authenticated user bookmark'
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      user:
-        name: user
-        description: ''
+      post:
+        name: post
+        description: 'The post''s ID.'
         required: true
-        example: 19
+        example: 12
         type: integer
         custom: []
     queryParameters: []
-    bodyParameters:
-      avatar:
-        name: avatar
-        description: 'The user profile picture and accepted types are jpeg and jpg and max size of 2M.'
-        required: false
-        example: ad
-        type: required
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users/bookmarks
+    metadata:
+      title: 'All Bookmarks For User'
+      description: 'This endpoint is used to fetch all the post the authenticated user has bookmarked'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/bookmarks/{bookmark}'
+    metadata:
+      title: 'Remove Post From Bookmark'
+      description: 'This supplied ID will be used detach the post from user bookmarks'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      bookmark:
+        name: bookmark
+        description: 'The bookmark''s ID.'
+        required: true
+        example: 10
+        type: integer
         custom: []
+    queryParameters: []
+    bodyParameters: []
     responses: []
     responseFields: []

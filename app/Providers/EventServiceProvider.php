@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use App\Events\CreditUserWalletEvent;
+use App\Events\SignupEvent;
 use App\Listeners\CreditUserWalletListener;
+use App\Listeners\SendEmailVerificationListener;
+use App\Listeners\SignupListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,6 +25,10 @@ class EventServiceProvider extends ServiceProvider
         ],
         CreditUserWalletEvent::class => [
             CreditUserWalletListener::class
+        ],
+        SignupEvent::class => [
+            SignupListener::class,
+            SendEmailVerificationListener::class
         ]
     ];
 

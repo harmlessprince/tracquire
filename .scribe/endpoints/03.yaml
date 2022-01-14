@@ -1,97 +1,77 @@
-name: Comment
+name: Messaging
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: 'api/v1/posts/{post}/comments'
-    metadata:
-      title: 'All Comments'
-      description: 'This endpoint can be used to fetch all comments under a post'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      post:
-        name: post
-        description: ''
-        required: true
-        example: 7
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":"106","type":"comments","attributes":{"body":"Quia odit esse et earum illum ut.","created_by":"N\/A","created_at":"2022-01-12T07:08:02.000000Z","updated_at":"2022-01-12T07:08:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}},{"id":"107","type":"comments","attributes":{"body":"Consectetur ex et dolor adipisci aliquid tempore id.","created_by":"N\/A","created_at":"2022-01-12T07:08:02.000000Z","updated_at":"2022-01-12T07:08:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/15"}}}}]}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/users/{user}/comments'
-    metadata:
-      title: 'All User Comments'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      user:
-        name: user
-        description: ''
-        required: true
-        example: 6
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":"109","type":"comments","attributes":{"body":"Voluptatibus minus in consequatur sit sunt totam dolorum et.","created_by":"N\/A","created_at":"2022-01-12T07:08:03.000000Z","updated_at":"2022-01-12T07:08:03.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/2"}}}},{"id":"110","type":"comments","attributes":{"body":"Mollitia eum voluptatem ut ut harum quidem impedit.","created_by":"Aiyana","created_at":"2022-01-12T07:08:03.000000Z","updated_at":"2022-01-12T07:08:03.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}}]}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
       - POST
-    uri: 'api/v1/posts/{post}/comments'
+    uri: api/v1/chats/send/message
     metadata:
-      title: 'Create Post'
+      title: 'Create Message'
       description: ''
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      post:
-        name: post
-        description: ''
-        required: true
-        example: 11
-        type: integer
-        custom: []
+    urlParameters: []
     queryParameters: []
     bodyParameters:
-      body:
-        name: body
-        description: 'The body of the post and it is maximum of 255 character.'
+      receiver:
+        name: receiver
+        description: 'The user receiving the message ID.'
         required: true
-        example: molestias
+        example: 2
+        type: integer
+        custom: []
+      message:
+        name: message
+        description: 'The message been sent to the user.'
+        required: true
+        example: quod
         type: string
         custom: []
+      data:
+        name: data
+        description: 'This will hold extra data later on(not needed for now).'
+        required: false
+        example:
+          - fugiat
+        type: 'string[]'
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/chats/load/messages/{receiver}'
+    metadata:
+      title: 'Show Latest Messages.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      receiver:
+        name: receiver
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":{"id":"108","type":"comments","attributes":{"body":"Quia perferendis reiciendis accusantium.","created_by":"N\/A","created_at":"2022-01-12T07:08:02.000000Z","updated_at":"2022-01-12T07:08:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/6"}}}}}'
-        headers: []
+        status: 401
+        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
         description: null
     responseFields: []

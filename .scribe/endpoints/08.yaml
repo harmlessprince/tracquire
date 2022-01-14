@@ -1,39 +1,148 @@
-name: 'Search Post'
+name: Shot
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/search
+    uri: 'api/v1/posts/{post_id}/shots'
     metadata:
-      title: 'Search Through All Posts'
+      title: 'All Shots'
       description: ''
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    queryParameters:
-      'page[number]':
-        name: 'page[number]'
-        description: 'The page number.'
-        required: false
-        example: 11
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 12
         type: integer
         custom: []
-      'page[size]':
-        name: 'page[size]'
-        description: 'The page number.'
-        required: false
-        example: 16
-        type: integer
-        custom: []
+    queryParameters: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Blanditiis adipisci quod consequuntur qui.","description":"Quaerat quaerat odio porro a pariatur dolores est.","condition":"Sit qui qui eos libero.","shoot_able":false,"status":null,"category":"GIVE","country":"Christmas Island","state":"Joannefort","city":"Natalieland","location":"sv_SE","published_at":"2022-01-12T07:08:03.119065Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Aliquam vitae et in dolorum.","description":"Quasi ut autem inventore magnam facere iusto voluptas.","condition":"Expedita eveniet aut esse velit neque sint unde voluptas.","shoot_able":false,"status":null,"category":"SWAP ITEM","country":"United Arab Emirates","state":"East Evalyn","city":"Port Lisandroburgh","location":"it_IT","published_at":"2022-01-12T07:08:03.121121Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-14 07:01:24","updated_at":"2022-01-14 07:01:24","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-14 07:01:24","updated_at":"2022-01-14 07:01:24","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user}/shots'
+    metadata:
+      title: 'All User Shots'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 19
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-14 07:01:24","updated_at":"2022-01-14 07:01:24","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-14 07:01:24","updated_at":"2022-01-14 07:01:24","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{post_id}/shots/{id}'
+    metadata:
+      title: 'Show Shot'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the shot.'
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-14 07:01:24","updated_at":"2022-01-14 07:01:24","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/posts/{post}/shots'
+    metadata:
+      title: 'Create Shot'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post:
+        name: post
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: 'The shot description.'
+        required: true
+        example: iure
+        type: string
+        custom: []
+      condition:
+        name: condition
+        description: 'The the shot or item condition.'
+        required: false
+        example: voluptas
+        type: string
+        custom: []
+      images:
+        name: images
+        description: 'The shot images.'
+        required: false
+        example:
+          - tempora
+        type: 'string[]'
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-14 07:01:24","updated_at":"2022-01-14 07:01:24","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
         headers: []
         description: null
     responseFields: []

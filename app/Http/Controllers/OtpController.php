@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserActionEnum;
+use App\Events\CreditUserWalletEvent;
 use App\Helper\HttpResponseCodes;
-use App\Helper\HttpResponseMessages;
-use App\Http\Requests\GenerateOtpRequest;
 use App\Http\Requests\VerifyOtpRequest;
-use App\Notifications\OtpNotification;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Notification;
+use App\Models\User;
 use Seshac\Otp\Otp;
 
 /**
@@ -17,7 +14,6 @@ use Seshac\Otp\Otp;
  *
  * API endpoints for generating and verifying OTP
  */
-
 class OtpController extends Controller
 {
 
@@ -26,17 +22,17 @@ class OtpController extends Controller
      *
      * This endpoint sends otp token the provided email address
      *
-    */
-    public function generateOtp(GenerateOtpRequest $request): Response
-    {
-        $email = $request->email;
-        $otp = Otp::generate($email);
-        if (!$otp->status){
-            return $this->sendError($otp->message, HttpResponseCodes::TOKEN_GENERATION_FAIL);
-        }
-        Notification::route('mail', $email)->notify(new OtpNotification($otp));
-        return $this->sendSuccess(['status' => true, 'message' => 'OTP generated'], "Otp sent to registered email: ${email}");
-    }
+     */
+//    public function generateOtp(GenerateOtpRequest $request): Response
+//    {
+//        $email = $request->email;
+//        $otp = Otp::generate($email);
+//        if (!$otp->status){
+//            return $this->sendError($otp->message, HttpResponseCodes::TOKEN_GENERATION_FAIL);
+//        }
+//        Notification::route('mail', $email)->notify(new OtpNotification($otp));
+//        return $this->sendSuccess(['status' => true, 'message' => 'OTP generated'], "Otp sent to registered email: ${email}");
+//    }
 
     /**
      * Verify OTP
@@ -44,12 +40,20 @@ class OtpController extends Controller
      * This endpoint can be used to verify OTP sent to a user
      *
      */
-    public function verifyOtp(VerifyOtpRequest $request)
+    public function verifyOtp(VerifyOtpRequest $request): \Illuminate\Http\Response
     {
-        $verify = Otp::validate($request->identifier, $request->token);
-        if (!$verify->status){
-            return $this->sendError($verify->message, HttpResponseCodes::TOKEN_VERIFICATION_FAIL);
+        $user = User::where('email', $request->email)->first();
+        if (!$user->hasVerifiedEmail()) {
+            $verify = Otp::validate($request->email, $request->otp);
+            if (!$verify->status) {
+                return $this->sendError($verify->message, HttpResponseCodes::TOKEN_VERIFICATION_FAIL);
+            }
+            $user->markEmailAsVerified();
+            event(new CreditUserWalletEvent($user->referrer, UserActionEnum::REFERRAL));
+//            \Seshac\Otp\Models\Otp::where(['identifier' => $request->email, 'token' => $request->otp])->first()->delete();
+        }else{
+            return $this->sendError( 'Email has already been verified', 400);
         }
-        return $this->sendSuccess([$verify], $verify->message);
+        return $this->sendSuccess([$verify], 'Email address verified');
     }
 }

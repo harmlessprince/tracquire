@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Bavix\Wallet\Traits\HasWallet;
 use Bavix\Wallet\Interfaces\Wallet;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Passport\HasApiTokens;
@@ -80,6 +81,23 @@ class User extends Authenticatable implements HasMedia, Wallet
     public function shots(): HasMany
     {
         return $this->hasMany(Shot::class);
+    }
+    /**
+     * A user has a referrer.
+     */
+    public function referrer(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
+    }
+
+    /**
+     * A user has many referrals.
+     *
+     *
+     */
+    public function referrers(): HasMany
+    {
+        return $this->hasMany(User::class, 'referrer_id', 'id');
     }
 
 //    public function transactions(): HasMany

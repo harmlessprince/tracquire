@@ -29,9 +29,14 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => ['required'],
+            'referrer' => ['exists:users,referrer_token', 'nullable'],
             'email' => ['required', 'unique:users'],
-            'password' => ['required']
+            'password' => ['required', 'min:8']
         ];
+    }
+
+    public function messages(): array
+    {
+        return ['referrer.exists' => 'Invalid referral code supplied'];
     }
 }

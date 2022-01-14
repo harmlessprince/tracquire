@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\UserStatus;
+use App\Helper\Helper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -36,6 +37,7 @@ class UserFactory extends Factory
             'device_name' => $this->faker->userAgent(),
             'status' => Arr::random($usersStatus),
             'ip' => $this->faker->ipv4(),
+            'referrer_token' => Helper::refCodeGenerator(),
             'latitude' => $lat,
             'longitude' => $long,
             'country' => $country,

@@ -1,14 +1,16 @@
-name: Messaging
-description: ''
+name: OTP
+description: |-
+
+  API endpoints for generating and verifying OTP
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/chats/send/message
+    uri: api/auth/email/verify/otp
     metadata:
-      title: 'Create Message'
-      description: ''
-      authenticated: true
+      title: 'Verify OTP'
+      description: 'This endpoint can be used to verify OTP sent to a user'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -16,59 +18,26 @@ endpoints:
     urlParameters: []
     queryParameters: []
     bodyParameters:
-      receiver:
-        name: receiver
-        description: 'The user receiving the message ID.'
+      email:
+        name: email
+        description: 'The user email address.'
         required: true
-        example: 8
-        type: integer
-        custom: []
-      message:
-        name: message
-        description: 'The message been sent to the user.'
-        required: true
-        example: nulla
+        example: quae
         type: string
         custom: []
-      data:
-        name: data
-        description: 'This will hold extra data later on(not needed for now).'
-        required: false
-        example:
-          - architecto
-        type: 'string[]'
-        custom: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/chats/load/messages/{receiver}'
-    metadata:
-      title: 'Show Latest Messages.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      receiver:
-        name: receiver
+      otp:
+        name: otp
         description: ''
         required: true
-        example: 7
-        type: integer
+        example: quo
+        type: string
         custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+      token:
+        name: token
+        description: 'The otp sent to the user email address.'
+        required: false
+        example: omnis
+        type: string
+        custom: []
+    responses: []
     responseFields: []

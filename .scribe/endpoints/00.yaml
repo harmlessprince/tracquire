@@ -22,14 +22,14 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: ullam
+        example: alias
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: quae
+        example: deserunt
         type: string
         custom: []
     responses:
@@ -87,25 +87,32 @@ endpoints:
     urlParameters: []
     queryParameters: []
     bodyParameters:
-      token:
-        name: token
-        description: 'The token sent to the user.'
-        required: true
-        example: eos
+      referrer:
+        name: referrer
+        description: ''
+        required: false
+        example: null
         type: string
         custom: []
       email:
         name: email
         description: 'The the user email,this is a unique field.'
         required: true
-        example: maxime
+        example: modi
         type: string
         custom: []
       password:
         name: password
         description: 'The user password.'
         required: true
-        example: harum
+        example: omnis
+        type: string
+        custom: []
+      token:
+        name: token
+        description: 'The token sent to the user.'
+        required: true
+        example: enim
         type: string
         custom: []
     responses:
@@ -165,7 +172,10 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: '*'
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
         description: null
     responseFields: []
   -
@@ -190,6 +200,9 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: '*'
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
         description: null
     responseFields: []
