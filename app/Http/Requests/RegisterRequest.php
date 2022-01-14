@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @bodyParam token string required The token sent to the user.
+ * @bodyParam referrer string required The token sent to the user.
  * @bodyParam password string required The user password.
  * @bodyParam email string required The the user email,this is a unique field.
  */

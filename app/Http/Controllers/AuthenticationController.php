@@ -86,12 +86,6 @@ class AuthenticationController extends Controller
      *
      * Register user.
      *
-     * @bodyParam   first_name    string  required    The first name of the  user.      Example: John
-     * @bodyParam   last_name    string  required    The password of the  user.   Example: Doe
-     * @bodyParam   email    string  required    The email of the  user.   Example: secret
-     * @bodyParam   password    string  required    The password of the  user.   Example: secret
-     * @bodyParam   username    string  required    The username of the  user.   Example: johndoe
-     * @bodyParam   referral_code string  The  referral ref code.   Example: SC30ZA
      *
      * @response {"status":"success",
      * "data":{
@@ -134,13 +128,10 @@ class AuthenticationController extends Controller
                 'device_name' => $device,
                 'password' => Hash::make($request->password),
                 'referral_token' => Helper::refCodeGenerator(),
-                'referrer_id' => $referrer->id,
+                'referrer_id' => $referrer->id ?? null,
                 'device' => $device
             ];
             $user = $this->createUser($data);
-//            if ($referrer) {
-//                event(new CreditUserWalletEvent($referrer, UserActionEnum::REFERRAL));
-//            }
             event(new CreditUserWalletEvent($user, UserActionEnum::SIGNUP));
             event(new SignupEvent($user));
             $token = $user->createToken($user->device_name)->accessToken;
