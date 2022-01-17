@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PostStatus;
 use App\Http\Resources\Post\PostCollection;
 use App\Models\Post;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -26,7 +27,7 @@ class SearchController extends Controller
     public function index()
     {
         $posts = QueryBuilder::for(Post::class)
-            ->allowedFilters(['description', 'condition', 'title'])->jsonPaginate();
+            ->allowedFilters(['description', 'condition', 'title'])->where('status','=', PostStatus::OPEN)->jsonPaginate();
         return $this->sendSuccess([new PostCollection($posts)]);
     }
 }
