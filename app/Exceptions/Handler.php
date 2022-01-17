@@ -57,55 +57,54 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
-        //        return $e;
-        if ($request->route() !== null && in_array('api', $request->route()->middleware())) {
-            if ($e instanceof ValidationException) { //handle validation errors
-                $data = ["errors" => $e->validator->getMessageBag()->getMessages()];
-                return HttpResponseHelper::createErrorResponse(HttpResponseMessages::FAILED_VALIDATION, HttpResponseCodes::FAILED_VALIDATION, $data, HttpResponseCodes::UNPROCESSABLE_ENTITY);
-            } elseif ($e instanceof ModelNotFoundException) {
-                return HttpResponseHelper::createErrorResponse(
-                    HttpResponseMessages::RESOURCE_NOT_FOUND,
-                    HttpResponseCodes::RESOURCE_NOT_FOUND
-                );
-            } elseif ($e instanceof MethodNotAllowedHttpException) {
-                return HttpResponseHelper::createErrorResponse(
-                    HttpResponseMessages::ROUTE_NOT_FOUND,
-                    HttpResponseCodes::ROUTE_NOT_FOUND,
-                    [],
-                    404
-                );
-            } elseif ($e instanceof AuthenticationException) {
-                return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
-            } elseif ($e instanceof QueryException) {
-                $errorCode = $e->errorInfo[1];
-                switch ($errorCode) {
-                    case 1062: //code dublicate entry
-                        return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
-                        break;
-                    case 1364: // you can handel any auther error
-                        return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
-                        break;
-                }
-                return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
-            } elseif ($e instanceof PostTooLargeException) {
-                return HttpResponseHelper::createErrorResponse(
-                    HttpResponseMessages::FILE_TOO_LARGE,
-                    HttpResponseCodes::UNABLE_TO_PROCESS,
-                    [],
-                    HttpResponseCodes::UNPROCESSABLE_ENTITY
-                );
-            } else {
 
-                return HttpResponseHelper::createErrorResponse(
-                    HttpResponseMessages::EXCEPTION_THROWN,
-                    HttpResponseCodes::EXCEPTION_THROWN,
-                    [
-                        "error_message" => $e->getMessage()
-                    ],
-                    400
-                );
+        if ($e instanceof ValidationException) { //handle validation errors
+            $data = ["errors" => $e->validator->getMessageBag()->getMessages()];
+            return HttpResponseHelper::createErrorResponse(HttpResponseMessages::FAILED_VALIDATION, HttpResponseCodes::FAILED_VALIDATION, $data, HttpResponseCodes::UNPROCESSABLE_ENTITY);
+        } elseif ($e instanceof ModelNotFoundException) {
+            return HttpResponseHelper::createErrorResponse(
+                HttpResponseMessages::NotFound(class_basename($e->getModel())),
+                HttpResponseCodes::RESOURCE_NOT_FOUND,
+                [],
+                404
+            );
+        } elseif ($e instanceof MethodNotAllowedHttpException) {
+            return HttpResponseHelper::createErrorResponse(
+                HttpResponseMessages::ROUTE_NOT_FOUND,
+                HttpResponseCodes::ROUTE_NOT_FOUND,
+                [],
+                405
+            );
+        } elseif ($e instanceof AuthenticationException) {
+            return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
+        } elseif ($e instanceof QueryException) {
+            $errorCode = $e->errorInfo[1];
+            switch ($errorCode) {
+                case 1062: //code dublicate entry
+                    return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::CONFLICT);
+                    break;
+                case 1364: // you can handel any auther error
+                    return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
+                    break;
             }
+            return HttpResponseHelper::createErrorResponse($e->getMessage(), HttpResponseCodes::RESOURCE_AUTHORISATION_ERROR, [], HttpResponseCodes::UNAUTHENTICATED);
+        } elseif ($e instanceof PostTooLargeException) {
+            return HttpResponseHelper::createErrorResponse(
+                HttpResponseMessages::FILE_TOO_LARGE,
+                HttpResponseCodes::UNABLE_TO_PROCESS,
+                [],
+                HttpResponseCodes::UNPROCESSABLE_ENTITY
+            );
+        } else {
+
+            return HttpResponseHelper::createErrorResponse(
+                HttpResponseMessages::EXCEPTION_THROWN,
+                HttpResponseCodes::EXCEPTION_THROWN,
+                [
+                    "error_message" => $e->getMessage()
+                ],
+                400
+            );
         }
-        return parent::render($request, $e);
     }
 }

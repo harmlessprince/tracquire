@@ -60,6 +60,7 @@ class SetUpDevEnviromentCommand extends Command
             'last_name' => 'Doe',
             'phone' => '09012341234',
             'email' => 'john@example.com',
+            'referrer_token' => 'ADM123',
             'user_type' => 1,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

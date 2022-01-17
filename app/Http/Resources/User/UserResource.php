@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\User;
 
+use App\Http\Resources\Post\PostResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -23,11 +24,15 @@ class UserResource extends JsonResource
                 'username' => $this->username,
                 'phone' => $this->phone,
                 'email' => $this->email,
+                'referrer_token' => $this->referrer_token,
                 'user_type' => $this->user_type,
                 'country' => $this->country,
                 'state' => $this->state,
                 'city'  => $this->city,
-                'avatar' =>  $this->getFirstMediaUrl('avatar')
+                'avatar' =>  $this->getFirstMediaUrl('avatar'),
+                'no_of_posts' => $this->posts_count,
+                'no_of_bookmarks' => $this->bookmarks_count,
+                'earnings' => $this->balance
             ],
             'relationships' => [
                 'posts' => [
@@ -51,6 +56,10 @@ class UserResource extends JsonResource
                     ]
                 ],
             ],
+            'included' => [
+                'posts' => PostResource::collection($this->whenLoaded('posts')),
+                'bookmarks' => PostResource::collection($this->whenLoaded('bookmarks')),
+            ]
         ];
     }
 }

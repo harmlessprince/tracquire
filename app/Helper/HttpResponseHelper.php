@@ -6,9 +6,9 @@ class HttpResponseHelper {
     const STATUS_SUCCESS = "success";
     const STATUS_ERROR = "error";
 
-    public static function createSuccessResponse(array $data, string $message = HttpResponseMessages::ACTION_SUCCESSFUL, array $headers = []): Response
+    public static function createSuccessResponse(array $data, string $message = HttpResponseMessages::ACTION_SUCCESSFUL, $http_response_code = 200 ,array $headers = []): Response
     {
-        return self::createResponse(self::STATUS_SUCCESS, $data, $message, 0, 200, $headers);
+        return self::createResponse(self::STATUS_SUCCESS, $data, $message, 0, 200,$http_response_code, $headers);
     }
 
     public static function createResponse(
@@ -27,14 +27,14 @@ class HttpResponseHelper {
             $responseData['code'] = $code;
         }
 
-        return \response($responseData, $httpResponseCode);
-//        $header    = [
-//            'Access-Control-Allow-Origin'      => self::getOrigin(),
-//            'Access-Control-Allow-Credentials' => 'true',
-//            'Access-Control-Allow-Methods'     => 'POST, GET, OPTIONS, PUT, DELETE, PATCH',
-//            'Access-Control-Allow-Headers'     => 'X-Requested-With, Content-Type, Origin, Authorization'
-//        ]];
-//        return \response($responseData, $httpResponseCode)->withHeaders($header);
+//        return \response($responseData, $httpResponseCode);
+        $header    = [
+            'Access-Control-Allow-Origin'      => self::getOrigin(),
+            'Access-Control-Allow-Credentials' => 'true',
+            'Access-Control-Allow-Methods'     => 'POST, GET, OPTIONS, PUT, DELETE, PATCH',
+            'Access-Control-Allow-Headers'     => 'X-Requested-With, Content-Type, Origin, Authorization'
+        ];
+        return \response($responseData, $httpResponseCode)->withHeaders($header);
     }
 
     /**

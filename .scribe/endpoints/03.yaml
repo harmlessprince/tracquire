@@ -20,14 +20,14 @@ endpoints:
         name: receiver
         description: 'The user receiving the message ID.'
         required: true
-        example: 17
+        example: 11
         type: integer
         custom: []
       message:
         name: message
         description: 'The message been sent to the user.'
         required: true
-        example: sunt
+        example: ea
         type: string
         custom: []
       data:
@@ -35,7 +35,7 @@ endpoints:
         description: 'This will hold extra data later on(not needed for now).'
         required: false
         example:
-          - facere
+          - delectus
         type: 'string[]'
         custom: []
     responses: []
@@ -57,7 +57,7 @@ endpoints:
         name: receiver
         description: ''
         required: true
-        example: 17
+        example: 8
         type: integer
         custom: []
     queryParameters: []
@@ -69,6 +69,9 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: '*'
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
         description: null
     responseFields: []

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Post\PostCollection;
+use App\Http\Resources\Shot\ShotCollection;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -19,7 +22,7 @@ class UserShotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-
+    public function index(User $user) {
+        return $this->sendSuccess([new ShotCollection($user->shots)]);
     }
 }

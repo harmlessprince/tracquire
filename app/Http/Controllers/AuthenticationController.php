@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Helper\Enum;
+use App\Enums\UserActionEnum;
+use App\Enums\UserStatus;
+use App\Events\CreditUserWalletEvent;
+use App\Events\SignupEvent;
+use App\Helper\Helper;
 use App\Helper\HttpResponseCodes;
-use App\Helper\UserStatus;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\User\UserResource;
@@ -12,14 +15,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Psy\Util\Str;
 use Seshac\Otp\Otp;
+use Spatie\QueryBuilder\QueryBuilder;
 
 /**
  * @group Authentication
  *
  * API endpoints for managing authentication
  */
-
 class AuthenticationController extends Controller
 {
 
@@ -58,7 +62,7 @@ class AuthenticationController extends Controller
      * "message": "Logged in successfully!"
      * }
      * @response 401 scenario="Invalid Credential" { "status": "error",  "data": [],  "message": "invalid email or password",  "code": 401}
-     * 
+     *
      */
     public function login(LoginRequest $request)
     {
@@ -79,15 +83,9 @@ class AuthenticationController extends Controller
 
 
     /**
-     * 
+     *
      * Register user.
      *
-     * @bodyParam   first_name    string  required    The first name of the  user.      Example: John
-     * @bodyParam   last_name    string  required    The password of the  user.   Example: Doe
-     * @bodyParam   email    string  required    The email of the  user.   Example: secret
-     * @bodyParam   password    string  required    The password of the  user.   Example: secret
-     * @bodyParam   username    string  required    The username of the  user.   Example: johndoe
-     * @bodyParam   token    string  required    The generated otp for the user.   Example: 339XXX
      *
      * @response {"status":"success",
      * "data":{
@@ -103,7 +101,7 @@ class AuthenticationController extends Controller
      *  "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ...."},
      *  "message":"Registration successful!"
      * },
-     * @response 422 scenario="Email Exist" 
+     * @response 422 scenario="Email Exist"
      * {"status":"error",
      * "data":{
      * "errors":{
@@ -118,30 +116,26 @@ class AuthenticationController extends Controller
     {
 
         try {
-            $verify = Otp::validate($request->email, $request->token);
-            if ($verify->status) {
-                \Seshac\Otp\Models\Otp::where(['identifier' => $request->email, 'token' => $request->token])->first()->delete();
-                $device = null;
-                if ($request->has('device_name')) {
-                    $device = $request->device_name;
-                } else {
-                    $device = $request->header('User-Agent');
-                }
-                $user = User::create([
-                    'email' => $request->input('email'),
-                    'device_name' => $device,
-                    'password' => Hash::make($request->input('password')),
-                    'status' => UserStatus::IN_REVIEW,
-                ]);
+            if ($request->has('device_name')) {
+                $device = $request->device_name;
             } else {
-                return $this->sendError($verify->message, HttpResponseCodes::TOKEN_VERIFICATION_FAIL);
+                $device = $request->header('User-Agent');
             }
-            if (!$user->hasVerifiedEmail()) {
-                $user->markEmailAsVerified();
-            }
-            $user->sendWelcomeNotification();
+            $referrer_code = $request->referrer;
+            $referrer = User::whereNotNull('referrer_token')->where('referrer_token', $referrer_code)->first();
+            $data = [
+                'email' => $request->email,
+                'device_name' => $device,
+                'password' => Hash::make($request->password),
+                'referral_token' => Helper::refCodeGenerator(),
+                'referrer_id' => $referrer->id ?? null,
+                'device' => $device
+            ];
+            $user = $this->createUser($data);
+            event(new CreditUserWalletEvent($user, UserActionEnum::SIGNUP));
+            event(new SignupEvent($user));
             $token = $user->createToken($user->device_name)->accessToken;
-            return $this->sendSuccess(['user' => $user, 'token' => $token], 'Registration successful!');
+            return $this->sendSuccess(['user' => new UserResource($user), 'token' => $token], 'Registration successful! and OTP has been sent to your'.$user->emaol.'for verification');
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
@@ -163,6 +157,22 @@ class AuthenticationController extends Controller
      */
     public function user()
     {
-        return $this->sendSuccess([new UserResource(Auth::user())]);
+        $user = QueryBuilder::for(User::class)
+            ->allowedIncludes(['postsCount', 'bookmarksCount', 'posts', 'bookmarks'])
+            ->where('users.id', auth()->id())
+            ->first();
+        return $this->sendSuccess([new UserResource($user)]);
+    }
+
+    private function createUser(array $data)
+    {
+        return User::create([
+            'email' => $data['email'],
+            'device_name' => $data['device'],
+            'password' => Hash::make($data['password']),
+            'status' => UserStatus::IN_REVIEW,
+            'referrer_token' => $data['referral_token'],
+            'referrer_id' => $data['referrer_id']
+        ]);
     }
 }

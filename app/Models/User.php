@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Traits\HasWallet;
+use Bavix\Wallet\Interfaces\Wallet;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Laravel\Passport\HasApiTokens;
 use Musonza\Chat\Traits\Messageable;
@@ -17,9 +21,9 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia, Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia, HasWallet;
 
     /**
      * The attributes that are mass assignable.
@@ -63,6 +67,12 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Post::class);
     }
 
+    public function bookmarks(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'bookmarks')->withTimestamps();
+    }
+
+
     public function comments(): MorphMany
     {
         return $this->morphMany(Comment::class, 'commentable');
@@ -72,16 +82,33 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Shot::class);
     }
-
-    public function transactions(): HasMany
+    /**
+     * A user has a referrer.
+     */
+    public function referrer(): BelongsTo
     {
-        return $this->hasMany(Transaction::class);
+        return $this->belongsTo(User::class, 'referrer_id', 'id');
     }
 
-    public function wallet(): HasOne
+    /**
+     * A user has many referrals.
+     *
+     *
+     */
+    public function referrers(): HasMany
     {
-        return $this->hasOne(Wallet::class);
+        return $this->hasMany(User::class, 'referrer_id', 'id');
     }
+
+//    public function transactions(): HasMany
+//    {
+//        return $this->hasMany(Transaction::class);
+//    }
+
+//    public function wallet(): HasOne
+//    {
+//        return $this->hasOne(Wallet::class);
+//    }
 
     //Spatie media method
     public function registerMediaCollections(): void

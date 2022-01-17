@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Shot;
 
+use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\User\UserResource;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -20,8 +22,6 @@ class ShotResource extends JsonResource
             'id' => (string) $this->id,
             'type' => 'shots',
             'attributes' => [
-//                'shooter' => $this->shooter->full_name ?? null,
-//                'post' => $this->post,
                 'description' => $this->description,
                 'condition' => $this->condition,
                 'created_at' => format_date($this->created_at ?? Carbon::now()),
@@ -36,10 +36,14 @@ class ShotResource extends JsonResource
                 ],
                 'shooter' => [
                     'links' => [
-                        // 'related' => route('users.show', ['user' => $this->user_id ?? 0])
+                         'related' => route('users.show', ['user' => $this->user_id ?? 0])
                     ]
                 ],
             ],
+            "included" => [
+                'shooter' => new UserResource($this->shooter),
+                'post' => new PostResource($this->post),
+            ]
         ];
     }
 }

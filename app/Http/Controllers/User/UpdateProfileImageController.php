@@ -10,20 +10,20 @@ use Illuminate\Http\Request;
 
 
 /**
- * @group Avatar
+ * @group User
  * @authenticated
  * API endpoints for managing users
  */
 
 class UpdateProfileImageController extends Controller
 {
-    
+
     /**
-     * 
+     *
      * Update Avatar
-     * 
+     *
      * This endpoint is  for updates users' Avatar
-     * 
+     *
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */

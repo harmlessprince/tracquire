@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @bodyParam token string required The token sent to the user.
+ * @bodyParam referrer string required The token sent to the user.
  * @bodyParam password string required The user password.
  * @bodyParam email string required The the user email,this is a unique field.
  */
@@ -29,9 +29,14 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => ['required'],
+            'referrer' => ['exists:users,referrer_token', 'nullable'],
             'email' => ['required', 'unique:users'],
-            'password' => ['required']
+            'password' => ['required', 'min:8']
         ];
+    }
+
+    public function messages(): array
+    {
+        return ['referrer.exists' => 'Invalid referral code supplied'];
     }
 }

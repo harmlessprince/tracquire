@@ -8,5 +8,8 @@ class UserRepository extends BaseRepository
     {
         parent::__construct($model);
     }
+    public function creditWallet($user_id){
+        dd($user_id);
+    }
 }
 

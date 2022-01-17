@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper;
+namespace App\Enums;
 
 
 use App\Exceptions\NotSupportedException;

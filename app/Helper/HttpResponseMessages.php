@@ -2,6 +2,8 @@
 
 namespace App\Helper;
 
+use App\Enums\Enum;
+
 class HttpResponseMessages extends Enum
 {
     const INVALID_REQUEST = 'Invalid Request.';

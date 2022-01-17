@@ -1,6 +1,6 @@
 <?php
 
-use App\Helper\PostStatus;
+use App\Enums\PostStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -31,7 +31,7 @@ class CreatePostsTable extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('location')->nullable()->index();
-            $table->integer('status')->default(PostStatus::OPEN);
+            $table->string('status')->default(PostStatus::OPEN);
             $table->softDeletes();
 //            $table->index(['title', 'published_at ', 'shoot_able', 'slug', 'country', 'state', 'city', 'location']);
             $table->timestamps();

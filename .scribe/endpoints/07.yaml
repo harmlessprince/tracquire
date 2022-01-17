@@ -1,148 +1,39 @@
-name: Shot
+name: 'Search Post'
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/posts/{post_id}/shots'
+    uri: api/v1/search
     metadata:
-      title: 'All Shots'
+      title: 'Search Through All Posts'
       description: ''
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      post_id:
-        name: post_id
-        description: 'The ID of the post.'
-        required: true
-        example: 6
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:42","updated_at":"2022-01-10 01:01:42","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:42","updated_at":"2022-01-10 01:01:42","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}]}}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/users/{user}/shots'
-    metadata:
-      title: 'All User Shots'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      user:
-        name: user
-        description: ''
-        required: true
-        example: 2
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:42","updated_at":"2022-01-10 01:01:42","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:42","updated_at":"2022-01-10 01:01:42","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}]}}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/posts/{post_id}/shots/{id}'
-    metadata:
-      title: 'Show Shot'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      post_id:
-        name: post_id
-        description: 'The ID of the post.'
-        required: true
-        example: 4
-        type: integer
-        custom: []
-      id:
-        name: id
-        description: 'The ID of the shot.'
-        required: true
+    urlParameters: []
+    queryParameters:
+      'page[number]':
+        name: 'page[number]'
+        description: 'The page number.'
+        required: false
         example: 8
         type: integer
         custom: []
-    queryParameters: []
+      'page[size]':
+        name: 'page[size]'
+        description: 'The page number.'
+        required: false
+        example: 19
+        type: integer
+        custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:42","updated_at":"2022-01-10 01:01:42","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/posts/{post}/shots'
-    metadata:
-      title: 'Create Shot'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      post:
-        name: post
-        description: ''
-        required: true
-        example: 7
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters:
-      description:
-        name: description
-        description: 'The shot description.'
-        required: true
-        example: qui
-        type: string
-        custom: []
-      condition:
-        name: condition
-        description: 'The the shot or item condition.'
-        required: false
-        example: doloremque
-        type: string
-        custom: []
-      images:
-        name: images
-        description: 'The shot images.'
-        required: false
-        example:
-          - temporibus
-        type: 'string[]'
-        custom: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-10 01:01:42","updated_at":"2022-01-10 01:01:42","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":[]}}}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Velit maiores eaque aut voluptatem omnis harum.","description":"Similique voluptas perspiciatis est accusamus.","condition":"Ex unde perspiciatis exercitationem iste et sint.","shoot_able":true,"status":"","category":"SWAP ITEM","country":"Ethiopia","state":"East Filomenatown","city":"West Damarischester","location":"en_JM","published_at":"2022-01-14T19:36:56.998843Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Dolorem assumenda sint exercitationem voluptate.","description":"Enim rerum et et quo aliquid.","condition":"Numquam optio molestias et.","shoot_able":true,"status":"","category":"GIVE","country":"Cuba","state":"Blandaside","city":"Port Annamarieville","location":"fr_LU","published_at":"2022-01-14T19:36:57.001279Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
         headers: []
         description: null
     responseFields: []
