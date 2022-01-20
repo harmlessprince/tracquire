@@ -67,14 +67,14 @@ class AuthenticationController extends Controller
     public function login(LoginRequest $request)
     {
         try {
-            if (Auth::attempt($request->only('email', 'password'))) {
+            if (Auth::attempt($request->validated())) {
                 /**
                  * @var User $user
                  */
                 $user = Auth::user();
                 $token = $user->createToken($user->device_name)->accessToken;
                 return $this->sendSuccess(['token' => $token, 'user' => $user], "Logged in successfully!");
-            }
+            }       
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
@@ -166,10 +166,12 @@ class AuthenticationController extends Controller
 
     private function createUser(array $data)
     {
+        // dd(Hash::make($data['password']), '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+
         return User::create([
             'email' => $data['email'],
             'device_name' => $data['device'],
-            'password' => Hash::make($data['password']),
+            'password' =>$data['password'],
             'status' => UserStatus::IN_REVIEW,
             'referrer_token' => $data['referral_token'],
             'referrer_id' => $data['referrer_id']

@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable implements HasMedia, Wallet
 {
@@ -117,6 +118,13 @@ class User extends Authenticatable implements HasMedia, Wallet
             ->singleFile();
     }
     //Attributes
+    public function setPasswordAttribute($value)
+    {
+        if( Hash::needsRehash($value) ) {
+            $value = Hash::make($value);
+        }
+        $this->attributes['password'] = $value;
+    }
 
     /**
      * Get the user's full name.
