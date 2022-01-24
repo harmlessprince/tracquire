@@ -37,6 +37,7 @@ class AcceptShotController extends Controller
             'accepted' => true,
             'accepted_at' => now()
         ]);
+        $this->sendSuccess([], 'Shot successfully accepted');
     }
     /**
      * Decline Shot
@@ -59,5 +60,6 @@ class AcceptShotController extends Controller
             'accepted' => false,
             'accepted_at' => null
         ]);
+        $this->sendSuccess([], 'Shot successfully declined');
     }
 }
