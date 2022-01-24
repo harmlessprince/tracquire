@@ -23,9 +23,10 @@ class CreatePostsTable extends Migration
             $table->text('description')->fulltext();
             $table->dateTime('published_at')->index()->nullable();
             $table->text('condition')->nullable();
+            $table->text('wishlist')->nullable();
             $table->boolean('shoot_able')->default(false)->index();
             $table->string('portfolio_link')->nullable();
-            $table->decimal('latitude', 11,8)->nullable();
+            $table->decimal('latitude', 11, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
@@ -33,7 +34,7 @@ class CreatePostsTable extends Migration
             $table->string('location')->nullable()->index();
             $table->string('status')->default(PostStatus::OPEN);
             $table->softDeletes();
-//            $table->index(['title', 'published_at ', 'shoot_able', 'slug', 'country', 'state', 'city', 'location']);
+            //            $table->index(['title', 'published_at ', 'shoot_able', 'slug', 'country', 'state', 'city', 'location']);
             $table->timestamps();
         });
     }

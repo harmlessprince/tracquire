@@ -101,15 +101,6 @@ class User extends Authenticatable implements HasMedia, Wallet
         return $this->hasMany(User::class, 'referrer_id', 'id');
     }
 
-//    public function transactions(): HasMany
-//    {
-//        return $this->hasMany(Transaction::class);
-//    }
-
-//    public function wallet(): HasOne
-//    {
-//        return $this->hasOne(Wallet::class);
-//    }
 
     //Spatie media method
     public function registerMediaCollections(): void
@@ -120,7 +111,7 @@ class User extends Authenticatable implements HasMedia, Wallet
     //Attributes
     public function setPasswordAttribute($value)
     {
-        if( Hash::needsRehash($value) ) {
+        if(Hash::needsRehash($value) ) {
             $value = Hash::make($value);
         }
         $this->attributes['password'] = $value;

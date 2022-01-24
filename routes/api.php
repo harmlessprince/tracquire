@@ -4,6 +4,7 @@ use App\Http\Controllers\AcceptShotController;
 use App\Http\Controllers\AuthenticationController;
 
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
@@ -113,5 +114,6 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     //    Route::apiResource('comments', CommentController::class);
     //users
     // Route::apiResource('users', UserController::class);
-
+    //Post Category
+    Route::get('/categories', [CategoryController::class, 'index'])->name('post.categories');
 });

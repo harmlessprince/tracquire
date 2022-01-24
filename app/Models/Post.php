@@ -19,6 +19,14 @@ class Post extends Model implements HasMedia
 
     protected $guarded = [];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'wishlist' => 'array',
+    ];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -54,6 +62,4 @@ class Post extends Model implements HasMedia
     {
         return $this->belongsToMany(User::class, 'bookmarks')->withTimestamps();
     }
-
-
 }

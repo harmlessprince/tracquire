@@ -37,6 +37,7 @@ class PostRepository extends BaseRepository
                 'condition' => $data->condition ?? null,
                 'shoot_able' => (bool)$data->shoot_able,
                 'portfolio_link' => $data->portfolio ?? null,
+                'wishlist' => $data->wishlist ?? [],
             ]);
             foreach (request()->images as $image){
                 $model->addMedia($image)->toMediaCollection('posts', 'post');

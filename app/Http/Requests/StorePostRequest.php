@@ -9,7 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam description string required The post description.
  * @bodyParam condition string The the post or item condition.
  * @bodyParam images array The post images.
- * @bodyParam wishlist string The post wishlist.
+ * @bodyParam wishlist array The post wishlist.
  * @bodyParam portfolio url The user posting profile
  * @bodyParam shoot_able boolean this is to indicate users can shoot the post
  */
@@ -37,9 +37,9 @@ class StorePostRequest extends FormRequest
             'category' => ['required', 'exists:categories,slug'],
             'description' => ['string', 'required', 'max:255'],
             'condition' => ['sometimes', 'required', 'max:255'],
-            'images' => ['required', 'array', 'max:6'],
+            'images' => ['sometimes', 'array', 'max:6'],
             'images.*' => ['image', 'mimes:jpg,jpeg,png,gif'],
-            'wishlist' => ['sometimes', 'required', 'string'],
+            'wishlist' => ['sometimes', 'array', 'max:4'],
             'portfolio' => ['sometimes', 'url'],
             'shoot_able' => ['sometimes','boolean']
         ];
