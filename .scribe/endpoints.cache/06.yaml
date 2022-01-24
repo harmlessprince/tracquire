@@ -21,7 +21,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Aut ut ea dolores ex suscipit ullam.","description":"Harum unde fugit quo.","condition":"Voluptatem aliquid tenetur voluptatem et vel tenetur.","shoot_able":false,"status":"","category":"GIVE","country":"Cocos (Keeling) Islands","state":"New Davonte","city":"Dibbertfurt","location":"ti_ET","published_at":"2022-01-14T19:36:56.472628Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Blanditiis similique et accusamus voluptatem.","description":"Hic natus cum dolorum dolorem eius ipsa saepe.","condition":"At tempore impedit praesentium mollitia tenetur.","shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Pakistan","state":"South Lafayette","city":"Lake Jeffry","location":"uk_UA","published_at":"2022-01-14T19:36:56.476799Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Cum inventore est omnis id cumque.","description":"Rerum nulla ratione non dicta.","condition":"Ut eligendi harum adipisci itaque fugit animi modi.","shoot_able":false,"status":"","category":"SWAP ITEM","country":"Maldives","state":"Hintzport","city":"West Ramiro","location":"cy_GB","published_at":"2022-01-24T18:54:25.029792Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Ut accusamus esse alias aut ea.","description":"Quis sed eum et aut quia optio magni.","condition":"Dicta ullam maiores dolorum repudiandae.","shoot_able":false,"status":"","category":"SWAP ITEM","country":"Chile","state":"New Braeden","city":"Abernathystad","location":"sh_YU","published_at":"2022-01-24T18:54:25.034220Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}]}}'
         headers: []
         description: null
     responseFields: []
@@ -44,21 +44,21 @@ endpoints:
         name: category
         description: 'The post category ID.'
         required: true
-        example: 2
+        example: 8
         type: integer
         custom: []
       description:
         name: description
         description: 'The post description.'
         required: true
-        example: aliquid
+        example: eum
         type: string
         custom: []
       condition:
         name: condition
         description: 'The the post or item condition.'
         required: false
-        example: magni
+        example: quis
         type: string
         custom: []
       images:
@@ -66,34 +66,35 @@ endpoints:
         description: 'The post images.'
         required: false
         example:
-          - nostrum
+          - rerum
         type: 'string[]'
         custom: []
       wishlist:
         name: wishlist
         description: 'The post wishlist.'
         required: false
-        example: pariatur
-        type: string
+        example:
+          - eligendi
+        type: 'string[]'
         custom: []
       portfolio:
         name: portfolio
         description: 'The user posting profile'
         required: false
-        example: ut
+        example: eaque
         type: url
         custom: []
       shoot_able:
         name: shoot_able
         description: 'this is to indicate users can shoot the post'
         required: false
-        example: true
+        example: false
         type: boolean
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Aut quis ea sit non et.","description":"Aut occaecati maxime vel dolorem rem repudiandae.","condition":"Et non enim et.","shoot_able":false,"status":"","category":"SWAP ITEM","country":"Saint Martin","state":"East Cotyshire","city":"North Jared","location":"kpe_LR","published_at":"2022-01-14T19:36:56.497429Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}}'
+        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Voluptatum dolores corrupti ipsa quos.","description":"Voluptas est consequatur velit non molestias enim.","condition":"Itaque placeat maiores id temporibus.","shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Barbados","state":"Lynchville","city":"West Bridgetteport","location":"gez_ER","published_at":"2022-01-24T18:54:25.053819Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}}'
         headers: []
         description: null
     responseFields: []
@@ -114,7 +115,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 20
+        example: 10
         type: integer
         custom: []
     queryParameters: []
@@ -122,7 +123,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Saepe harum quo sit architecto voluptatem.","description":"Repellendus eos placeat at dolorem.","condition":"Qui quia ut vel eligendi.","shoot_able":false,"status":"","category":"SWAP ITEM","country":"Argentina","state":"New Sabrina","city":"Lake Jerodburgh","location":"gez_ER","published_at":"2022-01-14T19:36:56.501290Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}}'
+        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Officiis distinctio aut sunt.","description":"Consequatur debitis quas consequatur enim unde.","condition":"Omnis et ut consectetur nemo consequatur.","shoot_able":true,"status":"","category":"GIVE","country":"Syrian Arab Republic","state":"Haagport","city":"West Fred","location":"bo_IN","published_at":"2022-01-24T18:54:25.057926Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}}'
         headers: []
         description: null
     responseFields: []
@@ -143,7 +144,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 9
+        example: 7
         type: integer
         custom: []
     queryParameters: []
@@ -167,7 +168,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 18
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -175,7 +176,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Facilis dolor error quia est eum.","description":"Quia quis nesciunt sint blanditiis quaerat.","condition":"Illum voluptatem ut nemo tenetur.","shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Albania","state":"New Lillie","city":"Lake Maudiefurt","location":"gaa_GH","published_at":"2022-01-14T19:36:56.505498Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}}'
+        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Quibusdam dolore iste tempore animi vel.","description":"Consectetur nihil officia commodi.","condition":"Tempora incidunt sed quia at.","shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Afghanistan","state":"East Codytown","city":"Walkerburgh","location":"oc_FR","published_at":"2022-01-24T18:54:25.062126Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}}}}}'
         headers: []
         description: null
     responseFields: []

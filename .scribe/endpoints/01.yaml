@@ -18,7 +18,7 @@ endpoints:
         name: post
         description: 'The post''s ID.'
         required: true
-        example: 5
+        example: 3
         type: integer
         custom: []
     queryParameters: []

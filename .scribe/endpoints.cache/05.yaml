@@ -59,21 +59,21 @@ endpoints:
         name: token
         description: 'The token sent to the user.'
         required: true
-        example: tempora
+        example: incidunt
         type: string
         custom: []
       email:
         name: email
         description: 'The user email address.'
         required: true
-        example: voluptas
+        example: ad
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: optio
+        example: sed
         type: string
         custom: []
     responses:

@@ -1,32 +1,69 @@
-name: Transaction
+name: 'Shot Acceptance'
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: 'api/v1/users/{user}/transactions'
+      - PATCH
+    uri: 'api/v1/shots/{shot}/posts/{post}/accept'
     metadata:
-      title: 'All User Transactions'
-      description: ''
+      title: 'Accept Shot'
+      description: |-
+        This endpoint is used for accepting shot by a post creator.
+        It close the post from accepting shot
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      user:
-        name: user
-        description: ''
+      shot:
+        name: shot
+        description: 'the shot been accepted ID'
         required: true
-        example: 11
+        example: 12
+        type: integer
+        custom: []
+      post:
+        name: post
+        description: 'the post ID'
+        required: true
+        example: 20
         type: integer
         custom: []
     queryParameters: []
     bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[[],[]]}'
-        headers: []
-        description: null
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/shots/{shot}/posts/{post}/decline'
+    metadata:
+      title: 'Decline Shot'
+      description: |-
+        This endpoint is used for accepting shot by a post creator.
+        It close the post from accepting shot
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      shot:
+        name: shot
+        description: 'the shot been accepted ID'
+        required: true
+        example: 3
+        type: integer
+        custom: []
+      post:
+        name: post
+        description: 'the post ID'
+        required: true
+        example: 19
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
     responseFields: []

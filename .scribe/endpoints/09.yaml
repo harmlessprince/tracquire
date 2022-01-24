@@ -1,69 +1,148 @@
-name: 'Shot Acceptance'
+name: Shot
 description: ''
 endpoints:
   -
     httpMethods:
-      - PATCH
-    uri: 'api/v1/shots/{shot}/posts/{post}/accept'
+      - GET
+    uri: 'api/v1/posts/{post_id}/shots'
     metadata:
-      title: 'Accept Shot'
-      description: |-
-        This endpoint is used for accepting shot by a post creator.
-        It close the post from accepting shot
+      title: 'All Shots'
+      description: ''
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      shot:
-        name: shot
-        description: 'the shot been accepted ID'
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
         required: true
-        example: 5
+        example: 11
         type: integer
         custom: []
-      post:
-        name: post
-        description: 'the post ID'
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-24 18:01:54","updated_at":"2022-01-24 18:01:54","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-24 18:01:54","updated_at":"2022-01-24 18:01:54","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{user}/shots'
+    metadata:
+      title: 'All User Shots'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-24 18:01:54","updated_at":"2022-01-24 18:01:54","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-24 18:01:54","updated_at":"2022-01-24 18:01:54","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
+        headers: []
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{post_id}/shots/{id}'
+    metadata:
+      title: 'Show Shot'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        name: post_id
+        description: 'The ID of the post.'
         required: true
         example: 20
         type: integer
         custom: []
+      id:
+        name: id
+        description: 'The ID of the shot.'
+        required: true
+        example: 18
+        type: integer
+        custom: []
     queryParameters: []
     bodyParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-24 18:01:54","updated_at":"2022-01-24 18:01:54","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
+        headers: []
+        description: null
     responseFields: []
   -
     httpMethods:
-      - PATCH
-    uri: 'api/v1/shots/{shot}/posts/{post}/decline'
+      - POST
+    uri: 'api/v1/posts/{post}/shots'
     metadata:
-      title: 'Decline Shot'
-      description: |-
-        This endpoint is used for accepting shot by a post creator.
-        It close the post from accepting shot
+      title: 'Create Shot'
+      description: ''
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      shot:
-        name: shot
-        description: 'the shot been accepted ID'
-        required: true
-        example: 3
-        type: integer
-        custom: []
       post:
         name: post
-        description: 'the post ID'
+        description: ''
         required: true
-        example: 12
+        example: 2
         type: integer
         custom: []
     queryParameters: []
-    bodyParameters: []
-    responses: []
+    bodyParameters:
+      description:
+        name: description
+        description: 'The shot description.'
+        required: true
+        example: delectus
+        type: string
+        custom: []
+      condition:
+        name: condition
+        description: 'The the shot or item condition.'
+        required: false
+        example: quae
+        type: string
+        custom: []
+      images:
+        name: images
+        description: 'The shot images.'
+        required: false
+        example:
+          - tenetur
+        type: 'string[]'
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-01-24 18:01:54","updated_at":"2022-01-24 18:01:54","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
+        headers: []
+        description: null
     responseFields: []
