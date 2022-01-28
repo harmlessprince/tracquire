@@ -18,7 +18,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 1
+        example: 14
         type: integer
         custom: []
     queryParameters: []
@@ -27,42 +27,42 @@ endpoints:
         name: first_name
         description: 'The user last name.'
         required: false
-        example: eos
+        example: voluptatem
         type: string
         custom: []
       last_name:
         name: last_name
         description: 'The user first name.'
         required: false
-        example: ut
+        example: totam
         type: string
         custom: []
       phone:
         name: phone
         description: 'The user phone number,this is a unique field.'
         required: false
-        example: explicabo
+        example: omnis
         type: string
         custom: []
       username:
         name: username
         description: 'The user username ,and it must be unique.'
         required: false
-        example: nemo
+        example: ad
         type: string
         custom: []
       latitude:
         name: latitude
         description: 'The user latitude coordinate.'
         required: false
-        example: omnis
+        example: mollitia
         type: string
         custom: []
       longitude:
         name: longitude
         description: 'The user latitude coordinate.'
         required: false
-        example: ratione
+        example: ut
         type: string
         custom: []
     responses: []
@@ -84,7 +84,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 20
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -93,7 +93,7 @@ endpoints:
         name: avatar
         description: 'The user profile picture and accepted types are jpeg and jpg and max size of 2M.'
         required: false
-        example: est
+        example: voluptatum
         type: required
         custom: []
     responses: []
@@ -115,7 +115,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 19
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -123,7 +123,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"7","type":"users","attributes":{"first_name":"Olaf","last_name":"Greenfelder","username":"ellsworth.olson","phone":"248-853-8896","email":"lyla.rolfson@example.com","referrer_token":"G63W9O","user_type":null,"country":"","state":"","city":"","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/7\/transactions"}}},"included":[]}}'
+        content: '{"data":{"id":"8","type":"users","attributes":{"first_name":"Teresa","last_name":"Hirthe","username":"meaghan.rodriguez","phone":"(517) 400-7279","email":"aurelia.runte@example.com","referrer_token":"9DAHK1","user_type":null,"country":"Thailand","state":"Bangkok","city":"Lat Krabang","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/8\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/8\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/8\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/8\/transactions"}}},"included":[]}}'
         headers: []
         description: null
     responseFields: []
@@ -144,7 +144,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 14
+        example: 12
         type: integer
         custom: []
     queryParameters: []
@@ -152,7 +152,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Nihil repudiandae et nam praesentium.","description":"Quaerat eos et dolorem iste quisquam dolorem ea.","condition":"Facere consequuntur facere architecto ut nisi harum odit reprehenderit.","shoot_able":true,"status":"","category":"GIVE","country":"Cape Verde","state":"Port Joey","city":"Port Alisha","location":"mn_MN","published_at":"2022-01-28T08:13:56.628053Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Temporibus ea voluptatum quisquam deserunt.","description":"Neque repellat magni eligendi est.","condition":"Iusto et molestiae ab ipsum vel.","shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Heard Island and McDonald Islands","state":"South Lucienne","city":"North Melisafurt","location":"pl_PL","published_at":"2022-01-28T08:13:56.630495Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Magnam iste vel eum numquam.","description":"Saepe qui non nesciunt possimus tempore.","condition":"Voluptatem et similique eos corrupti eligendi et.","shoot_able":false,"status":"","category":"GIVE","country":"Montserrat","state":"Ratkefort","city":"Schadenborough","location":"gu_IN","published_at":"2022-01-28T08:19:51.232245Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et officiis quis non dolor sit alias.","description":"Similique numquam molestias aut aperiam qui sed optio.","condition":"Illum et aut quam reiciendis.","shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Latvia","state":"Lake Malindatown","city":"New Calista","location":"ha_GH","published_at":"2022-01-28T08:19:51.234680Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
         headers: []
         description: null
     responseFields: []

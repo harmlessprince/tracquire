@@ -15,6 +15,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam longitude float This is used to capture the user location longitude
  * @bodyParam latitude float  This is used to capture the user Location latitude
  * @bodyParam location string The post location.
+ * @bodyParam publish string The is is used to state wether the post should be published. Example yes 
  */
 
 class StorePostRequest extends FormRequest
@@ -47,7 +48,8 @@ class StorePostRequest extends FormRequest
             'shoot_able' => ['sometimes','boolean'],
             'latitude' => ['sometimes', 'required', 'numeric', 'between:-90,90'],
             'longitude' => ['sometimes', 'required', 'numeric', 'between:-180,180'],
-            'location' => ['sometimes','required','string']
+            'location' => ['sometimes','required','string'],
+            'publish' => ['required', 'string']
         ];
     }
 }
