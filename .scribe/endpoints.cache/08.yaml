@@ -21,21 +21,21 @@ endpoints:
         name: 'page[number]'
         description: 'The page number.'
         required: false
-        example: 19
+        example: 2
         type: integer
         custom: []
       'page[size]':
         name: 'page[size]'
         description: 'The page number.'
         required: false
-        example: 4
+        example: 5
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Reprehenderit dicta perferendis dolores porro ut.","description":"Aut in omnis odit voluptate eum.","condition":"Quam impedit est ut delectus non.","shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Maldives","state":"Dallinview","city":"Port Diamond","location":"hu_HU","published_at":"2022-01-28T08:13:07.800017Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"At nostrum a provident possimus et totam quo.","description":"Modi doloribus beatae qui.","condition":"Quasi nostrum facilis molestiae accusantium.","shoot_able":false,"status":"","category":"GIVE","country":"Algeria","state":"Lefflermouth","city":"Lake Sonnyville","location":"fil_PH","published_at":"2022-01-28T08:13:07.801892Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Reiciendis veniam nam incidunt dolor veritatis.","description":"Saepe necessitatibus deserunt deleniti unde vel sequi sed.","condition":"Esse vel hic et corporis ab delectus.","shoot_able":true,"status":"","category":"SWAP ITEM","country":"Germany","state":"Grimesview","city":"Gretchenbury","location":"gv_GB","published_at":"2022-01-28T08:13:56.676847Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Voluptate non incidunt iusto nesciunt.","description":"Est fugiat alias voluptatem mollitia officia sed non incidunt.","condition":"Eligendi officia illum voluptas magni nihil.","shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Jersey","state":"East Patsy","city":"Koeppberg","location":"sw_TZ","published_at":"2022-01-28T08:13:56.678824Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
         headers: []
         description: null
     responseFields: []

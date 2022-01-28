@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @bodyParam category integer required The post category ID.
+ * @bodyParam category string required The post category slug.
  * @bodyParam description string required The post description.
  * @bodyParam condition string The the post or item condition.
  * @bodyParam images array The post images.

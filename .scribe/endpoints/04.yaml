@@ -22,21 +22,21 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: et
+        example: itaque
         type: string
         custom: []
       otp:
         name: otp
         description: ''
         required: true
-        example: voluptas
+        example: fugit
         type: string
         custom: []
       token:
         name: token
         description: 'The otp sent to the user email address.'
         required: false
-        example: est
+        example: repudiandae
         type: string
         custom: []
     responses: []

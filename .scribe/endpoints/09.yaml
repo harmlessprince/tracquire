@@ -18,7 +18,7 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 20
+        example: 13
         type: integer
         custom: []
     queryParameters: []
@@ -47,7 +47,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 7
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -76,14 +76,14 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 20
+        example: 11
         type: integer
         custom: []
       id:
         name: id
         description: 'The ID of the shot.'
         required: true
-        example: 13
+        example: 5
         type: integer
         custom: []
     queryParameters: []
@@ -112,7 +112,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 19
+        example: 10
         type: integer
         custom: []
     queryParameters: []
@@ -121,14 +121,14 @@ endpoints:
         name: description
         description: 'The shot description.'
         required: true
-        example: assumenda
+        example: nesciunt
         type: string
         custom: []
       condition:
         name: condition
         description: 'The the shot or item condition.'
         required: false
-        example: ad
+        example: aspernatur
         type: string
         custom: []
       images:
@@ -136,7 +136,7 @@ endpoints:
         description: 'The shot images.'
         required: false
         example:
-          - perferendis
+          - nulla
         type: 'string[]'
         custom: []
     responses:
