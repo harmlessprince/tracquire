@@ -12,6 +12,9 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam wishlist array The post wishlist.
  * @bodyParam portfolio url The user posting profile
  * @bodyParam shoot_able boolean this is to indicate users can shoot the post
+ * @bodyParam longitude float This is used to capture the user location longitude
+ * @bodyParam latitude float  This is used to capture the user Location latitude
+ * @bodyParam location string The post location.
  */
 
 class StorePostRequest extends FormRequest
@@ -41,7 +44,10 @@ class StorePostRequest extends FormRequest
             'images.*' => ['image', 'mimes:jpg,jpeg,png,gif'],
             'wishlist' => ['sometimes', 'array', 'max:4'],
             'portfolio' => ['sometimes', 'url'],
-            'shoot_able' => ['sometimes','boolean']
+            'shoot_able' => ['sometimes','boolean'],
+            'latitude' => ['sometimes', 'required', 'numeric', 'between:-90,90'],
+            'longitude' => ['sometimes', 'required', 'numeric', 'between:-180,180'],
+            'location' => ['sometimes','required','string']
         ];
     }
 }

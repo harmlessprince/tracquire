@@ -42,6 +42,11 @@ class PostResource extends JsonResource
                         'related' => route('posts.comments', ['post' => $this->id ?? 0])
                     ]
                 ],
+                'author' => [
+                    'links' => [
+                        'related' => route('users.show', ['user' => $this->user->id ?? 0])
+                    ]
+                ],
             ],
         ];
     }

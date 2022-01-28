@@ -40,7 +40,7 @@ class BaseRepository implements \App\Repositories\Eloquent\Contracts\EloquentRep
      */
     public function findById(int $modelId, array $columns = ['*'], array $relations = [], array $appends = []): ?Model
     {
-        return $this->model->select($columns)->with($relations)->findorFail($modelId)->append($appends);
+        return $this->model->select($columns)->with($relations)->findOrFail($modelId)->append($appends);
     }
 
     /**
@@ -48,7 +48,7 @@ class BaseRepository implements \App\Repositories\Eloquent\Contracts\EloquentRep
      */
     public function findTrashedById(int $modelId): ?Model
     {
-        return $this->model->withTrashed()->findorFail($modelId);
+        return $this->model->withTrashed()->findOrFail($modelId);
     }
 
     /**
@@ -56,7 +56,7 @@ class BaseRepository implements \App\Repositories\Eloquent\Contracts\EloquentRep
      */
     public function findOnlyTrashedById(int $modelId): ?Model
     {
-        return $this->model->onlyTrashed()->findorFail($modelId);
+        return $this->model->onlyTrashed()->findOrFail($modelId);
     }
 
     /**

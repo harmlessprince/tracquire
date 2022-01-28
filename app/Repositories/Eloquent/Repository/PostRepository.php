@@ -39,8 +39,10 @@ class PostRepository extends BaseRepository
                 'portfolio_link' => $data->portfolio ?? null,
                 'wishlist' => $data->wishlist ?? [],
             ]);
-            foreach (request()->images as $image){
-                $model->addMedia($image)->toMediaCollection('posts', 'post');
+            if (property_exists($data, 'images')) {
+                foreach ($data->images as $image){
+                    $model->addMedia($image)->toMediaCollection('posts', 'post');
+                }
             }
             return $model;
         });

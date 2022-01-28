@@ -18,7 +18,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 17
+        example: 6
         type: integer
         custom: []
     queryParameters: []
@@ -26,7 +26,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"11","type":"comments","attributes":{"body":"Accusantium quos voluptatem expedita.","created_by":"Myrl","created_at":"2022-01-24T18:54:25.000000Z","updated_at":"2022-01-24T18:54:25.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}},{"id":"12","type":"comments","attributes":{"body":"Molestias aliquid quam labore non et quas reiciendis fugiat.","created_by":"Myrl","created_at":"2022-01-24T18:54:25.000000Z","updated_at":"2022-01-24T18:54:25.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/12"}}}}]}'
+        content: '{"data":[{"id":"16","type":"comments","attributes":{"body":"Deleniti quas eum sint hic aut.","created_by":"John","created_at":"2022-01-28T08:13:07.000000Z","updated_at":"2022-01-28T08:13:07.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/12"}}}},{"id":"17","type":"comments","attributes":{"body":"Placeat sit commodi veritatis sapiente ex natus.","created_by":"Elisabeth","created_at":"2022-01-28T08:13:07.000000Z","updated_at":"2022-01-28T08:13:07.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/17"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -47,7 +47,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 14
+        example: 15
         type: integer
         custom: []
     queryParameters: []
@@ -55,7 +55,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"14","type":"comments","attributes":{"body":"Numquam ut et dignissimos voluptatem vero quibusdam aspernatur quia.","created_by":"Myrl","created_at":"2022-01-24T18:54:25.000000Z","updated_at":"2022-01-24T18:54:25.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/9"}}}},{"id":"15","type":"comments","attributes":{"body":"Iusto fugit aperiam deserunt quo.","created_by":"Myrl","created_at":"2022-01-24T18:54:25.000000Z","updated_at":"2022-01-24T18:54:25.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/12"}}}}]}'
+        content: '{"data":[{"id":"19","type":"comments","attributes":{"body":"Magni dolorem qui reiciendis et.","created_by":"Elisabeth","created_at":"2022-01-28T08:13:07.000000Z","updated_at":"2022-01-28T08:13:07.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/13"}}}},{"id":"20","type":"comments","attributes":{"body":"Rerum vero dicta explicabo natus voluptatibus.","created_by":"Myrl","created_at":"2022-01-28T08:13:07.000000Z","updated_at":"2022-01-28T08:13:07.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/17"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -76,7 +76,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 3
+        example: 19
         type: integer
         custom: []
     queryParameters: []
@@ -85,13 +85,13 @@ endpoints:
         name: body
         description: 'The body of the post and it is maximum of 255 character.'
         required: true
-        example: impedit
+        example: exercitationem
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"13","type":"comments","attributes":{"body":"Consequatur culpa explicabo molestiae omnis quam dolor.","created_by":"Sandra","created_at":"2022-01-24T18:54:25.000000Z","updated_at":"2022-01-24T18:54:25.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}}}'
+        content: '{"data":{"id":"18","type":"comments","attributes":{"body":"Maiores sit nihil illo inventore amet.","created_by":"Elisabeth","created_at":"2022-01-28T08:13:07.000000Z","updated_at":"2022-01-28T08:13:07.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/6"}}}}}'
         headers: []
         description: null
     responseFields: []

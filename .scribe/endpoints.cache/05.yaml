@@ -59,21 +59,21 @@ endpoints:
         name: token
         description: 'The token sent to the user.'
         required: true
-        example: incidunt
+        example: non
         type: string
         custom: []
       email:
         name: email
         description: 'The user email address.'
         required: true
-        example: ad
+        example: praesentium
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: sed
+        example: debitis
         type: string
         custom: []
     responses:

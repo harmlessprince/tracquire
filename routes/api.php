@@ -76,7 +76,9 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::post('/{post}/bookmarks', [BookmarkController::class, 'store'])->name('.bookmarks.store');
     });
     Route::prefix('users')->name('users.')->group(function () {
+        
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
+
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
 
         //upload profile pictures for a user
