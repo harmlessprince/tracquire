@@ -46,9 +46,9 @@ class StorePostRequest extends FormRequest
             'wishlist' => ['nullable', 'array', 'max:4'],
             'portfolio' => ['nullable', 'url'],
             'shoot_able' => ['sometimes','boolean'],
-            'latitude' => ['nullable', 'required', 'numeric', 'between:-90,90'],
-            'longitude' => ['nullable', 'required', 'numeric', 'between:-180,180'],
-            'location' => ['nullable','required','string'],
+            'latitude' => ['nullable', 'numeric', 'between:-90,90'],
+            'longitude' => ['nullable', 'numeric', 'between:-180,180'],
+            'location' => ['nullable','string'],
             'publish' => ['required', 'string']
         ];
     }
