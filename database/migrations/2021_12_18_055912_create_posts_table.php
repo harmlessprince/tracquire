@@ -34,7 +34,6 @@ class CreatePostsTable extends Migration
             $table->string('location')->nullable()->index();
             $table->string('status')->default(PostStatus::OPEN);
             $table->softDeletes();
-            //            $table->index(['title', 'published_at ', 'shoot_able', 'slug', 'country', 'state', 'city', 'location']);
             $table->timestamps();
         });
     }

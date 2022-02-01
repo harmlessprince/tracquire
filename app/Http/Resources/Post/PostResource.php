@@ -24,6 +24,8 @@ class PostResource extends JsonResource
                 'title' => $this->title ?? "Jane",
                 'description' => $this->description,
                 'condition' => $this->condition,
+                'wishlist' => $this->wishlist,
+                'portfolio' => $this->portfolio_link,
                 'shoot_able' => (bool)$this->shoot_able,
                 'status'=> strtoupper($this->status),
                 'category' => strtoupper($this->category->name) ?? '',

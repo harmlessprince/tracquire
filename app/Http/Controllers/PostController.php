@@ -9,7 +9,6 @@ use App\Http\Resources\Post\PostCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
 use App\Repositories\Eloquent\Repository\PostRepository;
-use http\Client\Request;
 
 
 /**
@@ -82,7 +81,7 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        
     }
 
     /**

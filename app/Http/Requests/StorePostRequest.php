@@ -40,15 +40,15 @@ class StorePostRequest extends FormRequest
         return [
             'category' => ['required', 'exists:categories,slug'],
             'description' => ['string', 'required', 'max:255'],
-            'condition' => ['sometimes', 'required', 'max:255'],
+            'condition' => ['nullable', 'string', 'max:255'],
             'images' => ['sometimes', 'array', 'max:6'],
             'images.*' => ['image', 'mimes:jpg,jpeg,png,gif'],
-            'wishlist' => ['sometimes', 'array', 'max:4'],
-            'portfolio' => ['sometimes', 'url'],
+            'wishlist' => ['nullable', 'array', 'max:4'],
+            'portfolio' => ['nullable', 'url'],
             'shoot_able' => ['sometimes','boolean'],
-            'latitude' => ['sometimes', 'required', 'numeric', 'between:-90,90'],
-            'longitude' => ['sometimes', 'required', 'numeric', 'between:-180,180'],
-            'location' => ['sometimes','required','string'],
+            'latitude' => ['nullable', 'required', 'numeric', 'between:-90,90'],
+            'longitude' => ['nullable', 'required', 'numeric', 'between:-180,180'],
+            'location' => ['nullable','required','string'],
             'publish' => ['required', 'string']
         ];
     }
