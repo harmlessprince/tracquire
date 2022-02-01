@@ -20,7 +20,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 3
+        example: 9
         type: integer
         custom: []
     queryParameters: []

@@ -19,21 +19,21 @@ endpoints:
         name: 'page[number]'
         description: 'The page number.'
         required: false
-        example: 6
+        example: 5
         type: integer
         custom: []
       'page[size]':
         name: 'page[size]'
         description: 'The page number.'
         required: false
-        example: 14
+        example: 7
         type: integer
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Consequatur et labore est ducimus.","description":"Rerum dolore sapiente fuga rerum soluta.","condition":"Ut neque est alias quo.","shoot_able":false,"status":"","category":"GIVE","country":"Malaysia","state":"East Bellaside","city":"Port Nellie","location":"zh_CN","published_at":"2022-01-28T08:19:51.281584Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Expedita non doloremque odio corrupti.","description":"Repellat accusantium sed nulla ullam voluptatem vel perspiciatis.","condition":"In voluptatem sequi maiores corporis a est.","shoot_able":false,"status":"","category":"GIVE","country":"Bulgaria","state":"Ratkemouth","city":"West Todview","location":"km_KH","published_at":"2022-01-28T08:19:51.283731Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Omnis qui et aut nihil.","description":"Aut error dolor sit deserunt.","condition":"Magnam voluptatem explicabo dolorum dolorem earum accusamus.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"GIVE","country":"Benin","state":"Port Domenic","city":"Johnnieshire","location":"fil_PH","published_at":"2022-02-01T19:27:03.140910Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Ab saepe id officia voluptas et.","description":"Aperiam non aut illo voluptas non.","condition":"Error odio dolor velit et ad minus est.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"GIVE","country":"Grenada","state":"Arnofort","city":"Shakirashire","location":"so_ET","published_at":"2022-02-01T19:27:03.142708Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
         headers: []
         description: null
     responseFields: []
