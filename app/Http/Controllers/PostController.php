@@ -49,7 +49,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $data = $this->postRepository->create($request->all());
+        $data = $this->postRepository->create($request->validated());
         broadcast(new PostCreatedEvent($data))->toOthers();
         return $this->sendSuccess([new PostResource($data)], 'Post successfully created');
     }

@@ -38,6 +38,7 @@ class PostRepository extends BaseRepository
                 'shoot_able' => (bool)$data->shoot_able,
                 'portfolio_link' => $data->portfolio ?? null,
                 'wishlist' => $data->wishlist ?? [],
+                'location' => $data->location,
                 'published_at' => $data->publish == "yes" ? now() : null,
             ]);
             if (property_exists($data, 'images')) {
