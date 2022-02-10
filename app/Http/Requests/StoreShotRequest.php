@@ -32,7 +32,7 @@ class StoreShotRequest extends FormRequest
         return [
             'description' => ['required', 'max:255'],
             'condition' => ['required', 'max:255'],
-            'images' => ['required', 'array', 'max:6'],
+            'images' => ['sometimes', 'array', 'max:6'],
             'images.*' => ['image', 'mimes:jpg,jpeg,png,gif'],
         ];
     }
