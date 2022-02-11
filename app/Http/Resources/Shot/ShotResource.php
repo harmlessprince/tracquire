@@ -26,7 +26,7 @@ class ShotResource extends JsonResource
                 'condition' => $this->condition,
                 'created_at' => format_date($this->created_at ?? Carbon::now()),
                 'updated_at' => format_date($this->updated_at  ?? Carbon::now()),
-                'images' => $this->getMedia('shots')->pluck('original_url')
+                'images' => $this->fetchAllMedia()
             ],
             'relationships' => [
                 'post' => [

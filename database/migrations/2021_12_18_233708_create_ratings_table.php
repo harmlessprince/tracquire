@@ -15,8 +15,8 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('body')->default(0);
             $table->integer('rate_count')->default(0);
             $table->timestamps();

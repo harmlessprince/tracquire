@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaTable extends Migration
+class CreateMediaLibraryTable extends Migration
 {
     public function up()
     {
-        Schema::create('media', function (Blueprint $table) {
+        Schema::create('media_library', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->morphs('model');

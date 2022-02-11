@@ -3,28 +3,25 @@
 namespace App\Models;
 
 use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Wallet;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\MediaLibrary\HasMedia;
 use Laravel\Passport\HasApiTokens;
-use Musonza\Chat\Traits\Messageable;
+use Bavix\Wallet\Interfaces\Wallet;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\WelcomeNotification;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 use App\Notifications\ForgotPasswordNotification;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable implements HasMedia, Wallet
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+class User extends Authenticatable implements Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia, HasWallet;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasWallet, MediaAlly;
 
     /**
      * The attributes that are mass assignable.

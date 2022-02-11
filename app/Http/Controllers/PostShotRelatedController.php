@@ -55,8 +55,10 @@ class PostShotRelatedController extends Controller
                 'condition' => $request->condition,
             ]);
             $shot = $post->shots()->save($shot);
-            foreach (request()->images as $image) {
-                $shot->addMedia($image)->toMediaCollection('shots', 'shot');
+            if ($request->hasFile(request()->images[0])) {
+                foreach (request()->images as $image) {
+                    $shot->attachMedia($image);
+                }
             }
             return $this->sendSuccess([new ShotResource($shot)], 'Shot successful created');
         }

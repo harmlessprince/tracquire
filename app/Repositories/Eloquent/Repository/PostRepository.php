@@ -38,13 +38,18 @@ class PostRepository extends BaseRepository
                 'shoot_able' => (bool)$data->shoot_able,
                 'portfolio_link' => $data->portfolio ?? null,
                 'wishlist' => $data->wishlist ?? [],
-                'location' => $data->location,
+                'location' => $data->location ?? '',
                 'published_at' => $data->publish == "yes" ? now() : null,
             ]);
+
             if (property_exists($data, 'images')) {
-                foreach ($data->images as $image){
-                    $model->addMedia($image)->toMediaCollection('posts', 'post');
+                // $imageUrls = [];
+                foreach ($data->images as $image) {
+                    $model->attachMedia($image);
                 }
+                // foreach ($imageUrls as $imageUrl) {
+                //     $model->addMedia($imageUrl)->toMediaCollection('posts', 'post');
+                // }
             }
             return $model;
         });

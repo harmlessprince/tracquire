@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Shot extends Model implements HasMedia
+class Shot extends Model 
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, MediaAlly;
 
     protected $fillable = ['description', 'condition', 'user_id', 'post_id'];
 

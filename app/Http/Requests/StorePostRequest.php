@@ -49,7 +49,7 @@ class StorePostRequest extends FormRequest
             'latitude' => ['nullable', 'numeric', 'between:-90,90'],
             'longitude' => ['nullable', 'numeric', 'between:-180,180'],
             'location' => ['nullable','string'],
-            'publish' => ['required', 'string']
+            'publish' => ['required', 'boolean']
         ];
     }
 }

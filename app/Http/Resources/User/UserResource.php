@@ -29,7 +29,7 @@ class UserResource extends JsonResource
                 'country' => $this->country,
                 'state' => $this->state,
                 'city'  => $this->city,
-                'avatar' =>  $this->getFirstMediaUrl('avatar'),
+                'avatar' =>  $this->fetchAllMedia(),
                 'no_of_posts' => $this->posts_count,
                 'no_of_bookmarks' => $this->bookmarks_count,
                 'earnings' => $this->balance

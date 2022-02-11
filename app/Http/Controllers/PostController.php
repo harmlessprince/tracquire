@@ -81,7 +81,9 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        
+        $data = $this->postRepository->update($post->id, $request->validated());
+        broadcast(new PostCreatedEvent($data))->toOthers();
+        return $this->sendSuccess([new PostResource($data)], 'Post successfully created');
     }
 
     /**
@@ -93,6 +95,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->deleteOrFail();
+        return $this->sendSuccess([], 'Post deleted successfully');
     }
 }
