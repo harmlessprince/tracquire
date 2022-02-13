@@ -100,11 +100,11 @@ class User extends Authenticatable implements Wallet
 
 
     //Spatie media method
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('avatar')
-            ->singleFile();
-    }
+    // public function registerMediaCollections(): void
+    // {
+    //     $this->addMediaCollection('avatar')
+    //         ->singleFile();
+    // }
     //Attributes
     public function setPasswordAttribute($value)
     {
