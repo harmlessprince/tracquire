@@ -18,7 +18,9 @@ class SearchController extends Controller
      *
      * @queryParam page[number] int The page number.
      * @queryParam page[size] int The page number.
-     *
+     * @queryParam filter[description] The description string
+     * @queryParam filter[condition] The condition string
+     * @queryParam filter[location] The location name
      * @apiResourceCollection App\Http\Resources\Post\PostCollection
      * @apiResourceModel App\Models\Post
      *
@@ -27,7 +29,7 @@ class SearchController extends Controller
     public function index()
     {
         $posts = QueryBuilder::for(Post::class)
-            ->allowedFilters(['description', 'condition', 'title'])->where('status','=', PostStatus::OPEN)->jsonPaginate();
+            ->allowedFilters(['description', 'condition', 'title', 'location'])->where('status','=', PostStatus::OPEN)->jsonPaginate();
         return $this->sendSuccess([new PostCollection($posts)]);
     }
 }
