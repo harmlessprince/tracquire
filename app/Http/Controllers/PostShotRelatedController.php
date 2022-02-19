@@ -37,7 +37,7 @@ class PostShotRelatedController extends Controller
     /**
      *
      * Create Shot
-     * 
+     *
      * @apiResource App\Http\Resources\Shot\ShotResource
      * @apiResourceModel App\Models\Shot
      *
@@ -55,7 +55,7 @@ class PostShotRelatedController extends Controller
                 'condition' => $request->condition,
             ]);
             $shot = $post->shots()->save($shot);
-            if ($request->hasFile(request()->images[0])) {
+            if ($request->hasFile('images') && $request->hasFile(request()->images[0])) {
                 foreach (request()->images as $image) {
                     $shot->attachMedia($image);
                 }
@@ -67,10 +67,10 @@ class PostShotRelatedController extends Controller
 
     /**
      * Show Shot
-     * 
+     *
      * @apiResource App\Http\Resources\Shot\ShotResource
      * @apiResourceModel App\Models\Shot
-     * 
+     *
      * @param \App\Models\Post $post
      * @param \App\Models\Shot $shot
      * @return \Illuminate\Http\Response
@@ -81,9 +81,9 @@ class PostShotRelatedController extends Controller
     }
 
     /**
-     * 
+     *
      * Edit Shot
-     * 
+     *
      * @apiResource App\Http\Resources\Shot\ShotResource
      * @apiResourceModel App\Models\Shot
      * @param \App\Models\Post $post
@@ -96,7 +96,7 @@ class PostShotRelatedController extends Controller
 
     /**
      * Update Shot
-     * 
+     *
      * @apiResource App\Http\Resources\Shot\ShotResource
      * @apiResourceModel App\Models\Shot
      *

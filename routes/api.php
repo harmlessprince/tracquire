@@ -13,6 +13,7 @@ use App\Http\Controllers\Post\PostsCommentsRelationshipsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostShotRelatedController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SwapController;
 use App\Http\Controllers\User\UpdateProfileImageController;
 use App\Http\Controllers\User\UserCommentController;
 use App\Http\Controllers\User\UserController;
@@ -76,7 +77,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::post('/{post}/bookmarks', [BookmarkController::class, 'store'])->name('.bookmarks.store');
     });
     Route::prefix('users')->name('users.')->group(function () {
-        
+
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
 
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
@@ -90,7 +91,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         //get all users shots
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');
         //get all transactions that has been made by a user
-        Route::get('/{user}/transactions', [UserTransactionsController::class, 'index'])->name('transactions');
+        Route::get('/transactions/{user}', [UserTransactionsController::class, 'index'])->name('transactions');
         //get all bookmark against authenticated  user
         Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
     });
@@ -101,6 +102,10 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/load/messages/{receiver}', [MessageController::class, 'show'])->name('load.messages');
     });
 
+    //create a swap that has been completed
+    Route::prefix('swaps')->name('swaps.')->group(function (){
+        Route::post('/complete', [SwapController::class, 'store'])->name('store');
+    });
     Route::prefix('bookmarks')->name('bookmarks')->group(function (){
         //remove a bookmark against authenticated  user
         Route::delete('/{bookmark}', [BookmarkController::class, 'destroy'])->name('.delete');

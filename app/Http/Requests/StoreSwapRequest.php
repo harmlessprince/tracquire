@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostTransactionRequest extends FormRequest
+class StoreSwapRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -25,6 +25,9 @@ class StorePostTransactionRequest extends FormRequest
     {
         return [
             'post_id' => ['required', 'exists:posts,id'],
+            'swapper_id' => ['required', 'exists:users,id'],
+            'type' => ['required'],
+            'data' => ['nullable']
         ];
     }
 }
