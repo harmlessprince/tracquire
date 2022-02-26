@@ -18,7 +18,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 5
+        example: 1
         type: integer
         custom: []
     queryParameters: []
@@ -26,7 +26,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"31","type":"comments","attributes":{"body":"Et laborum temporibus soluta pariatur sequi laborum corrupti.","created_by":"Myrl","created_at":"2022-02-01T19:27:02.000000Z","updated_at":"2022-02-01T19:27:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/16"}}}},{"id":"32","type":"comments","attributes":{"body":"Totam laborum commodi ut quidem.","created_by":"John","created_at":"2022-02-01T19:27:02.000000Z","updated_at":"2022-02-01T19:27:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/1"}}}}]}'
+        content: '{"data":[{"id":"12","type":"comments","attributes":{"body":"Fuga veritatis sit asperiores amet aut.","author":{"id":"4","type":"users","attributes":{"first_name":"John","last_name":"Doe","username":"kirlin.clyde","phone":"09012341234","email":"john@example.com","referrer_token":"ADM123","user_type":1,"country":"Nigeria","state":"Lagos","city":"ikeja","avatar":"https:\/\/res.cloudinary.com\/designstudio\/image\/upload\/v1645911637\/gicapz05i5pcw5fo8tco.jpg","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/4\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/4\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/4\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/transactions\/4"}}},"meta":{"posts_count":null,"swap_and_give_counts":0},"included":[]},"created_at":"2022-02-26T22:12:02.000000Z","updated_at":"2022-02-26T22:12:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/1"}}}},{"id":"13","type":"comments","attributes":{"body":"Tenetur hic ab repellat aut et est voluptatem.","author":{"id":"1","type":"users","attributes":{"first_name":"Devan","last_name":"Spencer","username":"lee41","phone":"+15186160836","email":"zklocko@example.org","referrer_token":"4P4BSQ","user_type":2,"country":"","state":"","city":"","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/1\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/1\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/1\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/transactions\/1"}}},"meta":{"posts_count":null,"swap_and_give_counts":0},"included":[]},"created_at":"2022-02-26T22:12:02.000000Z","updated_at":"2022-02-26T22:12:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -47,7 +47,7 @@ endpoints:
         name: user
         description: ''
         required: true
-        example: 1
+        example: 9
         type: integer
         custom: []
     queryParameters: []
@@ -55,7 +55,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":"34","type":"comments","attributes":{"body":"Error debitis velit voluptas.","created_by":"Sandra","created_at":"2022-02-01T19:27:03.000000Z","updated_at":"2022-02-01T19:27:03.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/14"}}}},{"id":"35","type":"comments","attributes":{"body":"Nihil praesentium cum dolores qui.","created_by":"Elisabeth","created_at":"2022-02-01T19:27:03.000000Z","updated_at":"2022-02-01T19:27:03.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/13"}}}}]}'
+        content: '{"data":[{"id":"15","type":"comments","attributes":{"body":"Corporis voluptas quia assumenda atque reprehenderit.","author":{"id":"3","type":"users","attributes":{"first_name":"Prudence","last_name":"Prohaska","username":"alejandra42","phone":"209.225.4403","email":"velma86@example.org","referrer_token":"SVW64U","user_type":2,"country":"United States","state":"Illinois","city":"Chicago","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/3\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/3\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/3\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/transactions\/3"}}},"meta":{"posts_count":null,"swap_and_give_counts":0},"included":[]},"created_at":"2022-02-26T22:12:03.000000Z","updated_at":"2022-02-26T22:12:03.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/7"}}}},{"id":"16","type":"comments","attributes":{"body":"Vel eos quia alias ut.","author":{"id":"2","type":"users","attributes":{"first_name":"Alexandro","last_name":"Frami","username":"tate81","phone":"1-718-817-0860","email":"leuschke.aglae@example.com","referrer_token":"4TVZG5","user_type":2,"country":"United States","state":"Florida","city":"Miami","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/2\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/2\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/2\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/transactions\/2"}}},"meta":{"posts_count":null,"swap_and_give_counts":0},"included":[]},"created_at":"2022-02-26T22:12:03.000000Z","updated_at":"2022-02-26T22:12:03.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/1"}}}}]}'
         headers: []
         description: null
     responseFields: []
@@ -76,7 +76,7 @@ endpoints:
         name: post
         description: ''
         required: true
-        example: 11
+        example: 1
         type: integer
         custom: []
     queryParameters: []
@@ -85,13 +85,13 @@ endpoints:
         name: body
         description: 'The body of the post and it is maximum of 255 character.'
         required: true
-        example: tempora
+        example: qui
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"33","type":"comments","attributes":{"body":"Delectus soluta et atque laudantium magni libero.","created_by":"Sandra","created_at":"2022-02-01T19:27:02.000000Z","updated_at":"2022-02-01T19:27:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/14"}}}}}'
+        content: '{"data":{"id":"14","type":"comments","attributes":{"body":"Quo aperiam maxime neque nemo.","author":{"id":"2","type":"users","attributes":{"first_name":"Alexandro","last_name":"Frami","username":"tate81","phone":"1-718-817-0860","email":"leuschke.aglae@example.com","referrer_token":"4TVZG5","user_type":2,"country":"United States","state":"Florida","city":"Miami","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/2\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/2\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/2\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/transactions\/2"}}},"meta":{"posts_count":null,"swap_and_give_counts":0},"included":[]},"created_at":"2022-02-26T22:12:02.000000Z","updated_at":"2022-02-26T22:12:02.000000Z"},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/10"}}}}}'
         headers: []
         description: null
     responseFields: []
