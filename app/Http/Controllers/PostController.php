@@ -65,7 +65,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return $this->sendSuccess([new PostResource($post)], 'Post successfully retrieved');
+        return $this->sendSuccess([new PostResource($post->loadCount('comments'))], 'Post successfully retrieved');
     }
 
     /**

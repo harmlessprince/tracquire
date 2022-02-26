@@ -17,6 +17,7 @@ class CreateSwapsTable extends Migration
             $table->id();
             $table->foreignId('swapper_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->foreignId('post_id')->constrained('posts', 'id')->cascadeOnDelete();
+            $table->string('swap_type');
             $table->text('data')->nullable();
             $table->timestamps();
         });
