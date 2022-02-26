@@ -1,16 +1,14 @@
-name: OTP
-description: |-
-
-  API endpoints for generating and verifying OTP
+name: Messaging
+description: ''
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/auth/email/verify/otp
+    uri: api/v1/chats/send/message
     metadata:
-      title: 'Verify OTP'
-      description: 'This endpoint can be used to verify OTP sent to a user'
-      authenticated: false
+      title: 'Create Message'
+      description: ''
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -18,26 +16,62 @@ endpoints:
     urlParameters: []
     queryParameters: []
     bodyParameters:
-      email:
-        name: email
-        description: 'The user email address.'
+      receiver:
+        name: receiver
+        description: 'The user receiving the message ID.'
         required: true
-        example: facilis
+        example: 20
+        type: integer
+        custom: []
+      message:
+        name: message
+        description: 'The message been sent to the user.'
+        required: true
+        example: blanditiis
         type: string
         custom: []
-      otp:
-        name: otp
-        description: ''
-        required: true
-        example: quasi
-        type: string
-        custom: []
-      token:
-        name: token
-        description: 'The otp sent to the user email address.'
+      data:
+        name: data
+        description: 'This will hold extra data later on(not needed for now).'
         required: false
-        example: eius
-        type: string
+        example:
+          - ut
+        type: 'string[]'
         custom: []
     responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/chats/load/messages/{receiver}'
+    metadata:
+      title: 'Show Latest Messages.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      receiver:
+        name: receiver
+        description: ''
+        required: true
+        example: 16
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
+        description: null
     responseFields: []

@@ -1,36 +1,16 @@
-name: Post
-description: ''
+name: Password
+description: |-
+
+  API endpoints for managing authentication
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/v1/posts
-    metadata:
-      title: 'All Posts'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Deserunt excepturi ut cum totam sit consequatur.","description":"Distinctio harum eos itaque laudantium porro amet qui.","condition":"Magnam et minima qui dignissimos.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"GIVE","country":"British Virgin Islands","state":"Goldnershire","city":"Margaritaville","location":"as_IN","published_at":"2022-02-01T19:27:02.530629Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Enim non consequatur tenetur minus dolorem.","description":"Velit non ea sed sunt vel magni totam odio.","condition":"Aut nesciunt vel est non qui ut.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"GIVE","country":"Guinea","state":"Laylaview","city":"North Royalfort","location":"es_PA","published_at":"2022-02-01T19:27:02.536994Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}]}}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
       - POST
-    uri: api/v1/posts
+    uri: api/auth/forgot-password
     metadata:
-      title: 'Create Post'
-      description: ''
-      authenticated: true
+      title: 'Forgot Password'
+      description: 'A token will be sent to user email address'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -38,171 +18,72 @@ endpoints:
     urlParameters: []
     queryParameters: []
     bodyParameters:
-      category:
-        name: category
-        description: 'The post category slug.'
+      email:
+        name: email
+        description: 'The email of the  user.'
         required: true
-        example: dolores
-        type: string
-        custom: []
-      description:
-        name: description
-        description: 'The post description.'
-        required: true
-        example: voluptas
-        type: string
-        custom: []
-      condition:
-        name: condition
-        description: 'The the post or item condition.'
-        required: false
-        example: aliquam
-        type: string
-        custom: []
-      images:
-        name: images
-        description: 'The post images.'
-        required: false
-        example:
-          - laborum
-        type: 'string[]'
-        custom: []
-      wishlist:
-        name: wishlist
-        description: 'The post wishlist.'
-        required: false
-        example:
-          - voluptatum
-        type: 'string[]'
-        custom: []
-      portfolio:
-        name: portfolio
-        description: 'The user posting profile'
-        required: false
-        example: esse
-        type: url
-        custom: []
-      shoot_able:
-        name: shoot_able
-        description: 'this is to indicate users can shoot the post'
-        required: false
-        example: true
-        type: boolean
-        custom: []
-      latitude:
-        name: latitude
-        description: 'This is used to capture the user Location latitude'
-        required: false
-        example: 43560069.32357
-        type: number
-        custom: []
-      longitude:
-        name: longitude
-        description: 'This is used to capture the user location longitude'
-        required: false
-        example: 741147501.7768
-        type: number
-        custom: []
-      location:
-        name: location
-        description: 'The post location.'
-        required: false
-        example: aliquam
-        type: string
-        custom: []
-      publish:
-        name: publish
-        description: 'The is is used to state wether the post should be published. Example yes'
-        required: false
-        example: vel
+        example: johndoes@example.com
         type: string
         custom: []
     responses:
       -
-        status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Possimus minima quasi dolores saepe dicta.","description":"Est neque non aut.","condition":"Tenetur quis veritatis quo.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Micronesia","state":"Pinkiefurt","city":"Lake Vida","location":"tig_ER","published_at":"2022-02-01T19:27:02.567588Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}}'
+        status: 401
+        content: |-
+          {
+          "status":"error",
+          "data":[],
+          "message":"The supplied email does not exist",
+          "code":404
+          }
         headers: []
-        description: null
+        description: '401, Email Does Not Exist'
     responseFields: []
   -
     httpMethods:
-      - GET
-    uri: 'api/v1/posts/{id}'
+      - POST
+    uri: api/auth/reset-password
     metadata:
-      title: 'Show Post'
-      description: ''
-      authenticated: true
+      title: 'Reset Password'
+      description: 'User is expected to supply the token sent to his email address and a new password'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 2
-        type: integer
-        custom: []
+    urlParameters: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      token:
+        name: token
+        description: 'The token sent to the user.'
+        required: true
+        example: occaecati
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The user email address.'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The the user new password.'
+        required: true
+        example: assumenda
+        type: string
+        custom: []
     responses:
       -
-        status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Cumque numquam dolorum exercitationem cum.","description":"Consectetur recusandae incidunt non.","condition":"Possimus suscipit omnis corporis sunt voluptatibus ipsum.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP ITEM","country":"Fiji","state":"South Gilberto","city":"East Joanne","location":"so_DJ","published_at":"2022-02-01T19:27:02.573686Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}}'
+        status: 401
+        content: |-
+          {
+          "status":"error",
+          "data":[],
+          "message":"Token supplied is invalid",
+          "code":404
+          }
         headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/posts/{id}'
-    metadata:
-      title: 'Delete Post'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 14
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/posts/{id}'
-    metadata:
-      title: 'Update Post'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 16
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Maiores aut ducimus non.","description":"Quia sunt cumque quia voluptatibus animi ipsum.","condition":"Nihil harum reiciendis in.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Guinea","state":"West Barney","city":"Noraside","location":"cy_GB","published_at":"2022-02-01T19:27:02.579677Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}}}}'
-        headers: []
-        description: null
+        description: '401, Email Does Not Exist'
     responseFields: []
