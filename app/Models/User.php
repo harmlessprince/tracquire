@@ -64,6 +64,10 @@ class User extends Authenticatable implements Wallet
     {
         return $this->hasMany(Post::class);
     }
+    public function swaps(): HasMany
+    {
+        return $this->hasMany(Swap::class);
+    }
 
     public function bookmarks(): BelongsToMany
     {

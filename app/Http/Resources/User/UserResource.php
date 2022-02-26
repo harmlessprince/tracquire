@@ -34,6 +34,7 @@ class UserResource extends JsonResource
                 'no_of_bookmarks' => $this->bookmarks_count,
                 'earnings' => $this->balance
             ],
+            
             'relationships' => [
                 'posts' => [
                     'links' => [
@@ -56,6 +57,10 @@ class UserResource extends JsonResource
                     ]
                 ],
             ],
+            'meta' => [
+                'posts_count' => $this->posts_count,
+                'swap_and_give_counts' => $this->swaps_count ?? 0,
+            ],  
             'included' => [
                 'posts' => PostResource::collection($this->whenLoaded('posts')),
                 'bookmarks' => PostResource::collection($this->whenLoaded('bookmarks')),
