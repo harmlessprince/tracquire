@@ -28,7 +28,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:39","updated_at":"2022-02-28 17:02:39","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:39","updated_at":"2022-02-28 17:02:39","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:46","updated_at":"2022-02-28 17:02:46","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:46","updated_at":"2022-02-28 17:02:46","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
         headers: []
         description: null
     responseFields: []
@@ -57,7 +57,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:39","updated_at":"2022-02-28 17:02:39","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:39","updated_at":"2022-02-28 17:02:39","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
+        content: '{"data":{"shots":[{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:46","updated_at":"2022-02-28 17:02:46","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}},{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:46","updated_at":"2022-02-28 17:02:46","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}]}}'
         headers: []
         description: null
     responseFields: []
@@ -78,14 +78,14 @@ endpoints:
         name: post_id
         description: 'The ID of the post.'
         required: true
-        example: 20
+        example: 18
         type: integer
         custom: []
       id:
         name: id
         description: 'The ID of the shot.'
         required: true
-        example: 16
+        example: 8
         type: integer
         custom: []
     queryParameters: []
@@ -93,7 +93,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:39","updated_at":"2022-02-28 17:02:39","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:46","updated_at":"2022-02-28 17:02:46","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
         headers: []
         description: null
     responseFields: []
@@ -123,14 +123,14 @@ endpoints:
         name: description
         description: 'The shot description.'
         required: true
-        example: placeat
+        example: sint
         type: string
         custom: []
       condition:
         name: condition
         description: 'The the shot or item condition.'
         required: false
-        example: accusantium
+        example: ipsum
         type: string
         custom: []
       images:
@@ -138,13 +138,13 @@ endpoints:
         description: 'The shot images.'
         required: false
         example:
-          - magnam
+          - impedit
         type: 'string[]'
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:39","updated_at":"2022-02-28 17:02:39","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
+        content: '{"data":{"id":"","type":"shots","attributes":{"description":null,"condition":null,"created_at":"2022-02-28 17:02:46","updated_at":"2022-02-28 17:02:46","images":[]},"relationships":{"post":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0"}},"shooter":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"shooter":null,"post":null}}}'
         headers: []
         description: null
     responseFields: []
