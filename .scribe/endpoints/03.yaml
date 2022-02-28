@@ -18,7 +18,7 @@ endpoints:
         name: id
         description: 'The ID of the complete.'
         required: true
-        example: excepturi
+        example: cupiditate
         type: string
         custom: []
     queryParameters: []
@@ -41,7 +41,7 @@ endpoints:
       - POST
     uri: api/v1/transactions/complete/give
     metadata:
-      title: 'Complete Swap'
+      title: 'Complete Give'
       description: ''
       authenticated: true
       custom: []
@@ -55,14 +55,14 @@ endpoints:
         name: post_id
         description: 'The post id.'
         required: true
-        example: 16
+        example: 17
         type: integer
         custom: []
       receiver_id:
         name: receiver_id
         description: 'The user id accepting poster item or swapping poster item.'
         required: false
-        example: 10
+        example: 18
         type: integer
         custom: []
     responses: []
@@ -86,14 +86,14 @@ endpoints:
         name: post_id
         description: 'The post id.'
         required: true
-        example: 16
+        example: 18
         type: integer
         custom: []
       receiver_id:
         name: receiver_id
         description: 'The user id accepting poster item or swapping poster item.'
         required: false
-        example: 14
+        example: 9
         type: integer
         custom: []
     responses: []

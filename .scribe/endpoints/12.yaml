@@ -27,42 +27,42 @@ endpoints:
         name: first_name
         description: 'The user last name.'
         required: false
-        example: voluptatem
+        example: error
         type: string
         custom: []
       last_name:
         name: last_name
         description: 'The user first name.'
         required: false
-        example: dolorem
+        example: consequatur
         type: string
         custom: []
       phone:
         name: phone
         description: 'The user phone number,this is a unique field.'
         required: false
-        example: quaerat
+        example: deleniti
         type: string
         custom: []
       username:
         name: username
         description: 'The user username ,and it must be unique.'
         required: false
-        example: dolorum
+        example: sequi
         type: string
         custom: []
       latitude:
         name: latitude
         description: 'The user latitude coordinate.'
         required: false
-        example: magni
+        example: earum
         type: string
         custom: []
       longitude:
         name: longitude
         description: 'The user latitude coordinate.'
         required: false
-        example: non
+        example: cupiditate
         type: string
         custom: []
     responses: []
@@ -93,7 +93,7 @@ endpoints:
         name: avatar
         description: 'The user profile picture and accepted types are jpeg and jpg and max size of 2M.'
         required: false
-        example: nihil
+        example: accusantium
         type: required
         custom: []
     responses: []
@@ -123,7 +123,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"5","type":"users","attributes":{"first_name":"Jackson","last_name":"Keeling","username":"katrine65","phone":"614-676-9067","email":"homenick.randall@example.com","referrer_token":"MQ6B7Z","user_type":null,"country":"","state":"","city":"","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/5\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/5\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/5\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/transactions\/complete\/5"}}},"meta":{"posts_count":null,"transactions_count":0},"included":[]}}'
+        content: '{"data":{"id":"6","type":"users","attributes":{"first_name":"Freda","last_name":"Raynor","username":"jacynthe06","phone":"662.930.6703","email":"smith.palma@example.org","referrer_token":"N2X7Q6","user_type":null,"country":"United States","state":"Ohio","city":"Whitehall","avatar":"","no_of_posts":null,"no_of_bookmarks":null,"earnings":"0"},"relationships":{"posts":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/posts"}},"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/comments"}},"shots":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/6\/shots"}},"transactions":{"links":{"related":"http:\/\/barter.test\/api\/v1\/transactions\/complete\/6"}}},"meta":{"posts_count":null,"transactions_count":0},"included":[]}}'
         headers: []
         description: null
     responseFields: []
@@ -152,7 +152,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Quia et provident dolorem ex odio temporibus.","description":"Dolores non incidunt earum voluptas iste illo sequi.","condition":"Ut facilis sit velit et occaecati.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP ITEM","country":"Panama","state":"Xavierfurt","city":"Crookstown","location":"ha_GH","published_at":"2022-02-28T17:39:36.056632Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Alias doloremque qui commodi iusto nesciunt.","description":"Accusantium perferendis aut ratione esse facere distinctio.","condition":"Voluptatem distinctio quos sed quo molestias quo et.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Thailand","state":"Orphabury","city":"Baronview","location":"am_ET","published_at":"2022-02-28T17:39:36.060631Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Ullam ut veniam reprehenderit ut omnis.","description":"Qui quos temporibus architecto dignissimos numquam velit sed.","condition":"Debitis consectetur temporibus atque ad voluptatibus.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"Gabon","state":"North Monroebury","city":"West Willafort","location":"es_UY","published_at":"2022-02-28T17:46:07.678756Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et sunt et aliquid quas molestias.","description":"Molestiae et iste soluta neque repellendus et repellat.","condition":"Doloribus reiciendis provident laboriosam velit optio pariatur.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP ITEM","country":"Iraq","state":"Mohrbury","city":"Lake Oralville","location":"ar_EG","published_at":"2022-02-28T17:46:07.681489Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
         headers: []
         description: null
     responseFields: []

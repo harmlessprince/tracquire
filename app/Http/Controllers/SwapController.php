@@ -14,8 +14,11 @@ use Illuminate\Http\Request;
 
 /**
  * @group Complete Give Or Swap
+ *
  * @authenticated
+ *
  * API endpoints for completing give or swap transactions
+ *
  */
 class SwapController extends Controller
 {
@@ -42,7 +45,8 @@ class SwapController extends Controller
     }
 
     /**
-     * Complete Swap
+     * Complete Give
+     * 
      * @return \Illuminate\Http\Response
      */
     public function storeGive(StoreSwapRequest $request)

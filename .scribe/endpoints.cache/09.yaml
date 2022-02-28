@@ -21,42 +21,42 @@ endpoints:
         name: 'page[number]'
         description: 'The page number.'
         required: false
-        example: 18
+        example: 13
         type: integer
         custom: []
       'page[size]':
         name: 'page[size]'
         description: 'The page number.'
         required: false
-        example: 6
+        example: 9
         type: integer
         custom: []
       'filter[description]':
         name: 'filter[description]'
         description: 'The description string'
         required: false
-        example: quis
+        example: temporibus
         type: string
         custom: []
       'filter[condition]':
         name: 'filter[condition]'
         description: 'The condition string'
         required: false
-        example: explicabo
+        example: praesentium
         type: string
         custom: []
       'filter[location]':
         name: 'filter[location]'
         description: 'The location name'
         required: false
-        example: et
+        example: atque
         type: string
         custom: []
     bodyParameters: []
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Fugiat quas atque ipsa nulla voluptate.","description":"Laboriosam ex occaecati et magni totam.","condition":"Autem cupiditate beatae est tenetur iste in.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"Russian Federation","state":"New Melody","city":"Port Syble","location":"el_GR","published_at":"2022-02-28T17:39:36.127579Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Voluptatem sed quia sed autem voluptatem minima.","description":"Et debitis pariatur corrupti reprehenderit enim velit asperiores.","condition":"Deleniti sapiente dolore et cum.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"Timor-Leste","state":"West Jovannyland","city":"South Viva","location":"ms_BN","published_at":"2022-02-28T17:39:36.130433Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Nulla velit totam quae quod.","description":"Velit maiores iusto qui recusandae ut exercitationem reiciendis.","condition":"Saepe autem rerum eaque explicabo.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"New Zealand","state":"Avisberg","city":"Mayerburgh","location":"fr_FR","published_at":"2022-02-28T17:46:07.760723Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Facilis esse dolorum et corporis.","description":"Sint quas inventore odit est et.","condition":"Numquam nihil amet omnis aliquam inventore quia.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP ITEM","country":"Syrian Arab Republic","state":"Danikaburgh","city":"Denesikside","location":"ur_IN","published_at":"2022-02-28T17:46:07.763489Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
         headers: []
         description: null
     responseFields: []
