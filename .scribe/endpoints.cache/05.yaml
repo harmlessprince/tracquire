@@ -24,21 +24,21 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: corrupti
+        example: aperiam
         type: string
         custom: []
       otp:
         name: otp
         description: ''
         required: true
-        example: corporis
+        example: sit
         type: string
         custom: []
       token:
         name: token
         description: 'The otp sent to the user email address.'
         required: false
-        example: voluptas
+        example: rerum
         type: string
         custom: []
     responses: []

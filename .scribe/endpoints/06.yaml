@@ -57,21 +57,21 @@ endpoints:
         name: token
         description: 'The token sent to the user.'
         required: true
-        example: occaecati
+        example: aut
         type: string
         custom: []
       email:
         name: email
         description: 'The user email address.'
         required: true
-        example: consequatur
+        example: omnis
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: assumenda
+        example: qui
         type: string
         custom: []
     responses:
