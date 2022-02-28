@@ -60,4 +60,8 @@ class Post extends Model
     {
         return $this->belongsToMany(User::class, 'bookmarks')->withTimestamps();
     }
+    public function swap() {
+        return $this->hasOne(Swap::class);
+    }
+
 }

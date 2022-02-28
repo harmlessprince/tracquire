@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\SwapType;
 use Bavix\Wallet\Traits\HasWallet;
 use Laravel\Passport\HasApiTokens;
 use Bavix\Wallet\Interfaces\Wallet;
@@ -64,9 +65,18 @@ class User extends Authenticatable implements Wallet
     {
         return $this->hasMany(Post::class);
     }
+
+    public function userTransactions()
+    {
+        return $this->hasMany(Swap::class, 'owner_id');
+    }
     public function swaps(): HasMany
     {
-        return $this->hasMany(Swap::class);
+        return $this->hasMany(Swap::class, 'receiver_id');
+    }
+    public function gives(): HasMany
+    {
+        return $this->hasMany(Swap::class, 'owner_id');
     }
 
     public function bookmarks(): BelongsToMany

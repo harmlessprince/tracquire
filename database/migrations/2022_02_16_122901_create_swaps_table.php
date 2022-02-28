@@ -15,9 +15,10 @@ class CreateSwapsTable extends Migration
     {
         Schema::create('swaps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('swapper_id')->constrained('users', 'id')->cascadeOnDelete();
+            $table->foreignId('owner_id')->constrained('users', 'id')->cascadeOnDelete();
+            $table->foreignId('receiver_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->foreignId('post_id')->constrained('posts', 'id')->cascadeOnDelete();
-            $table->string('swap_type');
+            $table->string('type');
             $table->text('data')->nullable();
             $table->timestamps();
         });
