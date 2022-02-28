@@ -21,7 +21,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sapiente hic molestiae laudantium eaque.","description":"Id et et error officiis veritatis voluptatem nesciunt.","condition":"Debitis vitae fugiat facilis aut.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"United States Virgin Islands","state":"Lizziefort","city":"East Juanitahaven","location":"ln_CD","published_at":"2022-02-26T22:12:02.739947Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Et odit nulla enim maxime autem iusto.","description":"Enim ad consequatur officia hic quod blanditiis.","condition":"Sint architecto atque iste voluptatem quo nulla quia voluptatum.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Norway","state":"New Liliane","city":"East Stephany","location":"fr_FR","published_at":"2022-02-26T22:12:02.745197Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
+        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Fuga voluptas sit quo voluptas rerum.","description":"Necessitatibus blanditiis velit voluptas ut.","condition":"Hic ut voluptatum a deserunt fugit.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Solomon Islands","state":"North Joyfurt","city":"South Etha","location":"kcg_NG","published_at":"2022-02-28T17:39:34.700089Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Perferendis in incidunt et et.","description":"Quam explicabo aliquam eaque amet quis laborum beatae placeat.","condition":"Ut eligendi et fugit.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Afghanistan","state":"Lake Meta","city":"New Neil","location":"oc_FR","published_at":"2022-02-28T17:39:34.705224Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
         headers: []
         description: null
     responseFields: []
@@ -44,21 +44,21 @@ endpoints:
         name: category
         description: 'The post category slug.'
         required: true
-        example: nihil
+        example: eum
         type: string
         custom: []
       description:
         name: description
         description: 'The post description.'
         required: true
-        example: veniam
+        example: rem
         type: string
         custom: []
       condition:
         name: condition
         description: 'The the post or item condition.'
         required: false
-        example: nemo
+        example: voluptatibus
         type: string
         custom: []
       images:
@@ -66,7 +66,7 @@ endpoints:
         description: 'The post images.'
         required: false
         example:
-          - dolores
+          - ullam
         type: 'string[]'
         custom: []
       wishlist:
@@ -74,14 +74,14 @@ endpoints:
         description: 'The post wishlist.'
         required: false
         example:
-          - animi
+          - quod
         type: 'string[]'
         custom: []
       portfolio:
         name: portfolio
         description: 'The user posting profile'
         required: false
-        example: corporis
+        example: blanditiis
         type: url
         custom: []
       shoot_able:
@@ -95,34 +95,34 @@ endpoints:
         name: latitude
         description: 'This is used to capture the user Location latitude'
         required: false
-        example: 6.4
+        example: 333106.54336948
         type: number
         custom: []
       longitude:
         name: longitude
         description: 'This is used to capture the user location longitude'
         required: false
-        example: 3.79364193
+        example: 2742324.3275925
         type: number
         custom: []
       location:
         name: location
         description: 'The post location.'
         required: false
-        example: est
+        example: deserunt
         type: string
         custom: []
       publish:
         name: publish
         description: 'The is is used to state wether the post should be published. Example yes'
         required: false
-        example: saepe
+        example: eveniet
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Ipsam ea ut rerum iure aut ex.","description":"Sunt ea quo sit provident adipisci voluptas.","condition":"Sint quis iste numquam.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Bosnia and Herzegovina","state":"Olsonshire","city":"Port Merle","location":"en_VI","published_at":"2022-02-26T22:12:02.769488Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
+        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Qui voluptates in veniam ipsum.","description":"Aut et et sequi voluptatem ut suscipit odio porro.","condition":"Delectus voluptatibus ut odio doloribus.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Barbados","state":"Port Brodericktown","city":"Rosenbaumland","location":"kfo_CI","published_at":"2022-02-28T17:39:34.744717Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
         headers: []
         description: null
     responseFields: []
@@ -151,7 +151,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Vero nam nesciunt nesciunt odio ipsa mollitia et.","description":"Animi ut qui at.","condition":"Fuga quae sed enim aperiam quia ut eveniet.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Comoros","state":"Ottiliemouth","city":"Lake Benedictfort","location":"fr_MC","published_at":"2022-02-26T22:12:02.776045Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
+        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sit quidem neque voluptatum.","description":"Ut voluptate sequi vero laborum accusamus.","condition":"Vero quae qui quia.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"Bahrain","state":"West Jasmin","city":"Port Domenicktown","location":"mn_CN","published_at":"2022-02-28T17:39:34.751128Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
         headers: []
         description: null
     responseFields: []
@@ -205,21 +205,21 @@ endpoints:
         name: category
         description: ''
         required: true
-        example: reprehenderit
+        example: accusantium
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: sahumxuwvtjfyytnkxwlioyqoezazbgpajeofwgtjwlbimvcwemgqwvyrhrlfociwndonadktv
+        example: lyklnceakbnkvcwcaokzvltprayaxopkrdhqoiphycwvgmxgpdpngsntepmgtrvqsfwyrfwfjwgagfhrfbjxnlfwxnhjuvukqbtybexbefocttkkprukucyperzhuppddhpjeqjyqqeptueconhibankxzpxbgrvecljklqkqdxsvpspwarucbtoafpwbzytmlmpgtdjyfjraimigpetorrrfjlgmqtebgnxdcvhkuipnriamuhp
         type: string
         custom: []
       condition:
         name: condition
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: xusauyujvfpswfzwdoqolidsuvxhvdhvggvmjjyhdnouauwveqdhvzknydnqjhtxvybjmxpatycepwfgyahqsupvbgpwatyzzoyvgwznzdtxwxpfkkuqgpqzuygdiuyllitkqqjxolcobdoellavjblrhwutgvcoxqdqajiulzsczfubeabpmpnoqntnfsepehdxhwzpfvjvxqgpxhljhmkmakrizsavwmoliyhfdqonoebqzdryht
+        example: pwsvcmhtmrwiwuogiezsqxmgmjaamcrkrswksytlxnubppbhyvvyatvsboxiynkaltlbjosxdika
         type: string
         custom: []
       images:
@@ -234,14 +234,14 @@ endpoints:
         name: wishlist
         description: 'Must not have more than 4 items.'
         required: false
-        example: ''
+        example: grl
         type: 'string[]'
         custom: []
       portfolio:
         name: portfolio
         description: 'Must be a valid URL.'
         required: false
-        example: 'https://www.oreilly.info/nulla-cumque-iusto-id-quasi-consequatur-magnam'
+        example: 'http://hermann.com/aut-vel-dicta-est-reprehenderit-labore-quisquam'
         type: string
         custom: []
       shoot_able:
@@ -255,34 +255,34 @@ endpoints:
         name: latitude
         description: 'Must be between -90 and 90.'
         required: false
-        example: -5
+        example: -74
         type: number
         custom: []
       longitude:
         name: longitude
         description: 'Must be between -180 and 180.'
         required: false
-        example: -97
+        example: -9
         type: number
         custom: []
       location:
         name: location
         description: ''
         required: false
-        example: iusto
+        example: quibusdam
         type: string
         custom: []
       publish:
         name: publish
         description: ''
         required: true
-        example: quam
+        example: unde
         type: string
         custom: []
     responses:
       -
         status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Distinctio amet dolores rerum.","description":"Voluptatem eos dolor facere laborum non consequatur.","condition":"Odio consequuntur fugit inventore sed.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP SERVICE","country":"Panama","state":"Jennyferhaven","city":"South Bernadette","location":"ky_KG","published_at":"2022-02-26T22:12:02.820086Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
+        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sequi officiis quia ut quod dolores.","description":"Omnis sed distinctio fugiat voluptatibus in culpa necessitatibus nobis.","condition":"Reiciendis sit voluptates ea enim.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP ITEM","country":"Cook Islands","state":"West Brendanfort","city":"New Chris","location":"de_CH","published_at":"2022-02-28T17:39:34.765123Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
         headers: []
         description: null
     responseFields: []

@@ -27,7 +27,7 @@ endpoints:
         name: post
         description: 'the post ID'
         required: true
-        example: 1
+        example: 10
         type: integer
         custom: []
     queryParameters: []
@@ -51,14 +51,14 @@ endpoints:
         name: shot
         description: 'the shot been accepted ID'
         required: true
-        example: 20
+        example: 8
         type: integer
         custom: []
       post:
         name: post
         description: 'the post ID'
         required: true
-        example: 19
+        example: 17
         type: integer
         custom: []
     queryParameters: []
