@@ -74,7 +74,7 @@ class AuthenticationController extends Controller
                 $user = Auth::user();
                 $token = $user->createToken($user->device_name)->accessToken;
                 return $this->sendSuccess(['token' => $token, 'user' => $user], "Logged in successfully!");
-            }       
+            }
         } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage(), 400);
         }
@@ -157,17 +157,12 @@ class AuthenticationController extends Controller
      */
     public function user()
     {
-        $user = QueryBuilder::for(User::class)
-            ->allowedIncludes(['postsCount', 'bookmarksCount', 'posts', 'bookmarks'])
-            ->where('users.id', auth()->id())
-            ->first();
-        return $this->sendSuccess([new UserResource($user)]);
+        $user = \auth()->user();
+        return $this->sendSuccess([new UserResource($user->loadCount('posts', 'userTransactions')->load('posts', 'userTransactions'))], 'Profile successfully retrieved');
     }
 
     private function createUser(array $data)
     {
-        // dd(Hash::make($data['password']), '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
-
         return User::create([
             'email' => $data['email'],
             'device_name' => $data['device'],

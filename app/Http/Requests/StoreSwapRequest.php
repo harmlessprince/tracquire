@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @bodyParam post_id integer required The post id.
+ * @bodyParam  receiver_id integer The user id accepting poster item or swapping poster item.
+ */
+
 class StoreSwapRequest extends FormRequest
 {
     /**
