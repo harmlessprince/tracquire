@@ -77,11 +77,8 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::post('/{post}/bookmarks', [BookmarkController::class, 'store'])->name('.bookmarks.store');
     });
     Route::prefix('users')->name('users.')->group(function () {
-
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
-
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
-
         //upload profile pictures for a user
         Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');
         //Get all the posts of a user
@@ -91,7 +88,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         //get all users shots
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');
         //get all transactions that has been made by a user
-        Route::get('/transactions/{user}', [UserTransactionsController::class, 'index'])->name('transactions');
+//        Route::get('/transactions/{user}', [UserTransactionsController::class, 'index'])->name('transactions');
         //get all bookmark against authenticated  user
         Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
     });
@@ -103,10 +100,13 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     });
 
     //create a swap that has been completed
-    Route::prefix('swaps')->name('swaps.')->group(function (){
-        Route::post('/complete', [SwapController::class, 'store'])->name('store');
+    Route::prefix('transactions')->name('swaps.')->group(function () {
+        Route::get('/complete', [SwapController::class, 'index'])->name('index.complete');
+        Route::get('/complete/{id}', [SwapController::class, 'show'])->name('show.complete');
+        Route::post('/complete/give', [SwapController::class, 'storeGive'])->name('store.give');
+        Route::post('/complete/swap', [SwapController::class, 'storeSwap'])->name('store.swap');
     });
-    Route::prefix('bookmarks')->name('bookmarks')->group(function (){
+    Route::prefix('bookmarks')->name('bookmarks')->group(function () {
         //remove a bookmark against authenticated  user
         Route::delete('/{bookmark}', [BookmarkController::class, 'destroy'])->name('.delete');
     });

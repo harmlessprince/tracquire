@@ -25,9 +25,7 @@ class StoreSwapRequest extends FormRequest
     {
         return [
             'post_id' => ['required', 'exists:posts,id'],
-            'swapper_id' => ['required', 'exists:users,id'],
-            'type' => ['required'],
-            'data' => ['nullable']
+            'receiver_id' => ['required', 'exists:users,id'],
         ];
     }
 }

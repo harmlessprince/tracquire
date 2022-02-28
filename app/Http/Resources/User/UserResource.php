@@ -3,6 +3,7 @@
 namespace App\Http\Resources\User;
 
 use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\SwapResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -34,7 +35,7 @@ class UserResource extends JsonResource
                 'no_of_bookmarks' => $this->bookmarks_count,
                 'earnings' => $this->balance
             ],
-            
+
             'relationships' => [
                 'posts' => [
                     'links' => [
@@ -53,17 +54,18 @@ class UserResource extends JsonResource
                 ],
                 'transactions' => [
                     'links' => [
-                        'related' => route('users.transactions', ['user' => $this->id ?? 0])
+                        'related' => route('swaps.show.complete', ['id' => $this->id ?? 0])
                     ]
                 ],
             ],
             'meta' => [
                 'posts_count' => $this->posts_count,
-                'swap_and_give_counts' => $this->swaps_count ?? 0,
-            ],  
+                'transactions_count' => $this->user_transactions_count ?? 0,
+            ],
             'included' => [
                 'posts' => PostResource::collection($this->whenLoaded('posts')),
                 'bookmarks' => PostResource::collection($this->whenLoaded('bookmarks')),
+                'transactions' => SwapResource::collection($this->whenLoaded('userTransactions')),
             ]
         ];
     }
