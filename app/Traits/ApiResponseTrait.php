@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Http\Resources\EmptyResourceCollection;
+use Error;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;

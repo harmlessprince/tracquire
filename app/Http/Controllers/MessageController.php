@@ -9,6 +9,7 @@ use App\Http\Resources\Message\MessageResource;
 use App\Models\Message;
 use App\Repositories\Eloquent\Repository\MessageRepository;
 
+use function GuzzleHttp\Promise\each;
 
 /**
  * @group Messaging 
@@ -31,7 +32,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        
+       return $this->sendSuccess([new MessageCollection($this->messageRepository->chats())], 'Messages retrieved', 200);
     }
 
     /**
@@ -56,7 +58,7 @@ class MessageController extends Controller
         return $this->sendSuccess([new MessageResource($message)], 'Message sent', 201);
     }
 
-    /**
+    /*
      * Show Latest Messages.
      *
      * @param  \App\Models\Message  $message

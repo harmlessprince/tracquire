@@ -46,7 +46,7 @@ class SwapController extends Controller
 
     /**
      * Complete Give
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function storeGive(StoreSwapRequest $request)
