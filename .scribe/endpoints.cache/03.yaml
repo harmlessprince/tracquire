@@ -20,7 +20,7 @@ endpoints:
         name: id
         description: 'The ID of the complete.'
         required: true
-        example: necessitatibus
+        example: reprehenderit
         type: string
         custom: []
     queryParameters: []
@@ -57,21 +57,14 @@ endpoints:
         name: post_id
         description: 'The post id.'
         required: true
-        example: 8
+        example: 12
         type: integer
         custom: []
       receiver_username:
         name: receiver_username
-        description: ''
-        required: true
-        example: perspiciatis
-        type: string
-        custom: []
-      username:
-        name: username
         description: 'The username of the user accepting poster item or swapping poster item.'
         required: false
-        example: dolores
+        example: autem
         type: string
         custom: []
     responses: []
@@ -95,21 +88,14 @@ endpoints:
         name: post_id
         description: 'The post id.'
         required: true
-        example: 11
+        example: 18
         type: integer
         custom: []
       receiver_username:
         name: receiver_username
-        description: ''
-        required: true
-        example: ratione
-        type: string
-        custom: []
-      username:
-        name: username
         description: 'The username of the user accepting poster item or swapping poster item.'
         required: false
-        example: ut
+        example: quis
         type: string
         custom: []
     responses: []

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @bodyParam post_id integer required The post id.
- * @bodyParam  username string The username of the user accepting poster item or swapping poster item.
+ * @bodyParam  receiver_username string The username of the user accepting poster item or swapping poster item.
  */
 
 class StoreSwapRequest extends FormRequest

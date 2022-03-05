@@ -22,14 +22,14 @@ endpoints:
         name: receiver
         description: 'The user receiving the message ID.'
         required: true
-        example: 10
+        example: 17
         type: integer
         custom: []
       message:
         name: message
         description: 'The message been sent to the user.'
         required: true
-        example: et
+        example: aliquam
         type: string
         custom: []
       data:
@@ -37,7 +37,7 @@ endpoints:
         description: 'This will hold extra data later on(not needed for now).'
         required: false
         example:
-          - facere
+          - quisquam
         type: 'string[]'
         custom: []
     responses: []
