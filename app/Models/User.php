@@ -60,6 +60,10 @@ class User extends Authenticatable implements Wallet
     {
         $this->notify(new WelcomeNotification());
     }
+    public function avatar()
+    {
+        return  $this->fetchLastMedia()->file_url ?? "";
+    }
 
     public function posts(): HasMany
     {
@@ -102,6 +106,14 @@ class User extends Authenticatable implements Wallet
         return $this->belongsTo(User::class, 'referrer_id', 'id');
     }
 
+    public function messages()
+    {
+        //from is the sender_id
+        //to is the receiver_id
+        return $this->hasMany(Message::class, 'to');
+    }
+
+
     /**
      * A user has many referrals.
      *
@@ -122,7 +134,7 @@ class User extends Authenticatable implements Wallet
     //Attributes
     public function setPasswordAttribute($value)
     {
-        if(Hash::needsRehash($value) ) {
+        if (Hash::needsRehash($value)) {
             $value = Hash::make($value);
         }
         $this->attributes['password'] = $value;
@@ -137,5 +149,4 @@ class User extends Authenticatable implements Wallet
     {
         return "{$this->first_name} {$this->last_name}";
     }
-
 }

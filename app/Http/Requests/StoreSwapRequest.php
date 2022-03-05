@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @bodyParam post_id integer required The post id.
- * @bodyParam  receiver_id integer The user id accepting poster item or swapping poster item.
+ * @bodyParam  username string The username of the user accepting poster item or swapping poster item.
  */
 
 class StoreSwapRequest extends FormRequest
@@ -29,8 +29,8 @@ class StoreSwapRequest extends FormRequest
     public function rules()
     {
         return [
-            'post_id' => ['required', 'exists:posts,id'],
-            'receiver_id' => ['required', 'exists:users,id'],
+            'post_id' => ['required', 'integer', 'exists:posts,id'],
+            'receiver_username' => ['required', 'string', 'exists:users,username'],
         ];
     }
 }

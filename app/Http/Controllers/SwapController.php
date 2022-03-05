@@ -46,7 +46,7 @@ class SwapController extends Controller
 
     /**
      * Complete Give
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function storeGive(StoreSwapRequest $request)
@@ -56,8 +56,8 @@ class SwapController extends Controller
         $post->update([
             'status' => PostStatus::CLOSED,
         ]);
-        $swap = $this->swapRepository->create(array_merge($request->validated(), ['type' => SwapType::GIVE, 'owner_id' => auth()->id()]));
-        return $this->sendSuccess([new SwapResource($swap)], 'Give completed successfully');
+        $give = $this->createSwap(SwapType::GIVE, $request);
+        return $this->sendSuccess([new SwapResource($give)], 'Give completed successfully');
     }
 
     /**
@@ -71,7 +71,13 @@ class SwapController extends Controller
         $post->update([
             'status' => PostStatus::CLOSED,
         ]);
-        $give =$this->swapRepository->create(array_merge($request->validated(), ['type' => SwapType::SWAP, 'owner_id' => auth()->id()]));
-        return $this->sendSuccess([new SwapResource($give)], 'Swap completed successfully');
+        $swap = $this->createSwap(SwapType::SWAP, $request);
+        return $this->sendSuccess([new SwapResource($swap)], 'Swap completed successfully');
+    }
+
+    public function createSwap(string $type, $request)
+    {
+        $receiver = $this->userRepository->findByUserName($request->receiver_username);
+        return $this->swapRepository->create(['type' => $type, 'owner_id' => auth()->id(), 'post_id' => $request->post_id, 'receiver_id' => $receiver->id]);
     }
 }

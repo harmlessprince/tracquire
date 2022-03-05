@@ -22,7 +22,7 @@ class ProfileUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-//        dd('kks');
+        //        dd('kks');
         return true;
     }
 
@@ -40,6 +40,8 @@ class ProfileUpdateRequest extends FormRequest
             'username' => ['sometimes', 'required', Rule::unique('users')->ignore($this->user->id ?? '')],
             'latitude' => ['sometimes', 'required', 'numeric', 'between:-90,90'],
             'longitude' => ['sometimes', 'required', 'numeric', 'between:-180,180'],
+            'country' => ['nullable', 'string', 'max:30'],
+            'state' => ['nullable', 'string', 'max:30'],
         ];
     }
 

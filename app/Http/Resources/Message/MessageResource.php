@@ -20,8 +20,8 @@ class MessageResource extends JsonResource
             'id' => (string) $this->id,
             'type' => 'messages',
             'attributes' => [
-                'sender' => $this->sender->username,
-                'receiver' => $this->receiver->username,
+                'sender' => $this->sender,
+                'receiver' => $this->receiver,
                 'message' => $this->message,
                 'read' => (bool) $this->read,
                 'read_at' => $this->read_at,
