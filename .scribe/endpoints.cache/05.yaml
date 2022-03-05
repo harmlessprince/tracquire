@@ -24,21 +24,21 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: et
+        example: velit
         type: string
         custom: []
       otp:
         name: otp
         description: ''
         required: true
-        example: qui
+        example: ad
         type: string
         custom: []
       token:
         name: token
         description: 'The otp sent to the user email address.'
         required: false
-        example: voluptatem
+        example: fugit
         type: string
         custom: []
     responses: []

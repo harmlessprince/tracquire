@@ -20,14 +20,14 @@ endpoints:
         name: receiver
         description: 'The user receiving the message ID.'
         required: true
-        example: 17
+        example: 10
         type: integer
         custom: []
       message:
         name: message
         description: 'The message been sent to the user.'
         required: true
-        example: enim
+        example: et
         type: string
         custom: []
       data:
@@ -35,7 +35,7 @@ endpoints:
         description: 'This will hold extra data later on(not needed for now).'
         required: false
         example:
-          - ipsum
+          - facere
         type: 'string[]'
         custom: []
     responses: []
@@ -45,7 +45,7 @@ endpoints:
       - GET
     uri: 'api/v1/chats/load/messages/{receiver}'
     metadata:
-      title: 'Show Latest Messages.'
+      title: ''
       description: ''
       authenticated: true
       custom: []
@@ -57,9 +57,37 @@ endpoints:
         name: receiver
         description: ''
         required: true
-        example: 6
+        example: 7
         type: integer
         custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/chats/load
+    metadata:
+      title: 'Display a listing of the resource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
     queryParameters: []
     bodyParameters: []
     responses:
