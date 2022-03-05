@@ -33,6 +33,7 @@ class BookmarkController extends Controller
      */
     public function index()
     {
+        // dd('dkdk'); 
         $user = auth('api')->user();
         return $this->sendSuccess([new PostCollection($user->bookmarks), 'Bookmarks fetched successfully']);
     }

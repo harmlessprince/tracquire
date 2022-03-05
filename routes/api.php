@@ -77,6 +77,8 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::post('/{post}/bookmarks', [BookmarkController::class, 'store'])->name('.bookmarks.store');
     });
     Route::prefix('users')->name('users.')->group(function () {
+        //get all bookmark against authenticated  user
+        Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
         //upload profile pictures for a user
@@ -89,8 +91,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');
         //get all transactions that has been made by a user
 //        Route::get('/transactions/{user}', [UserTransactionsController::class, 'index'])->name('transactions');
-        //get all bookmark against authenticated  user
-        Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
+        
     });
 
     //chat
