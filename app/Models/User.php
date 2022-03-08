@@ -98,6 +98,11 @@ class User extends Authenticatable implements Wallet
     {
         return $this->hasMany(Shot::class);
     }
+
+    public function conversations(): HasMany
+    {
+        return $this->hasMany(Conversation::class, 'user_id');
+    }
     /**
      * A user has a referrer.
      */

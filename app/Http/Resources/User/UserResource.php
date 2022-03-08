@@ -35,7 +35,6 @@ class UserResource extends JsonResource
                 'no_of_bookmarks' => $this->bookmarks_count,
                 'earnings' => $this->balance
             ],
-
             'relationships' => [
                 'posts' => [
                     'links' => [

@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MessageFactory extends Factory
+class ConversationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,9 @@ class MessageFactory extends Factory
     public function definition()
     {
         return [
-            'message' => $this->faker->sentence()
+            'last_msg' => $this->faker->sentence(),
+            'seen' => $this->faker->boolean(),
+            'unseen_number'=> $this->faker->randomDigit(),
         ];
     }
 }

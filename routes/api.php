@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
@@ -99,6 +100,10 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::get('/load', [MessageController::class, 'index'])->name('load');
         Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
         Route::get('/load/messages/{receiver}', [MessageController::class, 'show'])->name('load.messages');
+    });
+     //conversations
+     Route::prefix('conversations')->name('conversations.')->group(function () {
+        Route::get('/', [ConversationController::class, 'index'])->name('index');
     });
 
     //create a swap that has been completed

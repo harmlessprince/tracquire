@@ -15,11 +15,14 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('from')->onDeleteCascade();
-            $table->foreignId('to')->onDeleteCascade();
-            $table->boolean('read')->default(false);
-            $table->dateTime('read_at')->nullable();
+            $table->foreignId('conversation_id')->onDeleteCascade();
+            $table->foreignId('sender_id')->constrained('users', 'id')->onDeleteCascade();
             $table->text('message');
+            $table->string('file')->nullable();
+            $table->text('meta')->nullable();
+            $table->foreignId('deleted_user_id')->nullable()->constrained('users', 'id');
+            $table->dateTime('read_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

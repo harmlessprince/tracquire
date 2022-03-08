@@ -6,8 +6,11 @@ use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Http\Resources\Message\MessageCollection;
 use App\Http\Resources\Message\MessageResource;
+use App\Models\Conversation;
 use App\Models\Message;
 use App\Repositories\Eloquent\Repository\MessageRepository;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 use function GuzzleHttp\Promise\each;
 
@@ -32,19 +35,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        
-       return $this->sendSuccess([new MessageCollection($this->messageRepository->chats())], 'Messages retrieved', 200);
+
+        return $this->sendSuccess([new MessageCollection($this->messageRepository->chats())], 'Messages retrieved', 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Create Message
@@ -54,7 +49,21 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        $message = $this->messageRepository->send($request->validated());
+        $conversation = Conversation::updateOrCreate(
+            [
+                'user_id' => auth()->id(),
+                'sender_id' => $request->sender_id
+            ],
+            [
+                'last_msg' => Str::limit($request->message),
+                'unseen_number' => DB::raw('unseen_number+1')
+            ]
+        );
+        $message = $conversation->messages()->create([
+            'sender_id' => $request->sender_id,
+            'message' => $request->message
+        ]);
+        // $message = $this->messageRepository->send($request->validated());
         return $this->sendSuccess([new MessageResource($message)], 'Message sent', 201);
     }
 
