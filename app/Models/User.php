@@ -24,6 +24,8 @@ class User extends Authenticatable implements Wallet
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasWallet, MediaAlly;
 
+    // protected $with = ['wallet'];
+
     /**
      * The attributes that are mass assignable.
      *

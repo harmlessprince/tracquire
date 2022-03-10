@@ -10,6 +10,7 @@ class Conversation extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = [];
+    protected $with = ['sender', 'owner'];
 
     public function messages()
     {
@@ -17,10 +18,10 @@ class Conversation extends Model
     }
     public function sender()
     {
-        return $this->hasMany(User::class, 'sender_id');
+        return $this->belongsTo(User::class, 'sender_id');
     }
     public function owner()
     {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

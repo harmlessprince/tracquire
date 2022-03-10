@@ -33,7 +33,7 @@ class UserResource extends JsonResource
                 'avatar' =>  $this->fetchLastMedia()->file_url ?? "",
                 'no_of_posts' => $this->posts_count,
                 'no_of_bookmarks' => $this->bookmarks_count,
-                'earnings' => $this->balance
+                // $this->mergeWhen((bool)($this->whenLoaded('wallet')), 0),
             ],
             'relationships' => [
                 'posts' => [
@@ -65,6 +65,7 @@ class UserResource extends JsonResource
                 'posts' => PostResource::collection($this->whenLoaded('posts')),
                 'bookmarks' => PostResource::collection($this->whenLoaded('bookmarks')),
                 'transactions' => SwapResource::collection($this->whenLoaded('userTransactions')),
+                'wallet' =>   $this->whenLoaded('wallet')
             ]
         ];
     }

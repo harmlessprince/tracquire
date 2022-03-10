@@ -34,7 +34,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return $this->sendSuccess([new PostCollection($this->postRepository->all())]);
+        return $this->sendSuccess([new PostCollection($this->postRepository->all(['*'], ['user', 'category', 'user.wallet']))]);
     }
 
     /**

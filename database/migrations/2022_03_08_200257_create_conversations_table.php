@@ -19,6 +19,10 @@ class CreateConversationsTable extends Migration
             $table->foreignId('sender_id')->onDeleteCascade();
             $table->tinyText('last_msg')->nullable();
             $table->boolean('seen')->default(false);
+            $table->boolean('pinned')->default(false);
+            $table->timestamp('pinned_at')->nullable();
+            $table->boolean('archived')->default(false);
+            $table->timestamp('archived_at')->nullable();
             $table->unsignedInteger('unseen_number');
             $table->softDeletes();
             $table->timestamps();
