@@ -70,12 +70,13 @@ class MessageController extends Controller
     /*
      * Show Latest Messages.
      *
-     * @param  \App\Models\Message  $message
+     * @param  Conversation $conversation
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function show($receiver)
+    public function show(Conversation $conversation)
     {
-        $messages = $this->messageRepository->latestMessages($receiver);
+        $messages = $conversation->messages()->with('sender', 'conversation')->latest()->paginate(15);
         return $this->sendSuccess([new MessageCollection($messages)], 'Messages retrieved', 200);
     }
 
@@ -110,6 +111,7 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        $message->delete();
+        return $this->sendSuccess([], 'Message deleted successfully');
     }
 }

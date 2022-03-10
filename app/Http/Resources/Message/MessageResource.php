@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Message;
 
+use App\Http\Resources\ConversationResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
@@ -28,6 +29,7 @@ class MessageResource extends JsonResource
             ],
             'included' => [
                 'sender' => new UserResource($this->sender),
+                'conversation' => new ConversationResource($this->conversation),
             ],
             'relationships' => [
                 'sender' => [
