@@ -1,60 +1,33 @@
-name: 'Search Post'
-description: ''
+name: 'Post Categories'
+description: |-
+
+  API endpoints for Post Categories
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/search
+    uri: api/v1/categories
     metadata:
-      title: 'Search Through All Posts'
+      title: 'Display a listing of the resource.'
       description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
-    queryParameters:
-      'page[number]':
-        name: 'page[number]'
-        description: 'The page number.'
-        required: false
-        example: 5
-        type: integer
-        custom: []
-      'page[size]':
-        name: 'page[size]'
-        description: 'The page number.'
-        required: false
-        example: 1
-        type: integer
-        custom: []
-      'filter[description]':
-        name: 'filter[description]'
-        description: 'The description string'
-        required: false
-        example: sunt
-        type: string
-        custom: []
-      'filter[condition]':
-        name: 'filter[condition]'
-        description: 'The condition string'
-        required: false
-        example: tempora
-        type: string
-        custom: []
-      'filter[location]':
-        name: 'filter[location]'
-        description: 'The location name'
-        required: false
-        example: amet
-        type: string
-        custom: []
+    queryParameters: []
     bodyParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Cum et aut et enim sunt quidem est deleniti.","description":"Consequatur unde eligendi dolores eaque modi.","condition":"Dolor magni fuga odio qui voluptas doloribus voluptas.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Argentina","state":"Filibertoview","city":"Jasttown","location":"aa_ET","published_at":"2022-03-05T21:56:09.989011Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sequi in nam incidunt corporis.","description":"Ipsam nulla quos cum alias esse reprehenderit.","condition":"Nemo qui consequatur reprehenderit reprehenderit suscipit ad eveniet.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Samoa","state":"Kadinmouth","city":"West Paolo","location":"aa_DJ","published_at":"2022-03-05T21:56:09.991681Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
-        headers: []
+        status: 401
+        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '://barter.test:'
+          access-control-allow-credentials: 'true'
+          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
+          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
         description: null
     responseFields: []

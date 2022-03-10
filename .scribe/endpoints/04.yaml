@@ -1,88 +1,14 @@
-name: Messaging
+name: Endpoints
 description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/v1/chats/send/message
-    metadata:
-      title: 'Create Message'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      receiver:
-        name: receiver
-        description: 'The user receiving the message ID.'
-        required: true
-        example: 17
-        type: integer
-        custom: []
-      message:
-        name: message
-        description: 'The message been sent to the user.'
-        required: true
-        example: aliquam
-        type: string
-        custom: []
-      data:
-        name: data
-        description: 'This will hold extra data later on(not needed for now).'
-        required: false
-        example:
-          - quisquam
-        type: 'string[]'
-        custom: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
       - GET
-    uri: 'api/v1/chats/load/messages/{receiver}'
+    uri: api/v1/conversations
     metadata:
       title: ''
       description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      receiver:
-        name: receiver
-        description: ''
-        required: true
-        example: 7
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"status":"error","data":[],"message":"Unauthenticated.","code":10}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '://barter.test:'
-          access-control-allow-credentials: 'true'
-          access-control-allow-methods: 'POST, GET, OPTIONS, PUT, DELETE, PATCH'
-          access-control-allow-headers: 'X-Requested-With, Content-Type, Origin, Authorization'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/chats/load
-    metadata:
-      title: 'Display a listing of the resource.'
-      description: ''
-      authenticated: true
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json

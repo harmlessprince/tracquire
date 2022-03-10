@@ -1,36 +1,51 @@
-name: Post
-description: ''
+name: Password
+description: |-
+
+  API endpoints for managing authentication
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/v1/posts
+      - POST
+    uri: api/auth/forgot-password
     metadata:
-      title: 'All Posts'
-      description: ''
-      authenticated: true
+      title: 'Forgot Password'
+      description: 'A token will be sent to user email address'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the  user.'
+        required: true
+        example: johndoes@example.com
+        type: string
+        custom: []
     responses:
       -
-        status: 200
-        content: '{"data":{"posts":[{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Sint enim amet facere suscipit quasi totam.","description":"Nesciunt esse pariatur et aspernatur nemo.","condition":"Neque ipsam ad consequuntur.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Sao Tome and Principe","state":"South Alvenaville","city":"North Jessika","location":"en_ZA","published_at":"2022-03-05T21:56:08.865998Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}},{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Numquam sint earum eveniet odit consequatur.","description":"Numquam fugiat porro quia itaque.","condition":"Et itaque repellendus ut expedita ut sequi ut ut.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP ITEM","country":"United Kingdom","state":"North Laurineview","city":"Katlynhaven","location":"bn_BD","published_at":"2022-03-05T21:56:08.870476Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}]}}'
+        status: 401
+        content: |-
+          {
+          "status":"error",
+          "data":[],
+          "message":"The supplied email does not exist",
+          "code":404
+          }
         headers: []
-        description: null
+        description: '401, Email Does Not Exist'
     responseFields: []
   -
     httpMethods:
       - POST
-    uri: api/v1/posts
+    uri: api/auth/reset-password
     metadata:
-      title: 'Create Post'
-      description: ''
-      authenticated: true
+      title: 'Reset Password'
+      description: 'User is expected to supply the token sent to his email address and a new password'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -38,249 +53,37 @@ endpoints:
     urlParameters: []
     queryParameters: []
     bodyParameters:
-      category:
-        name: category
-        description: 'The post category slug.'
+      token:
+        name: token
+        description: 'The token sent to the user.'
         required: true
-        example: architecto
+        example: delectus
         type: string
         custom: []
-      description:
-        name: description
-        description: 'The post description.'
+      email:
+        name: email
+        description: 'The user email address.'
         required: true
-        example: placeat
+        example: rerum
         type: string
         custom: []
-      condition:
-        name: condition
-        description: 'The the post or item condition.'
-        required: false
-        example: illo
-        type: string
-        custom: []
-      images:
-        name: images
-        description: 'The post images.'
-        required: false
-        example:
-          - dolores
-        type: 'string[]'
-        custom: []
-      wishlist:
-        name: wishlist
-        description: 'The post wishlist.'
-        required: false
-        example:
-          - voluptas
-        type: 'string[]'
-        custom: []
-      portfolio:
-        name: portfolio
-        description: 'The user posting profile'
-        required: false
+      password:
+        name: password
+        description: 'The the user new password.'
+        required: true
         example: consequatur
-        type: url
-        custom: []
-      shoot_able:
-        name: shoot_able
-        description: 'this is to indicate users can shoot the post'
-        required: false
-        example: false
-        type: boolean
-        custom: []
-      latitude:
-        name: latitude
-        description: 'This is used to capture the user Location latitude'
-        required: false
-        example: 3.5511511
-        type: number
-        custom: []
-      longitude:
-        name: longitude
-        description: 'This is used to capture the user location longitude'
-        required: false
-        example: 529740.4844096
-        type: number
-        custom: []
-      location:
-        name: location
-        description: 'The post location.'
-        required: false
-        example: non
-        type: string
-        custom: []
-      publish:
-        name: publish
-        description: 'The is is used to state wether the post should be published. Example yes'
-        required: false
-        example: error
         type: string
         custom: []
     responses:
       -
-        status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Non quae ratione omnis consequatur.","description":"Occaecati sunt officia at delectus.","condition":"Labore omnis est eius.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"GIVE","country":"Somalia","state":"Barrowsborough","city":"Carissaborough","location":"ur_PK","published_at":"2022-03-05T21:56:08.890920Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
+        status: 401
+        content: |-
+          {
+          "status":"error",
+          "data":[],
+          "message":"Token supplied is invalid",
+          "code":404
+          }
         headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/posts/{id}'
-    metadata:
-      title: 'Show Post'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Voluptas omnis molestias at illum numquam optio.","description":"Eligendi hic sapiente dolores molestias est illum.","condition":"Adipisci ullam ea provident cupiditate perferendis nostrum.","wishlist":null,"portfolio":null,"shoot_able":false,"status":"","category":"SWAP SERVICE","country":"Bulgaria","state":"Estefaniachester","city":"West Bayleehaven","location":"am_ET","published_at":"2022-03-05T21:56:08.899148Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
-        headers: []
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/posts/{id}'
-    metadata:
-      title: 'Delete Post'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/posts/{id}'
-    metadata:
-      title: 'Update Post'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    queryParameters: []
-    bodyParameters:
-      category:
-        name: category
-        description: ''
-        required: true
-        example: adipisci
-        type: string
-        custom: []
-      description:
-        name: description
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: euzyqdidrfnufgvieydezcfmzzbkbtpxoljxcuewtenmdfbsdranfzyaakhbosrpscxvyxstofuybhf
-        type: string
-        custom: []
-      condition:
-        name: condition
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: bydeedryqlevvdzhxwxstiknzuabyyibuuimkcgphectbfcxnbrcteifyxmrjfuozwccpirgecryltprdfhmkiqvyusuqcxyqxsxgemferobfwiakxnopmbzesfmerxkxcfrhqjorrepodfsmxxcnyhwxmgndehsmeizlesicnzejwpsny
-        type: string
-        custom: []
-      images:
-        name: images
-        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        custom: []
-      wishlist:
-        name: wishlist
-        description: 'Must not have more than 4 items.'
-        required: false
-        example: i
-        type: 'string[]'
-        custom: []
-      portfolio:
-        name: portfolio
-        description: 'Must be a valid URL.'
-        required: false
-        example: 'http://www.leffler.biz/'
-        type: string
-        custom: []
-      shoot_able:
-        name: shoot_able
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        custom: []
-      latitude:
-        name: latitude
-        description: 'Must be between -90 and 90.'
-        required: false
-        example: -20
-        type: number
-        custom: []
-      longitude:
-        name: longitude
-        description: 'Must be between -180 and 180.'
-        required: false
-        example: 129
-        type: number
-        custom: []
-      location:
-        name: location
-        description: ''
-        required: false
-        example: asperiores
-        type: string
-        custom: []
-      publish:
-        name: publish
-        description: ''
-        required: true
-        example: assumenda
-        type: string
-        custom: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":"","type":"posts","attributes":{"author":"James Bond","title":"Cupiditate ab totam corrupti tempore excepturi.","description":"Ratione minima sit quo perferendis dolores hic.","condition":"Expedita eligendi eaque optio perspiciatis aliquid.","wishlist":null,"portfolio":null,"shoot_able":true,"status":"","category":"SWAP ITEM","country":"Indonesia","state":"South Cedrickland","city":"Tobyburgh","location":"hi_IN","published_at":"2022-03-05T21:56:08.913763Z","created_at":null,"updated_at":null,"images":[]},"relationships":{"comments":{"links":{"related":"http:\/\/barter.test\/api\/v1\/posts\/0\/comments"}},"author":{"links":{"related":"http:\/\/barter.test\/api\/v1\/users\/0"}}},"included":{"author":null},"meta":{"comments_count":null}}}'
-        headers: []
-        description: null
+        description: '401, Email Does Not Exist'
     responseFields: []

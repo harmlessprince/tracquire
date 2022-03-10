@@ -22,14 +22,14 @@ endpoints:
         name: email
         description: 'The user email address.'
         required: true
-        example: iste
+        example: similique
         type: string
         custom: []
       password:
         name: password
         description: 'The the user new password.'
         required: true
-        example: ab
+        example: fugiat
         type: string
         custom: []
     responses:
@@ -91,21 +91,21 @@ endpoints:
         name: referrer
         description: 'The token sent to the user.'
         required: true
-        example: odio
+        example: voluptatem
         type: string
         custom: []
       email:
         name: email
         description: 'The the user email,this is a unique field.'
         required: true
-        example: ratione
+        example: qui
         type: string
         custom: []
       password:
         name: password
         description: 'The user password.'
         required: true
-        example: doloribus
+        example: ut
         type: string
         custom: []
     responses:
