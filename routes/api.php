@@ -97,7 +97,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
 
     //chat
     Route::prefix('chats')->name('chats.')->group(function () {
-        Route::get('/load', [MessageController::class, 'index'])->name('load');
+        // Route::get('/load', [MessageController::class, 'index'])->name('load');
         Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
         Route::get('/load/messages/{conversation}', [MessageController::class, 'show'])->name('load.messages');
     });

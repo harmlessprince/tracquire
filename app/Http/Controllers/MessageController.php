@@ -9,6 +9,7 @@ use App\Http\Resources\Message\MessageResource;
 use App\Models\Conversation;
 use App\Models\Message;
 use App\Repositories\Eloquent\Repository\MessageRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -28,11 +29,6 @@ class MessageController extends Controller
         $this->messageRepository = $messageRepository;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
 
@@ -76,6 +72,13 @@ class MessageController extends Controller
      */
     public function show(Conversation $conversation)
     {
+        $conversation->update([
+            'seen' => true,
+            'unseen_number' => 0
+        ]);
+        $conversation->messages()->where('read_at', null)->update([
+            'read_at' => Carbon::now(),
+        ]);
         $messages = $conversation->messages()->with('sender', 'conversation')->latest()->paginate(15);
         return $this->sendSuccess([new MessageCollection($messages)], 'Messages retrieved', 200);
     }

@@ -59,6 +59,7 @@ class UserResource extends JsonResource
             ],
             'meta' => [
                 'posts_count' => $this->posts_count,
+                'unseen_messages_count' => $this->conversations->sum('unseen_number'),
                 'transactions_count' => $this->user_transactions_count ?? 0,
             ],
             'included' => [
