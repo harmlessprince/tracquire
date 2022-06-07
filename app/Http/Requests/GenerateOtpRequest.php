@@ -30,9 +30,9 @@ class GenerateOtpRequest extends FormRequest
     public function rules():array
     {
         return [
-            'email' => ['required', 'email', 'unique:users,email'],
-            'username' => ['unique:users'],
-            'phone' => ['unique:users'],
+            'email' => ['required', 'email', 'exists:users,email'],
+            // 'username' => ['unique:users'],
+            // 'phone' => ['unique:users'],
         ];
     }
 }
