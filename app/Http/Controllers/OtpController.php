@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Enums\UserActionEnum;
 use App\Events\CreditUserWalletEvent;
 use App\Helper\HttpResponseCodes;
+use App\Http\Requests\GenerateOtpRequest;
 use App\Http\Requests\VerifyOtpRequest;
 use App\Models\User;
+use App\Notifications\OtpNotification;
 use Seshac\Otp\Otp;
+use \Illuminate\Http\Response;
+use Illuminate\Support\Facades\Notification;
 
 /**
  * @group OTP
@@ -23,16 +27,16 @@ class OtpController extends Controller
      * This endpoint sends otp token the provided email address
      *
      */
-    //    public function generateOtp(GenerateOtpRequest $request): Response
-    //    {
-    //        $email = $request->email;
-    //        $otp = Otp::generate($email);
-    //        if (!$otp->status){
-    //            return $this->sendError($otp->message, HttpResponseCodes::TOKEN_GENERATION_FAIL);
-    //        }
-    //        Notification::route('mail', $email)->notify(new OtpNotification($otp));
-    //        return $this->sendSuccess(['status' => true, 'message' => 'OTP generated'], "Otp sent to registered email: ${email}");
-    //    }
+       public function generateOtp(GenerateOtpRequest $request): Response
+       {
+           $email = $request->email;
+           $otp = Otp::generate($email);
+           if (!$otp->status){
+               return $this->sendError($otp->message, HttpResponseCodes::TOKEN_GENERATION_FAIL);
+           }
+           Notification::route('mail', $email)->notify(new OtpNotification($otp));
+           return $this->sendSuccess(['status' => true, 'message' => 'OTP generated'], "Otp sent to registered email: ${email}");
+       }
 
     /**
      * Verify OTP
