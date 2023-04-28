@@ -4,9 +4,10 @@ namespace App\Repositories\Eloquent\Repository;
 
 use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class PostRepository extends BaseRepository
 {
@@ -54,5 +55,13 @@ class PostRepository extends BaseRepository
             return $model;
         });
         return $model->fresh();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function all(array $columns = ['*'], array $relations = []): Collection
+    {
+        return $this->model->with($relations)->withCount(['comments'])->get($columns);
     }
 }

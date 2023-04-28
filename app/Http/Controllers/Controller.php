@@ -34,4 +34,9 @@ class Controller extends BaseController
     {
         return HttpResponseHelper::createErrorResponse($message, $error_code, $data, $http_response_code);
     }
+
+    public function respondError(string $message, int $http_response_code = 400): Response
+    {
+        return HttpResponseHelper::createErrorResponse($message, 400, [], $http_response_code);
+    }
 }

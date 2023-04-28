@@ -77,6 +77,9 @@ class PostShotRelatedController extends Controller
      */
     public function show(Post $post, Shot $shot)
     {
+        if ($shot->post_id != $post->id) {
+            return $this->respondError('Supplied short doest not belong to the supplied post', 404);
+        }
         return new ShotResource($shot);
     }
 
