@@ -63,10 +63,10 @@ class UserResource extends JsonResource
                 'transactions_count' => $this->user_transactions_count ?? 0,
             ],
             'included' => [
-                'posts' => PostResource::collection($this->whenLoaded('posts')),
-                'bookmarks' => PostResource::collection($this->whenLoaded('bookmarks')),
-                'transactions' => SwapResource::collection($this->whenLoaded('userTransactions')),
-                'wallet' =>   $this->whenLoaded('wallet')
+                'posts' =>  $this->whenLoaded('posts', fn () => PostResource::collection($this->whenLoaded('posts'))) ,
+                'bookmarks' => $this->whenLoaded('bookmarks', fn () => PostResource::collection($this->whenLoaded('bookmarks'))),
+                'transactions' => $this->whenLoaded('transactions', fn () => SwapResource::collection($this->whenLoaded('userTransactions'))),
+                'wallet' =>  $this->whenLoaded('wallet', fn () => $this->wallet)
             ]
         ];
     }

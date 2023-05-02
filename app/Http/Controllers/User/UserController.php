@@ -56,6 +56,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return $this->sendSuccess([new UserResource($user->loadCount('posts', 'userTransactions')->load('posts', 'userTransactions'))], 'Profile successfully retrieved');
+        $user = $user->loadCount('posts', 'userTransactions', 'bookmarks');
+        // dd($user);
+        return $this->sendSuccess([new UserResource($user)], 'Profile successfully retrieved');
     }
 }

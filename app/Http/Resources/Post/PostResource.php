@@ -21,7 +21,7 @@ class PostResource extends JsonResource
             'id' => (string) $this->id,
             'type' => 'posts',
             'attributes' => [
-                'author' => $this->user->full_name ?? "James Bond",
+                // 'author' => $this->user->full_name ?? "James Bond",
                 'title' => $this->title ?? "Jane",
                 'description' => $this->description,
                 'condition' => $this->condition,
@@ -47,18 +47,16 @@ class PostResource extends JsonResource
                 ],
                 'author' => [
                     'links' => [
-                        'related' => route('users.show', ['user' => $this->user->id ?? 0])
+                        'related' => route('users.show', ['user' => $this->user_id ?? 0])
                     ]
                 ],
             ],
             'included' => [
-                'author' => new UserResource($this->user),
+                'author' => $this->whenLoaded('user', fn () => new UserResource($this->user)),
             ],
             'meta' => [
                 'comments_count' => $this->comments_count,
-            ],  
+            ],
         ];
     }
-
-
 }
