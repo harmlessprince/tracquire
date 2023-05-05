@@ -47,6 +47,7 @@ class PostShotRelatedController extends Controller
     public function store(StoreShotRequest $request, Post $post): Response
     {
         $userAlreadyHasAShot = $post->shots()->where('user_id', auth('api')->id())->exists();
+    
         if (!$userAlreadyHasAShot) {
             $shot = new Shot([
                 'post_id' => $post->id,
@@ -55,11 +56,12 @@ class PostShotRelatedController extends Controller
                 'condition' => $request->condition,
             ]);
             $shot = $post->shots()->save($shot);
-            if ($request->hasFile('images') && $request->hasFile(request()->images[0])) {
+            if ($request->hasFile('images')) {
                 foreach (request()->images as $image) {
                     $shot->attachMedia($image);
                 }
             }
+            $shot = $shot->refresh();
             return $this->sendSuccess([new ShotResource($shot)], 'Shot successful created');
         }
         return $this->sendError('You are not allowed to shoot more than one shot', 401);
