@@ -81,6 +81,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         //get all bookmark against authenticated  user
         Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
+        Route::patch('/{user}/update/password', [AuthenticationController::class, 'updatePassword'])->name('updatePassword');
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
         //upload profile pictures for a user
         Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');

@@ -10,6 +10,7 @@ use App\Helper\Helper;
 use App\Helper\HttpResponseCodes;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Resources\User\UserResource;
 use App\Models\Message;
 use App\Models\User;
@@ -172,5 +173,20 @@ class AuthenticationController extends Controller
             'referrer_token' => $data['referral_token'],
             'referrer_id' => $data['referrer_id']
         ]);
+    }
+
+    public function  updatePassword(UpdatePasswordRequest $request)
+    {
+        $user = $request->user();
+        if (!Hash::check($request->current_password, $user->password)) {
+            return $this->respondError('The current password supplied is incorrect');
+        }
+        //prepare password for saving into the database
+        $user->password = Hash::make($request->password);
+        //Save user password into the user table
+        $user->save();
+        // $user->tokens()->delete();
+
+        return $this->sendSuccess([], 'Password updated successfully');
     }
 }
