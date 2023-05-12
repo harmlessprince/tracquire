@@ -29,7 +29,11 @@ class SearchController extends Controller
     public function index()
     {
         $posts = QueryBuilder::for(Post::class)
-            ->allowedFilters(['description', 'condition', 'title', 'location'])->where('status','=', PostStatus::OPEN)->jsonPaginate();
+            ->allowedFilters(['description', 'condition', 'title', 'location'])
+            ->with(['user'])
+            ->withCount('comments')
+            ->where('status','=', PostStatus::OPEN)
+            ->jsonPaginate();
         return $this->sendSuccess([new PostCollection($posts)]);
     }
 }
