@@ -10,20 +10,21 @@ use App\Models\Conversation;
 use App\Models\Message;
 use App\Repositories\Eloquent\Repository\MessageRepository;
 use Carbon\Carbon;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 use function GuzzleHttp\Promise\each;
 
 /**
- * @group Messaging 
+ * @group Messaging
  * @authenticated
  * API endpoints for chat integrate
  */
 
 class MessageController extends Controller
 {
-    private $messageRepository;
+    private MessageRepository $messageRepository;
     public function __construct(MessageRepository $messageRepository)
     {
         $this->messageRepository = $messageRepository;
@@ -40,10 +41,10 @@ class MessageController extends Controller
     /**
      * Create Message
      *
-     * @param  \App\Http\Requests\StoreMessageRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreMessageRequest $request
+     * @return Response
      */
-    public function store(StoreMessageRequest $request)
+    public function store(StoreMessageRequest $request): Response
     {
         $conversation = Conversation::updateOrCreate(
             [
@@ -52,9 +53,9 @@ class MessageController extends Controller
             ],
             [
                 'last_msg' => Str::limit($request->message),
-                'unseen_number' => DB::raw('unseen_number+1')
             ]
         );
+        $conversation->increment('unseen_number');
         $message = $conversation->messages()->create([
             'sender_id' => $request->sender_id,
             'message' => $request->message
@@ -67,7 +68,7 @@ class MessageController extends Controller
      * Show Latest Messages.
      *
      * @param  Conversation $conversation
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Conversation $conversation)
@@ -87,7 +88,7 @@ class MessageController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Message $message)
     {
@@ -99,7 +100,7 @@ class MessageController extends Controller
      *
      * @param  \App\Http\Requests\UpdateMessageRequest  $request
      * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(UpdateMessageRequest $request, Message $message)
     {
@@ -110,7 +111,7 @@ class MessageController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Message $message)
     {

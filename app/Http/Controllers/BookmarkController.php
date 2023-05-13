@@ -17,7 +17,7 @@ use App\Repositories\Eloquent\Repository\BookmarkRepository;
  */
 class BookmarkController extends Controller
 {
-    private $bookmarkRepository;
+    private BookmarkRepository $bookmarkRepository;
 
     public function __construct(BookmarkRepository $bookmarkRepository)
     {
@@ -33,9 +33,10 @@ class BookmarkController extends Controller
      */
     public function index()
     {
-        // dd('dkdk'); 
+        // dd('dkdk');
         $user = auth('api')->user();
-        return $this->sendSuccess([new PostCollection($user->bookmarks), 'Bookmarks fetched successfully']);
+        $bookmarks = $user->bookmarks->load('user')->loadCount('comments');
+        return $this->sendSuccess([new PostCollection($bookmarks), 'Bookmarks fetched successfully']);
     }
 
 
