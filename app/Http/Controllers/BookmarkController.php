@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookmarkRequest;
 use App\Http\Requests\UpdateBookmarkRequest;
+use App\Http\Resources\BookmarkCollection;
 use App\Http\Resources\Post\PostCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Models\Bookmark;
@@ -35,8 +36,9 @@ class BookmarkController extends Controller
     {
         // dd('dkdk');
         $user = auth('api')->user();
-        $bookmarks = $user->bookmarks->load('user')->loadCount('comments');
-        return $this->sendSuccess([new PostCollection($bookmarks), 'Bookmarks fetched successfully']);
+
+        $bookmarks = Bookmark::query()->where('user_id', $user->id)->with('post')->paginate();
+        return $this->sendSuccess([new BookmarkCollection($bookmarks), 'Bookmarks fetched successfully']);
     }
 
 
@@ -75,6 +77,6 @@ class BookmarkController extends Controller
     public function destroy(Bookmark $bookmark)
     {
         $bookmark->deleteOrFail();
-        return $this->sendSuccess([], 'Post has been successfully removed');
+        return $this->sendSuccess([], 'Bookmark has been successfully removed');
     }
 }

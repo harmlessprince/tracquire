@@ -85,9 +85,9 @@ class User extends Authenticatable implements Wallet
         return $this->hasMany(Swap::class, 'owner_id');
     }
 
-    public function bookmarks(): BelongsToMany
+    public function bookmarks(): HasMany
     {
-        return $this->belongsToMany(Post::class, 'bookmarks')->withTimestamps();
+        return $this->hasMany(Bookmark::class, 'user_id');
     }
 
 
