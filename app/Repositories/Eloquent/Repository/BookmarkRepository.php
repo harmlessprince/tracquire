@@ -26,13 +26,15 @@ class BookmarkRepository extends BaseRepository
         if ($this->hasPostBooked($user, $post)) {
             return false;
         }
-        $user->bookmarks()->attach($post);
+        $user->bookmarks()->create([
+            'post_id' => $post->id,
+        ]);
         return true;
     }
 
     public function hasPostBooked($user, $post): bool
     {
-        return $user->bookmarks()->newPivotStatementForId($post->id)->exists();
+        return $user->bookmarks()->where('post_id', $post->id)->exists();
+        // return $user->bookmarks()->newPivotStatementForId($post->id)->exists();
     }
 }
-
