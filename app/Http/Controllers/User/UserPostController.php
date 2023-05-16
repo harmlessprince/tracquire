@@ -32,7 +32,20 @@ class UserPostController extends Controller
      */
     public function index(User $user)
     {
-        $posts = Post::query()->where('user_id', $user->id)->with('user','category')->withCount('comments')->paginate();
+        $posts = Post::query()->where('user_id', $user->id)->with('user', 'category')->withCount('comments')->paginate();
         return $this->sendSuccess([new PostCollection($posts)]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('destroy', $post);
+        if ($post->shots()->exist()) {
+            return $this->sendSuccess([], 'You are not allowed to delete a post that has shot');
+        }
+        if ($post->swap()->exist()) {
+            return $this->sendSuccess([], 'You are not allowed to delete a post that has swap');
+        }
+        $post->delete();
+        return $this->sendSuccess([], 'Post deleted successfully');
     }
 }

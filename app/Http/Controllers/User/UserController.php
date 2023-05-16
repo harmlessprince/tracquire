@@ -10,6 +10,7 @@ use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use App\Repositories\Eloquent\Repository\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Validation\UnauthorizedException;
 
 /**
  * @group User
@@ -60,4 +61,5 @@ class UserController extends Controller
         // dd($user);
         return $this->sendSuccess([new UserResource($user)], 'Profile successfully retrieved');
     }
+
 }

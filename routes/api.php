@@ -6,8 +6,9 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\DeactivateAccountController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\MessageController;
+// use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\Post\PostCommentRelatedController;
 use App\Http\Controllers\Post\PostsCommentsRelationshipsController;
@@ -79,6 +80,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     });
     Route::prefix('users')->name('users.')->group(function () {
         //get all bookmark against authenticated  user
+        Route::get('deactivate', [DeactivateAccountController::class, 'destroy']);
         Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
         Route::patch('/{user}/update/password', [AuthenticationController::class, 'updatePassword'])->name('updatePassword');
@@ -87,25 +89,29 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         Route::post('/{user}/profile/image', [UpdateProfileImageController::class, 'update'])->name('profile.image');
         //Get all the posts of a user
         Route::get('/{user}/posts', [UserPostController::class, 'index'])->name('posts');
+
+        
         //get all comments that has been made by a user
         Route::get('/{user}/comments', [UserCommentController::class, 'index'])->name('comments');
         //get all users shots
         Route::get('/{user}/shots', [UserShotController::class, 'index'])->name('shots');
+
+        
         //get all transactions that has been made by a user
 //        Route::get('/transactions/{user}', [UserTransactionsController::class, 'index'])->name('transactions');
         
     });
 
     //chat
-    Route::prefix('chats')->name('chats.')->group(function () {
-        // Route::get('/load', [MessageController::class, 'index'])->name('load');
-        Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
-        Route::get('/load/messages/{conversation}', [MessageController::class, 'show'])->name('load.messages');
-    });
-     //conversations
-     Route::prefix('conversations')->name('conversations.')->group(function () {
-        Route::get('/', [ConversationController::class, 'index'])->name('index');
-    });
+    // Route::prefix('chats')->name('chats.')->group(function () {
+    //     // Route::get('/load', [MessageController::class, 'index'])->name('load');
+    //     Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
+    //     Route::get('/load/messages/{conversation}', [MessageController::class, 'show'])->name('load.messages');
+    // });
+    //  //conversations
+    //  Route::prefix('conversations')->name('conversations.')->group(function () {
+    //     Route::get('/', [ConversationController::class, 'index'])->name('index');
+    // });
 
     //create a swap that has been completed
     Route::prefix('transactions')->name('swaps.')->group(function () {
