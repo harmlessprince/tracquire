@@ -17,9 +17,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Psy\Util\Str;
-use Seshac\Otp\Otp;
-use Spatie\QueryBuilder\QueryBuilder;
 
 /**
  * @group Authentication

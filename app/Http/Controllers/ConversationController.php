@@ -2,24 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSentEvent;
+use App\Http\Requests\StoreConversationRequest;
 use App\Http\Resources\ConversationCollection;
+use App\Http\Resources\ConversationResource;
+use App\Http\Resources\MessageCollection;
+use App\Http\Resources\MessageResource;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\Conversions\Conversion;
+use Musonza\Chat\Facades\ChatFacade;
+use Musonza\Chat\Models\Conversation;
 
 class ConversationController extends Controller
 {
-    //
     public function index()
     {
-        $user = auth()->user()->load('conversations');
-        $conversations = $user->conversations;
-        return    $this->sendSuccess([new ConversationCollection($conversations)]);
+        $conversations = ChatFacade::conversations()->setPaginationParams(['sorting' => 'desc'])
+            ->setParticipant(auth()->user())
+            ->limit(request('limit', 25))
+            ->page(request('page', 1))
+            ->get('participants');
+
+        return $this->sendSuccess(['conversations' => $conversations], 'Retrieved conversations');
     }
-    public function delete(Conversion $conversion)
+
+    public function store(StoreConversationRequest $request)
     {
-        //Consider deletion of conversation from only one side
-        // $conversion->dele
-        // $conversations = $user->conversations;
-        // return    $this->sendSuccess([new ConversationCollection($conversations)]);
+        $sender = User::query()->where('id', $request->user()->id)->first();
+        $receiver = User::query()->where('id', $request->input('receiver_id'))->first();
+        $participants = [$sender, $receiver];
+
+        $conversationExists = ChatFacade::conversations()->between($sender, $receiver);
+        if ($conversationExists) {
+            return $this->respondError('Conversation already exists');
+        }
+        $conversation = ChatFacade::makeDirect()->createConversation($participants, $request->input('data', []))->load('participants');
+        $message = ChatFacade::message($request->message)
+            ->type($request->type ?? 'text')
+            ->data($request->data ?? [])
+            ->from($sender)
+            ->to($conversation)
+            ->send();
+        broadcast(new MessageSentEvent($message, $receiver))->toOthers();
+        return $this->sendSuccess(['conversation' => new ConversationResource($conversation)], 'Conversation created successfully');
+    }
+
+    public function show(Conversation $conversation)
+    {
+        $conversation =  $conversation->load('participants');
+        $messages = ChatFacade::conversation($conversation)->setParticipant(auth()->user())
+            ->limit(request('limit', 25))
+            ->page(request('page', 1))
+            ->getMessages();
+        return $this->sendSuccess(['message' => new MessageCollection($messages)], 'Retrieved  Messages');
+    }
+
+    public function destroy(Conversation $conversation)
+    {
+        ChatFacade::conversation($conversation)->setParticipant(auth()->user())->clear();
+        return $this->sendSuccess([], 'Messages cleared');
     }
 }

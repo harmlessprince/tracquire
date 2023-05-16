@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\User\UserCollection;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -15,17 +16,32 @@ class ConversationResource extends JsonResource
      */
     public function toArray($request)
     {
+        $conversation = $this->resource;
+        $last_message = $conversation->last_message;
         return [
-            'id' => (string) $this->id,
+            'id' => (string) $conversation->id,
             'type' => 'conversations',
             'attributes' => [
-                'last_message' => $this->last_msg,
-                'seen' => (bool) $this->seen,
-                'unseen_number' => $this->unseen_number,
+                'id' => $conversation->id,
+                'private' => $conversation->private,
+                'data' => $conversation->data,
+                'created_at' => $conversation->created_at,
+                'updated_at' => $conversation->updated_at,
             ],
             'included' => [
-                'owner' => new UserResource($this->owner),
-                'sender' => new UserResource($this->sender)
+                'participants' => new UserCollection($conversation->getParticipants()),
+                'last_message' => [
+                    'id' => $last_message->id,
+                    'message_id' => $last_message->message_id,
+                    'conversation_id' => $last_message->conversation_id,
+                    'participation_id' => $last_message->participation_id,
+                    "is_seen" => $last_message->is_seen,
+                    "is_sender" => $last_message->is_sender,
+                    "body" => $last_message->body,
+                    "type" => $last_message->type,
+                    "data" => $last_message->data,
+                    "sender" => new UserResource($last_message->sender),
+                ],
             ],
             'relationships' => [
                 // 'messages' 

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSentEvent;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
-use App\Http\Resources\Message\MessageCollection;
-use App\Http\Resources\Message\MessageResource;
-use App\Models\Conversation;
-use App\Models\Message;
+use App\Http\Resources\MessageCollection;
+use App\Http\Resources\MessageResource;
+use App\Models\User;
 use App\Repositories\Eloquent\Repository\MessageRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Musonza\Chat\Facades\ChatFacade;
+use Musonza\Chat\Models\Conversation as ModelsConversation;
+use Musonza\Chat\Models\Message;
 
 use function GuzzleHttp\Promise\each;
 
@@ -30,92 +31,53 @@ class MessageController extends Controller
         $this->messageRepository = $messageRepository;
     }
 
-    public function index()
-    {
-
-        return $this->sendSuccess([new MessageCollection($this->messageRepository->chats())], 'Messages retrieved', 200);
-    }
-
-
-
     /**
      * Create Message
      *
      * @param StoreMessageRequest $request
      * @return Response
      */
-    public function store(StoreMessageRequest $request): Response
+    public function store(StoreMessageRequest $request, ModelsConversation $conversation): Response
     {
-        $conversation = Conversation::updateOrCreate(
-            [
-                'user_id' => auth()->id(),
-                'sender_id' => $request->sender_id
-            ],
-            [
-                'last_msg' => Str::limit($request->message),
-            ]
-        );
-        $conversation->increment('unseen_number');
-        $message = $conversation->messages()->create([
-            'sender_id' => $request->sender_id,
-            'message' => $request->message
-        ]);
-        // $message = $this->messageRepository->send($request->validated());
+        if (auth()->id() == $request->receiver_id) {
+            return $this->respondError('You are not allowed to message your self');
+        }
+        $sender = User::findOrFail(auth()->id());
+        $receiver = User::findOrFail($request->receiver_id);
+        if ($conversation->participantFromSender($sender) == null) {
+            return $this->respondError('You are not part of the supplied conversation');
+        }
+        $message = ChatFacade::message($request->message)
+            ->type($request->type ?? 'text')
+            ->data($request->data ?? [])
+            ->from($sender)
+            ->to($conversation)
+            ->send();
+        broadcast(new MessageSentEvent($message, $receiver))->toOthers();
         return $this->sendSuccess([new MessageResource($message)], 'Message sent', 201);
     }
 
-    /*
-     * Show Latest Messages.
+    /**
+     * Display the specified resource.
      *
-     * @param  Conversation $conversation
+     * @param  \App\Models\Message  $message
+     * @return \Illuminate\Http\Response
+     */
+    public function show(int $message_id)
+    {
+        $message = ChatFacade::messages()->getById($message_id);
+        return $this->sendSuccess([new MessageResource($message)], 'Message retrieved');
+    }
+
+   
+      /**
+     * Remove the specified resource from storage.
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Conversation $conversation)
-    {
-        $conversation->update([
-            'seen' => true,
-            'unseen_number' => 0
-        ]);
-        $conversation->messages()->where('read_at', null)->update([
-            'read_at' => Carbon::now(),
-        ]);
-        $messages = $conversation->messages()->with('sender', 'conversation')->latest()->paginate(15);
-        return $this->sendSuccess([new MessageCollection($messages)], 'Messages retrieved', 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Message  $message
-     * @return Response
-     */
-    public function edit(Message $message)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMessageRequest  $request
-     * @param  \App\Models\Message  $message
-     * @return Response
-     */
-    public function update(UpdateMessageRequest $request, Message $message)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Message  $message
-     * @return Response
-     */
     public function destroy(Message $message)
     {
-        $message->delete();
+        ChatFacade::message($message)->setParticipant(User::findOrFail(auth()->id()))->delete();
         return $this->sendSuccess([], 'Message deleted successfully');
     }
 }

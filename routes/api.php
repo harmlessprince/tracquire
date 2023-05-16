@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\DeactivateAccountController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\MessageController;
 // use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\Post\PostCommentRelatedController;
@@ -103,15 +104,18 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     });
 
     //chat
-    // Route::prefix('chats')->name('chats.')->group(function () {
-    //     // Route::get('/load', [MessageController::class, 'index'])->name('load');
-    //     Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
-    //     Route::get('/load/messages/{conversation}', [MessageController::class, 'show'])->name('load.messages');
-    // });
-    //  //conversations
-    //  Route::prefix('conversations')->name('conversations.')->group(function () {
-    //     Route::get('/', [ConversationController::class, 'index'])->name('index');
-    // });
+    Route::prefix('messages')->name('chats.')->group(function () {
+        Route::post('/{conversation}', [MessageController::class, 'store']);
+        Route::get('/{message}', [MessageController::class, 'show']);
+        Route::delete('/{message}', [MessageController::class, 'destroy']);
+    });
+     //conversations
+     Route::prefix('conversations')->name('conversations.')->group(function () {
+        Route::get('/', [ConversationController::class, 'index'])->name('index');
+        Route::post('/', [ConversationController::class, 'store'])->name('store');
+        Route::get('/{conversation}', [ConversationController::class, 'show'])->name('show');
+        Route::delete('/{conversation}/clear', [ConversationController::class, 'destroy'])->name('destroy');
+    });
 
     //create a swap that has been completed
     Route::prefix('transactions')->name('swaps.')->group(function () {

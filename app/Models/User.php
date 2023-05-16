@@ -19,10 +19,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Musonza\Chat\Traits\Messageable;
 
 class User extends Authenticatable implements Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasWallet, MediaAlly;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasWallet, MediaAlly, Messageable;
 
     // protected $with = ['wallet'];
 
