@@ -41,8 +41,20 @@ class ConversationController extends Controller
                 ->to($conversation)
                 ->send();
             broadcast(new MessageSentEvent($message, $receiver))->toOthers();
+        } else {
+            return $this->sendError('Conversation does not exist', 987);
         }
         return $this->sendSuccess(['conversation' => new ConversationResource($conversation)], 'Conversation created successfully');
+    }
+
+    public function conversationExists(Request $request, User $receiver)
+    {
+        $sender = User::query()->where('id', $request->user()->id)->first();
+        $conversation = ChatFacade::conversations()->between($sender, $receiver);
+        if (!$conversation) {
+            return $this->sendSuccess(['conversationExists' => false], 'No Conversation');
+        }
+        return $this->sendSuccess(['conversationExists' => true, 'conversation' => new ConversationResource($conversation)], 'Conversation exists');
     }
 
     public function show(Conversation $conversation)
