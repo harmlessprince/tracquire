@@ -31,19 +31,17 @@ class ConversationController extends Controller
         $sender = User::query()->where('id', $request->user()->id)->first();
         $receiver = User::query()->where('id', $request->input('receiver_id'))->first();
         $participants = [$sender, $receiver];
-
-        $conversationExists = ChatFacade::conversations()->between($sender, $receiver);
-        if ($conversationExists) {
-            return $this->respondError('Conversation already exists');
+        $conversation = ChatFacade::conversations()->between($sender, $receiver);
+        if (!$conversation && $request->input('message')) {
+            $conversation = ChatFacade::makeDirect()->createConversation($participants, $request->input('data', []))->load('participants');
+            $message = ChatFacade::message($request->message)
+                ->type($request->type ?? 'text')
+                ->data($request->data ?? [])
+                ->from($sender)
+                ->to($conversation)
+                ->send();
+            broadcast(new MessageSentEvent($message, $receiver))->toOthers();
         }
-        $conversation = ChatFacade::makeDirect()->createConversation($participants, $request->input('data', []))->load('participants');
-        $message = ChatFacade::message($request->message)
-            ->type($request->type ?? 'text')
-            ->data($request->data ?? [])
-            ->from($sender)
-            ->to($conversation)
-            ->send();
-        broadcast(new MessageSentEvent($message, $receiver))->toOthers();
         return $this->sendSuccess(['conversation' => new ConversationResource($conversation)], 'Conversation created successfully');
     }
 

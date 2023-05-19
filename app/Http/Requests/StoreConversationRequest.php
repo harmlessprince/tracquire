@@ -26,7 +26,7 @@ class StoreConversationRequest extends FormRequest
         return [
             'receiver_id' => ['required', 'integer'],
             'data' => ['sometimes', 'array'],
-            'message' => ['required', 'string'],
+            'message' => ['sometimes', 'string'],
         ];
     }
 }
