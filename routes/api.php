@@ -81,7 +81,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     });
     Route::prefix('users')->name('users.')->group(function () {
         //get all bookmark against authenticated  user
-        Route::get('deactivate', [DeactivateAccountController::class, 'destroy']);
+        Route::post('deactivate', [DeactivateAccountController::class, 'destroy']);
         Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('.bookmarks.index');
         Route::patch('/{user}', [UserController::class, 'update'])->name('update');
         Route::patch('/{user}/update/password', [AuthenticationController::class, 'updatePassword'])->name('updatePassword');
