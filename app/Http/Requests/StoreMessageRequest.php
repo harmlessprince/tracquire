@@ -30,9 +30,10 @@ class StoreMessageRequest extends FormRequest
      */
     public function rules(): array
     {
+        $messageRule =  request('type') == 'attachment' ? [ 'required', 'image', 'mimes:jpg,jpeg,png,bmp', 'max:2048'] : ['required', 'string'];
         return [
             'receiver_id' => ['required','exists:users,id'],
-            'message' => ['required', 'string'],
+            'message' => $messageRule,
             'type' => ['sometimes', 'string'],
             'data' => ['sometimes', 'array'],
         ];

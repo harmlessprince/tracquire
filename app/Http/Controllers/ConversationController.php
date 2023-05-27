@@ -61,6 +61,7 @@ class ConversationController extends Controller
     {
         $conversation =  $conversation->load('participants');
         $messages = ChatFacade::conversation($conversation)->setParticipant(auth()->user())
+            ->setPaginationParams(['sorting' => 'desc'])
             ->limit(request('limit', 25))
             ->page(request('page', 1))
             ->getMessages();

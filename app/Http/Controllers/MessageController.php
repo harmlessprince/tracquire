@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use App\Http\Resources\MessageCollection;
 use App\Http\Resources\MessageResource;
+use App\Models\Message as ModelsMessage;
 use App\Models\User;
 use App\Repositories\Eloquent\Repository\MessageRepository;
 use Carbon\Carbon;
@@ -47,12 +48,23 @@ class MessageController extends Controller
         if ($conversation->participantFromSender($sender) == null) {
             return $this->respondError('You are not part of the supplied conversation');
         }
-        $message = ChatFacade::message($request->message)
+        if ($request->type === 'attachment') {
+            $message = $request->file('message')->getClientOriginalName();
+        } else {
+            $message = $request->message;
+        }
+        $message = ChatFacade::message($message)
             ->type($request->type ?? 'text')
             ->data($request->data ?? [])
             ->from($sender)
             ->to($conversation)
-            ->send();
+            ->send();;
+        if ($request->type === 'attachment') {
+            $modelMessageInstance = ModelsMessage::find($message->id);
+            $modelMessageInstance->attachMedia($request->message);
+            $message->update(['data' => $modelMessageInstance->fetchLastMedia()]);
+            // dd($modelMessageInstance->fetchLastMedia()->url);
+        }
         broadcast(new MessageSentEvent($message, $receiver))->toOthers();
         return $this->sendSuccess([new MessageResource($message)], 'Message sent', 201);
     }
@@ -69,8 +81,8 @@ class MessageController extends Controller
         return $this->sendSuccess([new MessageResource($message)], 'Message retrieved');
     }
 
-   
-      /**
+
+    /**
      * Remove the specified resource from storage.
      *
      * @return \Illuminate\Http\Response
