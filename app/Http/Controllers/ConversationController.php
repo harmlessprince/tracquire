@@ -19,7 +19,7 @@ class ConversationController extends Controller
     {
         $conversations = ChatFacade::conversations()->setPaginationParams(['sorting' => 'desc'])
             ->setParticipant(auth()->user())
-            ->limit(request('limit', 15))
+            ->limit(request('limit', 25))
             ->page(request('page', 1))
             ->get('participants');
 
