@@ -53,6 +53,9 @@ class User extends Authenticatable implements Wallet
         'email_verified_at' => 'datetime',
     ];
 
+    // protected $with = [
+    //     'avatar'
+    // ];
 
     public function sendPasswordResetNotification($token)
     {
@@ -65,7 +68,7 @@ class User extends Authenticatable implements Wallet
     }
     public function avatar()
     {
-        return  $this->fetchLastMedia()->file_url ?? "";
+        return  $this->fetchLastMedia() ?? "N/A";
     }
 
     public function posts(): HasMany
@@ -157,4 +160,6 @@ class User extends Authenticatable implements Wallet
     {
         return "{$this->first_name} {$this->last_name}";
     }
+    
+
 }

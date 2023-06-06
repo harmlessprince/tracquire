@@ -8,6 +8,7 @@ use App\Http\Resources\ConversationCollection;
 use App\Http\Resources\ConversationResource;
 use App\Http\Resources\MessageCollection;
 use App\Http\Resources\MessageResource;
+use App\Http\Resources\UserConversationsResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Musonza\Chat\Facades\ChatFacade;
@@ -17,11 +18,18 @@ class ConversationController extends Controller
 {
     public function index()
     {
+
         $conversations = ChatFacade::conversations()->setPaginationParams(['sorting' => 'desc'])
             ->setParticipant(auth()->user())
             ->limit(request('limit', 25))
             ->page(request('page', 1))
-            ->get('participants');
+            ->get();
+        // dd($conversations->items());
+        foreach ($conversations->items() as $key => $conversation) {
+            $sender  = $conversation->conversation->last_message->sender;
+            $sender['avatar'] =  $sender->avatar();
+        }
+        // ConversationResource::collection($conversations);
 
         return $this->sendSuccess(['conversations' => $conversations], 'Retrieved conversations');
     }
