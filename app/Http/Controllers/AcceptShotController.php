@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\PostStatus;
 use App\Models\Post;
 use App\Models\Shot;
+use App\Notifications\ShotAcceptedNotification;
 use Illuminate\Http\Request;
 
 /**
@@ -37,6 +38,7 @@ class AcceptShotController extends Controller
             'accepted' => true,
             'accepted_at' => now()
         ]);
+        $shot->user->notify(new ShotAcceptedNotification($shot));
         $this->sendSuccess([], 'Shot successfully accepted');
     }
     /**
@@ -60,6 +62,7 @@ class AcceptShotController extends Controller
             'accepted' => false,
             'accepted_at' => null
         ]);
+
         $this->sendSuccess([], 'Shot successfully declined');
     }
 }

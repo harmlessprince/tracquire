@@ -9,6 +9,7 @@ use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\DeactivateAccountController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NotificationController;
 // use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\Post\PostCommentRelatedController;
@@ -136,6 +137,8 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     Route::patch('/shots/{shot}/posts/{post}/accept', [AcceptShotController::class, 'acceptShot'])->name('shots.accept');
     Route::patch('/shots/{shot}/posts/{post}/decline', [AcceptShotController::class, 'declineShot'])->name('shots.decline');
 
+    Route::get('notifications', [NotificationController::class, 'index']);
+    Route::get('mark/notification/{notificationId}/read', [NotificationController::class, 'update']);
     //Comments
     //    Route::apiResource('comments', CommentController::class);
     //users

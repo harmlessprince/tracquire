@@ -7,10 +7,10 @@ use App\Http\Resources\Shot\ShotCollection;
 use App\Http\Resources\Shot\ShotResource;
 use App\Models\Post;
 use App\Models\Shot;
+use App\Notifications\ShotShootNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
-
+use Illuminate\Support\Facades\Notification;
 
 /**
  * @group Shot
@@ -62,6 +62,7 @@ class PostShotRelatedController extends Controller
                 }
             }
             $shot = $shot->refresh();
+            Notification::send($post->user, new ShotShootNotification($post, $shot));
             return $this->sendSuccess([new ShotResource($shot)], 'Shot successful created');
         }
         return $this->sendError('You are not allowed to shoot more than one shot', 401);

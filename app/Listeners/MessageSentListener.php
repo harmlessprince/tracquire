@@ -2,8 +2,10 @@
 
 namespace App\Listeners;
 
+use App\Notifications\MessageSentNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Musonza\Chat\Models\MessageNotification;
 
 class MessageSentListener
 {
@@ -25,6 +27,6 @@ class MessageSentListener
      */
     public function handle($event)
     {
-        //
+        $event->receiver->notify(new MessageSentNotification($event->message, $event->receiver));
     }
 }

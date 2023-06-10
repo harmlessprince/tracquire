@@ -6,6 +6,7 @@ use App\Models\Message;
 use App\Models\Post;
 use App\Models\Shot;
 use App\Models\User;
+use App\Notifications\ShotShootNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
@@ -39,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
             'user' => User::class,
             'shot' => Shot::class,
             'message' => Message::class,
+            'shotShootNotification' => ShotShootNotification::class,
         ]);
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
