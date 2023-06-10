@@ -40,7 +40,6 @@ class AppServiceProvider extends ServiceProvider
             'user' => User::class,
             'shot' => Shot::class,
             'message' => Message::class,
-            'shotShootNotification' => ShotShootNotification::class,
         ]);
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
