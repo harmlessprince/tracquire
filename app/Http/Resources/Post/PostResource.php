@@ -56,6 +56,7 @@ class PostResource extends JsonResource
             ],
             'meta' => [
                 'comments_count' => $this->comments_count,
+                'shots_count' => $this->shots_count,
             ],
         ];
     }
