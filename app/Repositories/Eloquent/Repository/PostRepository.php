@@ -62,6 +62,6 @@ class PostRepository extends BaseRepository
      */
     public function all(array $columns = ['*'], array $relations = []): Collection
     {
-        return $this->model->with($relations)->withCount(['comments', 'shots'])->get($columns);
+        return $this->model->latest('created_at')->with($relations)->withCount(['comments', 'shots'])->get($columns);
     }
 }
