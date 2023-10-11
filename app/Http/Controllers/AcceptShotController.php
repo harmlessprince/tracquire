@@ -40,7 +40,7 @@ class AcceptShotController extends Controller
             'accepted_at' => now()
         ]);
         $shot->shooter->notify(new ShotAcceptedNotification($shot));
-        $this->sendSuccess([], 'Shot successfully accepted');
+        return $this->sendSuccess([], 'Shot successfully accepted');
     }
     /**
      * Decline Shot
@@ -64,6 +64,6 @@ class AcceptShotController extends Controller
             'accepted_at' => null
         ]);
         $shot->shooter->notify(new ShotDeclinedNotification($shot));
-        $this->sendSuccess([], 'Shot successfully declined');
+       return $this->sendSuccess([], 'Shot successfully declined');
     }
 }
