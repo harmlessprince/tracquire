@@ -39,13 +39,13 @@ class AcceptShotController extends Controller
             'accepted' => true,
             'accepted_at' => now()
         ]);
-        $shot->user->notify(new ShotAcceptedNotification($shot));
+        $shot->shooter->notify(new ShotAcceptedNotification($shot));
         $this->sendSuccess([], 'Shot successfully accepted');
     }
     /**
      * Decline Shot
      *
-     * This endpoint is used for accepting shot by a post creator.
+     * This endpoint is used for declining shot by a post creator.
      *
      *
      * @urlParam post int required the post ID
@@ -63,7 +63,7 @@ class AcceptShotController extends Controller
             'accepted' => false,
             'accepted_at' => null
         ]);
-        $shot->user->notify(new ShotDeclinedNotification($shot));
+        $shot->shooter->notify(new ShotDeclinedNotification($shot));
         $this->sendSuccess([], 'Shot successfully declined');
     }
 }
