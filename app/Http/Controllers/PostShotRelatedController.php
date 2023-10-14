@@ -47,14 +47,16 @@ class PostShotRelatedController extends Controller
     public function store(StoreShotRequest $request, Post $post): Response
     {
         $userAlreadyHasAShot = $post->shots()->where('user_id', auth('api')->id())->exists();
-    
+
         if (!$userAlreadyHasAShot) {
             $shot = new Shot([
                 'post_id' => $post->id,
                 'user_id' => auth('api')->id(),
                 'description' => $request->description,
+                'title' => $request->title,
                 'condition' => $request->condition,
             ]);
+            /** @var Shot $shot */
             $shot = $post->shots()->save($shot);
             if ($request->hasFile('images')) {
                 foreach (request()->images as $image) {
@@ -76,14 +78,14 @@ class PostShotRelatedController extends Controller
      *
      * @param \App\Models\Post $post
      * @param \App\Models\Shot $shot
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Post $post, Shot $shot)
     {
         if ($shot->post_id != $post->id) {
             return $this->respondError('Supplied short doest not belong to the supplied post', 404);
         }
-        return new ShotResource($shot);
+        return $this->sendSuccess(['shot' =>  new ShotResource($shot)], 'Shot retrieved');
     }
 
     /**

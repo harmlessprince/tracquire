@@ -22,6 +22,7 @@ class ShotResource extends JsonResource
             'id' => (string) $this->id,
             'type' => 'shots',
             'attributes' => [
+                'title' => $this->title,
                 'description' => $this->description,
                 'condition' => $this->condition,
                 'created_at' => format_date($this->created_at ?? Carbon::now()),

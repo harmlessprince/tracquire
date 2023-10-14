@@ -9,11 +9,11 @@ use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Shot extends Model 
+class Shot extends Model
 {
     use HasFactory, MediaAlly;
 
-    protected $fillable = ['description', 'condition', 'user_id', 'post_id'];
+    protected $fillable = ['description', 'condition', 'user_id', 'post_id', 'title'];
 
     public function post(): BelongsTo
     {

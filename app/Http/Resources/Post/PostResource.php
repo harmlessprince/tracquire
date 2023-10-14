@@ -22,7 +22,7 @@ class PostResource extends JsonResource
             'type' => 'posts',
             'attributes' => [
                 // 'author' => $this->user->full_name ?? "James Bond",
-                'title' => $this->title ?? "Jane",
+                'title' => $this->title,
                 'description' => $this->description,
                 'condition' => $this->condition,
                 'wishlist' => $this->wishlist,

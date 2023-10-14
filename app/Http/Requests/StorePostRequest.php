@@ -38,6 +38,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => ['required', 'string'],
             'category' => ['required', 'exists:categories,slug'],
             'description' => ['string', 'required', 'max:255'],
             'condition' => ['nullable', 'string', 'max:255'],

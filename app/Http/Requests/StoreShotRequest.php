@@ -30,6 +30,7 @@ class StoreShotRequest extends FormRequest
     public function rules()
     {
         return [
+            "title" => ['required', 'max:200'],
             'description' => ['required', 'max:255'],
             'condition' => ['required', 'max:255'],
             'images' => ['sometimes', 'array', 'max:6'],

@@ -36,6 +36,7 @@ class PostRepository extends BaseRepository
                 'category_id' => $category_id,
                 'description' => $data->description,
                 'condition' => $data->condition ?? null,
+                'title' => $data->title ?? null,
                 'shoot_able' => (bool)$data->shoot_able,
                 'portfolio_link' => $data->portfolio ?? null,
                 'wishlist' => $data->wishlist ?? [],
