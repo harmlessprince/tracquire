@@ -64,6 +64,8 @@ class PostShotRelatedController extends Controller
                 }
             }
             $shot = $shot->refresh();
+            $post->load('user');
+            $shot->load('shooter');
             Notification::send($post->user, new ShotShootNotification($post, $shot));
             return $this->sendSuccess([new ShotResource($shot)], 'Shot successful created');
         }
