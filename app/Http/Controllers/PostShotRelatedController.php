@@ -66,6 +66,7 @@ class PostShotRelatedController extends Controller
             $shot = $shot->refresh();
             $post->load('user');
             $shot->load('shooter');
+            $shot->shooter->avatar = $shot->shooter->fetchLastMedia()->file_url;
             Notification::send($post->user, new ShotShootNotification($post, $shot));
             return $this->sendSuccess([new ShotResource($shot)], 'Shot successful created');
         }
