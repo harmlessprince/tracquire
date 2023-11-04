@@ -31,7 +31,9 @@ class RegisterRequest extends FormRequest
         return [
             'referrer' => ['exists:users,referrer_token', 'nullable'],
             'email' => ['required', 'unique:users'],
-            'password' => ['required', 'min:8']
+            'password' => ['required', 'min:8'],
+//            'first_name' => ['sometimes', 'string', 'max:200'],
+//            'last_name' => ['sometimes', 'string', 'max:200']
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
 use App\Models\Message;
 use App\Models\Post;
 use App\Models\Shot;
@@ -40,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
             'user' => User::class,
             'shot' => Shot::class,
             'message' => Message::class,
+            'comment' => Comment::class,
         ]);
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');

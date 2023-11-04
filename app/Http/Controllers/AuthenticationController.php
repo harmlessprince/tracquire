@@ -163,6 +163,8 @@ class AuthenticationController extends Controller
     private function createUser(array $data)
     {
         return User::create([
+//            'first_name' => $data['first_name'] ?? null,
+//            'last_name' => $data['last_name'] ?? null,
             'email' => $data['email'],
             'device_name' => $data['device'],
             'password' =>$data['password'],
