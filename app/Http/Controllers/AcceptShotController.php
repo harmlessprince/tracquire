@@ -39,7 +39,7 @@ class AcceptShotController extends Controller
             'accepted' => true,
             'accepted_at' => now()
         ]);
-        $shot->load('shooter', 'post.user as post_owner');
+        $shot->load('shooter', 'post.user');
         $shot->shooter->notify(new ShotAcceptedNotification($shot));
         return $this->sendSuccess([], 'Shot successfully accepted');
     }

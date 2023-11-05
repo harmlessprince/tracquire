@@ -60,7 +60,7 @@ class PostCommentRelatedController extends Controller
         $comment = $post->comments()->save($comment);
         $post->load('user');
         $comment->load('author');
-        event(new NewCommentNotification($post, $comment));
+        $post->user->notify(new NewCommentNotification($post, $comment));
         return $this->sendSuccess([new CommentResource($comment)]);
     }
 
