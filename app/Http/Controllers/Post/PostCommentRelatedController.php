@@ -60,6 +60,7 @@ class PostCommentRelatedController extends Controller
         $comment = $post->comments()->save($comment);
         $post->load('user');
         $comment->load('author');
+        $comment->author->avatar = $comment->author->fetchLastMedia()->file_url ?? null;
         $post->user->notify(new NewCommentNotification($post, $comment));
         return $this->sendSuccess([new CommentResource($comment)]);
     }
