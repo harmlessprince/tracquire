@@ -40,6 +40,7 @@ class AcceptShotController extends Controller
             'accepted_at' => now()
         ]);
         $shot->load('shooter', 'post.user');
+        $shot->post->user->avatar = $shot->post->user->fetchLastMedia()->file_url ?? null;
         $shot->shooter->notify(new ShotAcceptedNotification($shot));
         return $this->sendSuccess([], 'Shot successfully accepted');
     }
