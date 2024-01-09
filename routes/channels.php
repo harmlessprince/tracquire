@@ -21,10 +21,9 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 
 Broadcast::channel('user.{userId}', function ($user, $userId) {
     return $user->id === $userId;
-});
+},['guards' => ['auth:api']]);
 
 Broadcast::channel('chat-conversation-{conversation_id}', function ($user, $conversation_id) {
-    Auth::check();
     $conversation = Conversation::where('id', $conversation_id)->first();
     if (!$conversation) {
         return false;
@@ -34,4 +33,4 @@ Broadcast::channel('chat-conversation-{conversation_id}', function ($user, $conv
         return true;
     }
     return false;
-});
+}, ['guards' => ['auth:api']]);

@@ -15,6 +15,7 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class Handler extends ExceptionHandler
 {
@@ -58,6 +59,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
 
+        Log::error($e);
         if ($e instanceof ValidationException) { //handle validation errors
             $data = ["errors" => $e->validator->getMessageBag()->getMessages()];
             return HttpResponseHelper::createErrorResponse(HttpResponseMessages::FAILED_VALIDATION, HttpResponseCodes::FAILED_VALIDATION, $data, HttpResponseCodes::UNPROCESSABLE_ENTITY);

@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Notifications\ShotShootNotification;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 class AppServiceProvider extends ServiceProvider
@@ -43,8 +44,9 @@ class AppServiceProvider extends ServiceProvider
             'message' => Message::class,
             'comment' => Comment::class,
         ]);
-        if ($this->app->environment('production')) {
-            \URL::forceScheme('https');
+        if ($this->app->isProduction()) {
+            // dd('jdj');
+            URL::forceScheme('https');
         }
     }
 }
